@@ -4,6 +4,7 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { Send } from 'lucide-react';
+import { generateClient } from 'aws-amplify/data';
 import { useLanguage } from '@/hooks/useLanguage';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -12,7 +13,9 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { useToast } from '@/hooks/use-toast';
-import { apiRequest } from '@/lib/queryClient';
+import type { Schema } from '../../../amplify/data/resource';
+
+const client = generateClient<Schema>();
 
 const contactSchema = z.object({
   firstName: z.string().min(1, 'First name is required'),
@@ -46,7 +49,16 @@ export default function ContactPage() {
 
   const contactMutation = useMutation({
     mutationFn: async (data: ContactFormData) => {
-      return apiRequest('POST', '/api/contact', data);
+      const response = await client.mutations.submitContact({
+        firstName: data.firstName,
+        lastName: data.lastName,
+        email: data.email,
+        phone: data.phone,
+        businessName: data.businessName,
+        service: data.service,
+        message: data.message,
+      });
+      return response;
     },
     onSuccess: () => {
       setIsSubmitted(true);
@@ -57,6 +69,7 @@ export default function ContactPage() {
       });
     },
     onError: (error) => {
+      console.error('Contact form error:', error);
       toast({
         title: "Error",
         description: "Failed to send message. Please try again.",
