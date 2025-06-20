@@ -1,15 +1,22 @@
 import { SESClient, SendEmailCommand } from '@aws-sdk/client-ses';
-import { env } from '$amplify/env/contact';
-import type { Schema } from '../../data/resource';
+import { randomUUID } from 'crypto';
 
 const sesClient = new SESClient({ region: process.env.AWS_REGION });
 
-type Handler = Schema['submitContact']['functionHandler'];
-
-export const handler: Handler = async (event) => {
+export const handler = async (event: any) => {
+  console.log('Contact form submission event:', JSON.stringify(event, null, 2));
+  
   const { firstName, lastName, email, phone, businessName, service, message } = event.arguments;
 
   try {
+    // Get environment variables
+    const fromEmail = process.env.SES_FROM_EMAIL;
+    const toEmail = process.env.SES_TO_EMAIL;
+
+    if (!fromEmail || !toEmail) {
+      throw new Error('SES email configuration missing');
+    }
+
     // Send email notification via SES
     const emailContent = `
 New Contact Form Submission
@@ -25,9 +32,9 @@ Submitted at: ${new Date().toLocaleString()}
     `;
 
     const emailCommand = new SendEmailCommand({
-      Source: env.SES_FROM_EMAIL,
+      Source: fromEmail,
       Destination: {
-        ToAddresses: [env.SES_TO_EMAIL],
+        ToAddresses: [toEmail],
       },
       Message: {
         Subject: {
@@ -46,10 +53,14 @@ Submitted at: ${new Date().toLocaleString()}
     return {
       success: true,
       message: 'Contact form submitted successfully',
-      id: crypto.randomUUID(),
+      id: randomUUID(),
     };
   } catch (error) {
     console.error('Error processing contact form:', error);
-    throw new Error('Failed to process contact form submission');
+    return {
+      success: false,
+      message: 'Failed to process contact form submission',
+      error: error instanceof Error ? error.message : 'Unknown error',
+    };
   }
 }; 
