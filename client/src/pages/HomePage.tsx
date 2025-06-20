@@ -192,6 +192,59 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* SEO Content Section */}
+      <section className="py-16 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-6">
+              Local SEO Experts for Small Businesses in Germany
+            </h2>
+            <p className="text-lg text-gray-600">
+              As a leading digital marketing agency specializing in local SEO, we help small businesses across Germany dominate Google search results. Our proven strategies include Google Maps optimization, Google My Business management, and local search engine optimization to increase your online visibility and drive more customers to your business.
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 gap-8">
+            <div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-4">Local Search Optimization Services</h3>
+              <ul className="space-y-2 text-gray-700">
+                <li>• Google Maps listing optimization and management</li>
+                <li>• Local keyword research and implementation</li>
+                <li>• Citation building and NAP consistency</li>
+                <li>• Review management and reputation building</li>
+                <li>• Local content marketing strategies</li>
+                <li>• Mobile-first website optimization</li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-4">Industries We Serve</h3>
+              <ul className="space-y-2 text-gray-700">
+                <li>• Restaurants and cafes</li>
+                <li>• Healthcare and medical practices</li>
+                <li>• Legal services and law firms</li>
+                <li>• Home improvement contractors</li>
+                <li>• Retail stores and boutiques</li>
+                <li>• Professional services</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-2xl font-bold text-gray-900 mb-4">Ready to Dominate Local Search Results?</h2>
+          <p className="text-gray-600 mb-8">Join hundreds of local businesses that trust MapSuche to increase their Google visibility and attract more customers.</p>
+          <Link href="/contact">
+            <Button size="lg" className="bg-primary hover:bg-blue-700 text-white">
+              Get Your Free SEO Consultation
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Button>
+          </Link>
+        </div>
+      </section>
     </div>
   );
 }

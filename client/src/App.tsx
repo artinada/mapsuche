@@ -13,6 +13,7 @@ import ContactPage from "@/pages/ContactPage";
 import ImpressumPage from "@/pages/ImpressumPage";
 import PrivacyPage from "@/pages/PrivacyPage";
 import TermsPage from "@/pages/TermsPage";
+import FAQPage from "@/pages/FAQPage";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -30,6 +31,7 @@ function Router() {
           <Route path="/impressum" component={ImpressumPage} />
           <Route path="/privacy" component={PrivacyPage} />
           <Route path="/terms" component={TermsPage} />
+          <Route path="/faq" component={FAQPage} />
           <Route component={NotFound} />
         </Switch>
       </main>

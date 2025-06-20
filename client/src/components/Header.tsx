@@ -18,6 +18,7 @@ export function Header() {
   const navigation = [
     { href: '/', label: t('home') },
     { href: '/services', label: t('services') },
+    { href: '/faq', label: 'FAQ' },
     { href: '/contact', label: t('contact') },
   ];
 

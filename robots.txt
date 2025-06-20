@@ -1,0 +1,22 @@
+User-agent: *
+Allow: /
+
+# Block access to admin areas (if any)
+Disallow: /admin/
+Disallow: /api/
+
+# Allow all major search engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+# Sitemap location
+Sitemap: https://mapsuche.com/sitemap.xml
+
+# Crawl delay for politeness
+Crawl-delay: 1

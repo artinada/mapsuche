@@ -6,31 +6,31 @@ export const translations = {
     contact: "Contact",
     
     // Hero Section
-    heroTitle: "Boost Your Local Business Online",
-    heroSubtitle: "We help small local businesses increase their online visibility through Google Maps listings, Business Profiles, and professional websites.",
+    heroTitle: "Get Your Local Business Found on Google - Dominate Local Search Results",
+    heroSubtitle: "Professional digital marketing agency specializing in Google Maps optimization, Google Business Profile setup, and custom websites for small local businesses. Increase your online visibility and attract more customers today.",
     getStartedToday: "Get Started Today",
     
     // Services
-    ourServices: "Our Services",
-    servicesSubtitle: "We offer comprehensive digital marketing solutions designed specifically for small local businesses to enhance their online presence.",
+    ourServices: "Local Business Digital Marketing Services",
+    servicesSubtitle: "Comprehensive digital marketing solutions designed specifically for small local businesses to dominate Google search results and attract more customers in your area.",
     
     // Google Maps Service
-    googleMapsTitle: "Google Maps Listing",
-    googleMapsDescription: "Get your business visible on Google Maps so local customers can easily find you. We handle the complete setup and optimization process.",
+    googleMapsTitle: "Google Maps Optimization & Local SEO",
+    googleMapsDescription: "Get your business ranked #1 on Google Maps for local searches. Professional Google Maps listing optimization, local SEO, and Google My Business setup to dominate local search results.",
     businessLocationSetup: "Business location setup",
     categoryOptimization: "Category optimization",
     localSeoEnhancement: "Local SEO enhancement",
     
     // Business Profile Service
-    businessProfileTitle: "Google Business Profile",
-    businessProfileDescription: "Create and optimize your Google Business Profile to attract more customers and build credibility with professional information and reviews.",
+    businessProfileTitle: "Google Business Profile Setup & Management",
+    businessProfileDescription: "Professional Google Business Profile creation and optimization to boost your local search rankings. Increase customer trust, manage reviews, and attract more local customers with a fully optimized Google My Business listing.",
     profileCreationVerification: "Profile creation & verification",
     photoOptimization: "Photo optimization",
     reviewManagement: "Review management",
     
     // Website Service
-    websiteTitle: "Professional Website",
-    websiteDescription: "Get a mobile-friendly, easy-to-manage website that showcases your business and helps you connect with more customers online.",
+    websiteTitle: "Local Business Website Development & SEO",
+    websiteDescription: "Custom mobile-friendly websites designed to rank high on Google and convert visitors into customers. Professional web design with built-in SEO optimization for maximum local search visibility.",
     responsiveDesign: "Responsive design",
     easyContentManagement: "Easy content management",
     seoOptimization: "SEO optimization",
@@ -92,13 +92,13 @@ export const translations = {
     contact: "Kontakt",
     
     // Hero Section
-    heroTitle: "Steigern Sie Ihr lokales Unternehmen online",
-    heroSubtitle: "Wir helfen kleinen lokalen Unternehmen, ihre Online-Sichtbarkeit durch Google Maps-Einträge, Unternehmensprofile und professionelle Websites zu steigern.",
+    heroTitle: "Ihr lokales Unternehmen bei Google auf Platz 1 - Lokale SEO Experten",
+    heroSubtitle: "Professionelle Digital Marketing Agentur für Google Maps Optimierung, Google Unternehmensprofil Setup und SEO-optimierte Websites. Mehr Kunden durch bessere Online-Sichtbarkeit in Ihrer Region.",
     getStartedToday: "Heute beginnen",
     
     // Services
-    ourServices: "Unsere Leistungen",
-    servicesSubtitle: "Wir bieten umfassende Digital-Marketing-Lösungen, die speziell für kleine lokale Unternehmen entwickelt wurden, um ihre Online-Präsenz zu verbessern.",
+    ourServices: "Lokale SEO & Digital Marketing Leistungen",
+    servicesSubtitle: "Umfassende Digital-Marketing-Lösungen für kleine lokale Unternehmen. Google Ranking verbessern, mehr Kunden gewinnen und die Konkurrenz in Ihrer Region überholen.",
     
     // Google Maps Service
     googleMapsTitle: "Google Maps Eintrag",
