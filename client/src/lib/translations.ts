@@ -101,6 +101,10 @@ export const translations = {
     ctaDescription: "Join hundreds of local businesses that trust MapSuche to increase their Google visibility and attract more customers.",
     freeConsultation: "Get Your Free SEO Consultation",
     
+    // Services Page Specific
+    servicesPageTitle: "Our Digital Marketing Services",
+    servicesPageDescription: "Comprehensive local SEO and digital marketing solutions to help your business dominate Google search results and attract more customers.",
+    
     // Legal Pages
     impressumTitle: "Impressum",
     privacyTitle: "Privacy Policy",
@@ -207,6 +211,10 @@ export const translations = {
     ctaTitle: "Bereit, lokale Suchergebnisse zu dominieren?",
     ctaDescription: "Schließen Sie sich Hunderten von lokalen Unternehmen an, die MapSuche vertrauen, um ihre Google-Sichtbarkeit zu erhöhen und mehr Kunden zu gewinnen.",
     freeConsultation: "Holen Sie sich Ihre kostenlose SEO-Beratung",
+    
+    // Services Page Specific
+    servicesPageTitle: "Unsere Digital Marketing Services",
+    servicesPageDescription: "Umfassende lokale SEO- und Digital-Marketing-Lösungen, um Ihrem Unternehmen zu helfen, Google-Suchergebnisse zu dominieren und mehr Kunden zu gewinnen.",
     
     // Legal Pages
     impressumTitle: "Impressum",

@@ -7,6 +7,7 @@ import { ScrollToTop } from "@/components/ScrollToTop";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import HomePage from "@/pages/HomePage";
+import ServicesPage from "@/pages/ServicesPage";
 import GoogleMapsPage from "@/pages/GoogleMapsPage";
 import BusinessProfilePage from "@/pages/BusinessProfilePage";
 import WebsitePage from "@/pages/WebsitePage";
@@ -38,7 +39,7 @@ function Router() {
       <main className="flex-1">
         <Switch>
           <Route path="/" component={HomePage} />
-          <Route path="/services" component={HomePage} />
+          <Route path="/services" component={ServicesPage} />
           <Route path="/services/google-maps" component={GoogleMapsPage} />
           <Route path="/services/business-profile" component={BusinessProfilePage} />
           <Route path="/services/website" component={WebsitePage} />
