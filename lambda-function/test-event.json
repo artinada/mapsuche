@@ -1,0 +1,16 @@
+{
+  "Records": [
+    {
+      "ses": {
+        "mail": {
+          "messageId": "test-123",
+          "source": "test@example.com",
+          "destination": ["hello@mapsuche.de"],
+          "commonHeaders": {
+            "subject": "Test Email"
+          }
+        }
+      }
+    }
+  ]
+} 

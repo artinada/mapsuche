@@ -21,7 +21,7 @@ export default function PrivacyPage() {
       cookies: "Local Storage",
       cookiesText: "We use local storage to remember your language preference (English/German) to enhance your browsing experience. No tracking or analytics cookies are used. You can clear this data through your browser settings.",
       contact: "Contact Us",
-      contactText: "If you have any questions about this Privacy Policy, please contact us at privacy@mapsuche.com.",
+              contactText: "If you have any questions about this Privacy Policy, please contact us at privacy@mapsuche.de.",
     },
     de: {
       title: "Datenschutzerklärung",
@@ -40,7 +40,7 @@ export default function PrivacyPage() {
       cookies: "Lokale Speicherung",
       cookiesText: "Wir verwenden lokale Speicherung, um Ihre Sprachpräferenz (Deutsch/Englisch) zu speichern und Ihr Browsing-Erlebnis zu verbessern. Es werden keine Tracking- oder Analytics-Cookies verwendet. Sie können diese Daten über Ihre Browser-Einstellungen löschen.",
       contact: "Kontakt",
-      contactText: "Wenn Sie Fragen zu dieser Datenschutzerklärung haben, kontaktieren Sie uns bitte unter privacy@mapsuche.com.",
+              contactText: "Wenn Sie Fragen zu dieser Datenschutzerklärung haben, kontaktieren Sie uns bitte unter privacy@mapsuche.de.",
     }
   };
 

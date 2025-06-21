@@ -25,7 +25,7 @@ export default function TermsPage() {
       changes: "Changes to Terms",
       changesText: "We reserve the right to modify these terms at any time. Changes will be effective immediately upon posting on this website.",
       contact: "Contact Information",
-      contactText: "If you have questions about these Terms of Use, contact us at legal@mapsuche.com.",
+              contactText: "If you have questions about these Terms of Use, contact us at legal@mapsuche.de.",
     },
     de: {
       title: "Nutzungsbedingungen",
@@ -48,7 +48,7 @@ export default function TermsPage() {
       changes: "Änderungen der Bedingungen",
       changesText: "Wir behalten uns das Recht vor, diese Bedingungen jederzeit zu ändern. Änderungen werden sofort nach Veröffentlichung auf dieser Website wirksam.",
       contact: "Kontaktinformationen",
-      contactText: "Bei Fragen zu diesen Nutzungsbedingungen kontaktieren Sie uns unter legal@mapsuche.com.",
+              contactText: "Bei Fragen zu diesen Nutzungsbedingungen kontaktieren Sie uns unter legal@mapsuche.de.",
     }
   };
 
