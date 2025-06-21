@@ -8,16 +8,15 @@ export default function ImpressumPage() {
       title: "Impressum",
       companyInfo: "Company Information",
       company: "MapSuche Digital Marketing",
-      address: "123 Business Street\n12345 Business City\nGermany",
+      address: "Goetheweg 21\n06888 Lutherstadt Wittenberg\nOT Seegrehna\nGermany",
       contact: "Contact Information",
-      phone: "Phone: +49 (0) 123 456789",
+      phone: "Phone: +49 (157) 877 06 06 5",
       email: "Email: info@mapsuche.com",
       legal: "Legal Information",
-      vatId: "VAT ID: DE123456789",
       businessReg: "Business Registration: HRB 12345",
       court: "Registration Court: Local Business Court",
       responsible: "Responsible for Content",
-      responsiblePerson: "John Doe\nManaging Director\nMapSuche Digital Marketing",
+      responsiblePerson: "Nadia Kamenski\nManaging Director\nMapSuche Digital Marketing",
       disclaimer: "Disclaimer",
       disclaimerText: "Despite careful content control, we assume no liability for the content of external links. The operators of the linked pages are solely responsible for their content.",
     },
@@ -25,16 +24,15 @@ export default function ImpressumPage() {
       title: "Impressum",
       companyInfo: "Angaben zum Unternehmen",
       company: "MapSuche Digital Marketing",
-      address: "Musterstraße 123\n12345 Musterstadt\nDeutschland",
+      address: "Goetheweg 21\n06888 Lutherstadt Wittenberg\nOT Seegrehna\nDeutschland",
       contact: "Kontaktinformationen",
-      phone: "Telefon: +49 (0) 123 456789",
+      phone: "Telefon: +49 (157) 877 06 06 5",
       email: "E-Mail: info@mapsuche.com",
       legal: "Rechtliche Angaben",
-      vatId: "USt-IdNr.: DE123456789",
       businessReg: "Handelsregisternummer: HRB 12345",
-      court: "Registergericht: Amtsgericht Musterstadt",
+      court: "Registergericht: Amtsgericht vor Ort",
       responsible: "Verantwortlich für den Inhalt",
-      responsiblePerson: "Max Mustermann\nGeschäftsführer\nMapSuche Digital Marketing",
+      responsiblePerson: "Nadia Kamenski\nGeschäftsführerin\nMapSuche Digital Marketing",
       disclaimer: "Haftungsausschluss",
       disclaimerText: "Trotz sorgfältiger inhaltlicher Kontrolle übernehmen wir keine Haftung für die Inhalte externer Links. Für den Inhalt der verlinkten Seiten sind ausschließlich deren Betreiber verantwortlich.",
     }
@@ -70,7 +68,6 @@ export default function ImpressumPage() {
             <h2 className="text-2xl font-semibold text-gray-900 mb-4">
               {currentContent.legal}
             </h2>
-            <p className="text-gray-700 mb-2">{currentContent.vatId}</p>
             <p className="text-gray-700 mb-2">{currentContent.businessReg}</p>
             <p className="text-gray-700">{currentContent.court}</p>
           </div>
