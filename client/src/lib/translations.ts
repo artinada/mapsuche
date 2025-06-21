@@ -80,6 +80,27 @@ export const translations = {
     thankYouMessage: "Thank you for your message! We will get back to you soon.",
     fillRequiredFields: "Please fill in all required fields.",
     
+    // SEO Content Section
+    seoSectionTitle: "Local SEO Experts for Small Businesses in Germany",
+    seoSectionDescription: "As a leading digital marketing agency specializing in local SEO, we help small businesses across Germany dominate Google search results. Our proven strategies include Google Maps optimization, Google My Business management, and local search engine optimization to increase your online visibility and drive more customers to your business.",
+    localSearchServicesTitle: "Local Search Optimization Services",
+    localSearchService1: "Google Maps listing optimization and management",
+    localSearchService2: "Local keyword research and implementation", 
+    localSearchService3: "Citation building and NAP consistency",
+    localSearchService4: "Review management and reputation building",
+    localSearchService5: "Local content marketing strategies",
+    localSearchService6: "Mobile-first website optimization",
+    industriesWeServeTitle: "Industries We Serve",
+    industry1: "Restaurants and cafes",
+    industry2: "Healthcare and medical practices",
+    industry3: "Legal services and law firms",
+    industry4: "Home improvement contractors", 
+    industry5: "Retail stores and boutiques",
+    industry6: "Professional services",
+    ctaTitle: "Ready to Dominate Local Search Results?",
+    ctaDescription: "Join hundreds of local businesses that trust MapSuche to increase their Google visibility and attract more customers.",
+    freeConsultation: "Get Your Free SEO Consultation",
+    
     // Legal Pages
     impressumTitle: "Impressum",
     privacyTitle: "Privacy Policy",
@@ -165,6 +186,27 @@ export const translations = {
     // Form Messages
     thankYouMessage: "Vielen Dank für Ihre Nachricht! Wir werden uns bald bei Ihnen melden.",
     fillRequiredFields: "Bitte füllen Sie alle Pflichtfelder aus.",
+    
+    // SEO Content Section
+    seoSectionTitle: "Lokale SEO-Experten für kleine Unternehmen in Deutschland",
+    seoSectionDescription: "Als führende Digital Marketing Agentur mit Spezialisierung auf lokale SEO helfen wir kleinen Unternehmen in ganz Deutschland, bei Google-Suchergebnissen zu dominieren. Unsere bewährten Strategien umfassen Google Maps-Optimierung, Google My Business-Management und lokale Suchmaschinenoptimierung, um Ihre Online-Sichtbarkeit zu erhöhen und mehr Kunden zu Ihrem Unternehmen zu führen.",
+    localSearchServicesTitle: "Lokale Suchoptimierungs-Services",
+    localSearchService1: "Google Maps-Eintrag Optimierung und Verwaltung",
+    localSearchService2: "Lokale Keyword-Recherche und Implementierung",
+    localSearchService3: "Citation-Building und NAP-Konsistenz",
+    localSearchService4: "Bewertungsmanagement und Reputationsaufbau",
+    localSearchService5: "Lokale Content-Marketing-Strategien",
+    localSearchService6: "Mobile-First Website-Optimierung",
+    industriesWeServeTitle: "Branchen, die wir bedienen",
+    industry1: "Restaurants und Cafés",
+    industry2: "Gesundheitswesen und Arztpraxen",
+    industry3: "Rechtsberatung und Anwaltskanzleien",
+    industry4: "Handwerksbetriebe und Heimwerkerdienste",
+    industry5: "Einzelhandelsgeschäfte und Boutiquen",
+    industry6: "Professionelle Dienstleistungen",
+    ctaTitle: "Bereit, lokale Suchergebnisse zu dominieren?",
+    ctaDescription: "Schließen Sie sich Hunderten von lokalen Unternehmen an, die MapSuche vertrauen, um ihre Google-Sichtbarkeit zu erhöhen und mehr Kunden zu gewinnen.",
+    freeConsultation: "Holen Sie sich Ihre kostenlose SEO-Beratung",
     
     // Legal Pages
     impressumTitle: "Impressum",

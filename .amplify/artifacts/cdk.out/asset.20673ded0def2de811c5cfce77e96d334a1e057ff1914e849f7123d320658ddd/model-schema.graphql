@@ -1,0 +1,14 @@
+type ContactSubmission @model @auth(rules: [{allow: public, provider: apiKey}])
+{
+  firstName: String!
+  lastName: String!
+  email: AWSEmail!
+  phone: String
+  businessName: String!
+  service: String!
+  message: String
+}
+
+type Mutation {
+  submitContact(firstName: String!, lastName: String!, email: AWSEmail!, phone: String, businessName: String!, service: String!, message: String): AWSJSON @function(name: "FnSubmitContact") @auth(rules: [{allow: public, provider: apiKey}])
+}
