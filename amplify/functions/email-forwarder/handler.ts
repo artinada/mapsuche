@@ -1,10 +1,11 @@
-const { SESClient, SendRawEmailCommand } = require('@aws-sdk/client-ses');
-const { S3Client, GetObjectCommand } = require('@aws-sdk/client-s3');
+import { SESClient, SendRawEmailCommand, SendEmailCommand } from '@aws-sdk/client-ses';
+import { S3Client, GetObjectCommand } from '@aws-sdk/client-s3';
+import type { SESEvent } from 'aws-lambda';
 
-const sesClient = new SESClient({ region: 'eu-central-1' });
-const s3Client = new S3Client({ region: 'eu-central-1' });
+const sesClient = new SESClient({ region: process.env.REGION || 'eu-central-1' });
+const s3Client = new S3Client({ region: process.env.REGION || 'eu-central-1' });
 
-exports.handler = async (event) => {
+export const handler = async (event: SESEvent) => {
     console.log('Received SES event:', JSON.stringify(event, null, 2));
     
     try {
@@ -14,24 +15,31 @@ exports.handler = async (event) => {
         const source = sesRecord.mail.source;
         const destination = sesRecord.mail.destination[0];
         const subject = sesRecord.mail.commonHeaders.subject || 'No Subject';
+        const forwardToEmail = process.env.FORWARD_TO_EMAIL || 'artinada@gmail.com';
         
         console.log(`Processing email from ${source} to ${destination} with subject: ${subject}`);
         
         // Check if email is stored in S3 (for complete forwarding)
-        const bucketName = 'mapsuche-emails-1750500609';
+        const bucketName = process.env.BUCKET_NAME;
+        if (!bucketName) {
+            throw new Error('BUCKET_NAME environment variable is required');
+        }
+        
         const objectKey = `emails/${messageId}`;
         
-        let emailContent = null;
+        let emailContent: string | null = null;
         try {
             const getObjectCommand = new GetObjectCommand({
                 Bucket: bucketName,
                 Key: objectKey
             });
             const s3Response = await s3Client.send(getObjectCommand);
-            emailContent = await streamToString(s3Response.Body);
-            console.log('Retrieved full email from S3');
+            if (s3Response.Body) {
+                emailContent = await streamToString(s3Response.Body);
+                console.log('Retrieved full email from S3');
+            }
         } catch (s3Error) {
-            console.log('Email not found in S3, creating notification email:', s3Error.message);
+            console.log('Email not found in S3, creating notification email:', (s3Error as Error).message);
         }
         
         if (emailContent) {
@@ -44,12 +52,12 @@ exports.handler = async (event) => {
                 `Subject: ${forwardedSubject}`
             ).replace(
                 /^To: (.*)$/m,
-                'To: artinada@gmail.com'
+                `To: ${forwardToEmail}`
             );
             
             const sendRawEmailCommand = new SendRawEmailCommand({
-                Source: 'artinada@gmail.com',
-                Destinations: ['artinada@gmail.com'],
+                Source: forwardToEmail,
+                Destinations: [forwardToEmail],
                 RawMessage: {
                     Data: Buffer.from(modifiedEmail)
                 }
@@ -67,12 +75,10 @@ exports.handler = async (event) => {
             };
         } else {
             // Fallback: Send notification email when full content is not available
-            const { SESClient, SendEmailCommand } = require('@aws-sdk/client-ses');
-            
             const sendEmailCommand = new SendEmailCommand({
-                Source: 'artinada@gmail.com',
+                Source: forwardToEmail,
                 Destination: {
-                    ToAddresses: ['artinada@gmail.com']
+                    ToAddresses: [forwardToEmail]
                 },
                 Message: {
                     Subject: {
@@ -107,8 +113,8 @@ exports.handler = async (event) => {
 };
 
 // Helper function to convert stream to string
-async function streamToString(stream) {
-    const chunks = [];
+async function streamToString(stream: any): Promise<string> {
+    const chunks: Uint8Array[] = [];
     for await (const chunk of stream) {
         chunks.push(chunk);
     }

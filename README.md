@@ -1,171 +1,153 @@
-# MapSuche - AWS Amplify Version
+# MapSuche - Professional Business Directory Platform
 
-A modern contact form application built with React, TypeScript, and AWS Amplify Gen 2.
+A modern business directory and contact platform built with React, TypeScript, and AWS Amplify Gen 2. Fully deployed and operational at [mapsuche.de](https://mapsuche.de).
 
-## Architecture
+## 🚀 Project Overview
 
-This application uses AWS Amplify Gen 2 to handle:
-- **Frontend**: React with TypeScript, Tailwind CSS, and shadcn/ui components
-- **Backend**: AWS Lambda functions with TypeScript
-- **Database**: Amazon DynamoDB (auto-provisioned by Amplify)
-- **Email**: Amazon SES for sending contact form notifications
-- **API**: AWS AppSync GraphQL API with custom mutations
+MapSuche is a complete business directory solution featuring:
+- **Professional Website** with multi-language support (German/English)
+- **Contact Form System** with automated email notifications
+- **Universal Email Forwarding** for all `*@mapsuche.de` addresses
+- **Modern UI/UX** built with React, TypeScript, and Tailwind CSS
 
-## Prerequisites
+## 🏗️ Architecture & Infrastructure
 
-Before getting started, make sure you have:
+### **Frontend**
+- **Framework**: React 18 with TypeScript
+- **Styling**: Tailwind CSS with shadcn/ui components  
+- **Deployment**: AWS Amplify with automatic GitHub deployments
+- **Domain**: `mapsuche.de` (registered and managed via AWS Route 53)
 
-1. **Node.js** (version 18 or higher)
-2. **AWS Account** with appropriate permissions
-3. **AWS CLI** configured with your credentials
-4. **Amplify CLI** installed globally:
-   ```bash
-   npm install -g @aws-amplify/cli
-   ```
+### **Backend Services**
+- **API**: AWS Lambda functions (TypeScript)
+- **Database**: Amazon DynamoDB for contact form storage
+- **Email System**: Amazon SES for notifications
+- **File Storage**: Amazon S3 for email attachments backup
 
-## Setup Instructions
+### **Email Infrastructure**
+- **Contact Forms**: Automated forwarding to `artinada@gmail.com`
+- **Domain Email**: Universal forwarding of `*@mapsuche.de` to owner
+- **Features**: Full email body + attachments preservation
+- **Services**: SES + Lambda + S3 integration (Infrastructure as Code)
+- **Deployment**: Fully managed via Amplify Gen 2 + AWS CDK
 
-### 1. Install Dependencies
+## 🌍 Deployment Information
 
-```bash
-# Install frontend dependencies
-npm install
+- **Region**: `eu-central-1` (Frankfurt) - strictly enforced
+- **Domain**: Registered and managed via AWS Route 53
+- **SSL/TLS**: Automatic HTTPS via AWS Certificate Manager
+- **CI/CD**: Automatic deployment on GitHub push via Amplify
+- **Configuration**: Infrastructure as Code via Amplify Gen 2 + AWS CDK
 
-# Install Amplify backend dependencies
-cd amplify
-npm install
-cd ..
-```
-
-### 2. Configure AWS SES
-
-Before deploying, you need to set up Amazon SES:
-
-1. Go to the AWS SES console
-2. Verify your sending email address (the "from" email)
-3. Verify your receiving email address (where you want to receive contact form submissions)
-4. If in sandbox mode, both addresses must be verified
-
-### 3. Set Up Amplify Secrets
-
-Set up the required email configuration secrets:
-
-```bash
-# For development (sandbox)
-npx ampx sandbox secret set SES_FROM_EMAIL
-# Enter your verified SES "from" email when prompted
-
-npx ampx sandbox secret set SES_TO_EMAIL
-# Enter your email where you want to receive contact forms when prompted
-```
-
-For production deployment, you'll set these secrets in the Amplify console.
-
-### 4. Deploy to Development (Sandbox)
-
-Start the development environment:
-
-```bash
-# Start Amplify sandbox
-npx ampx sandbox
-
-# In another terminal, start the frontend
-npm run dev
-```
-
-The sandbox will:
-- Deploy your backend resources to AWS
-- Generate the `amplify_outputs.json` file
-- Enable hot-reloading for backend changes
-
-### 5. Production Deployment
-
-To deploy to production:
-
-1. **Connect your repository** to Amplify:
-   ```bash
-   # Initialize git if not already done
-   git init
-   git add .
-   git commit -m "Initial commit"
-   
-   # Push to your Git provider (GitHub, GitLab, etc.)
-   ```
-
-2. **Deploy via Amplify Console**:
-   - Go to AWS Amplify Console
-   - Click "New app" → "Host web app"
-   - Connect your Git repository
-   - Amplify will automatically detect the Gen 2 configuration
-   - Set the environment secrets (SES_FROM_EMAIL, SES_TO_EMAIL) in the console
-   - Deploy!
-
-## Project Structure
+## 📁 Project Structure
 
 ```
-├── client/                 # React frontend
+MapSuche_v1.00/
+├── client/                     # React frontend application
 │   ├── src/
-│   │   ├── components/     # UI components
-│   │   ├── pages/          # Page components
-│   │   ├── hooks/          # Custom React hooks
-│   │   └── lib/            # Utilities and configurations
-├── amplify/               # Amplify Gen 2 backend
-│   ├── backend.ts         # Main backend configuration
-│   ├── data/
-│   │   └── resource.ts    # GraphQL schema and data model
-│   └── functions/
-│       └── contact/       # Contact form Lambda function
-│           ├── resource.ts
-│           └── handler.ts
-└── amplify_outputs.json  # Generated Amplify configuration
+│   │   ├── components/         # Reusable UI components
+│   │   ├── pages/             # Page components (Home, Contact, etc.)
+│   │   ├── hooks/             # Custom React hooks
+│   │   └── lib/               # Utilities and translations
+├── amplify/                   # AWS Amplify Gen 2 backend
+│   ├── backend.ts            # Main backend configuration
+│   ├── data/resource.ts      # GraphQL schema and DynamoDB
+│   └── functions/contact/    # Contact form Lambda function
+├── lambda-function/          # Email forwarding Lambda
+└── amplify_outputs.json     # Generated Amplify configuration
 ```
 
-## Features
+## ✨ Key Features
 
-- ✅ **Modern React Frontend** with TypeScript and Tailwind CSS
-- ✅ **Serverless Backend** with AWS Lambda functions
-- ✅ **Email Notifications** via Amazon SES
-- ✅ **Data Storage** in DynamoDB
-- ✅ **Type Safety** end-to-end with TypeScript
-- ✅ **Real-time Development** with Amplify sandbox
-- ✅ **Easy Deployment** with Amplify hosting
+### **Website Features**
+- 🌐 **Multi-language Support** (German/English)
+- 📱 **Responsive Design** optimized for all devices
+- 🎨 **Modern UI** with professional shadcn/ui components
+- ⚡ **Fast Performance** with optimized React build
 
-## Environment Variables / Secrets
+### **Business Features**
+- 📞 **Contact Form** with instant email notifications
+- 📧 **Professional Email** forwarding for all business addresses
+- 🔒 **Data Security** with AWS enterprise-grade infrastructure
+- 📊 **Form Analytics** via DynamoDB storage
 
-The application uses the following secrets (configured via Amplify):
+### **Email Addresses**
+All emails to these addresses forward to `artinada@gmail.com`:
+- `contact@mapsuche.de`
+- `info@mapsuche.de` 
+- `support@mapsuche.de`
+- `legal@mapsuche.de`
+- `privacy@mapsuche.de`
+- `hello@mapsuche.de`
+- `*@mapsuche.de` (any address)
 
-- `SES_FROM_EMAIL`: The verified email address to send from
-- `SES_TO_EMAIL`: Your email address to receive contact form submissions
+## 🛠️ Development
 
-## Development
-
+### **Local Development**
 ```bash
-# Start the development server
+# Install dependencies
+npm install
+
+# Start development server
 npm run dev
 
-# Start Amplify sandbox (in separate terminal)
+# Start Amplify sandbox (deploys all infrastructure)
 npx ampx sandbox
-
-# Build for production
-npm run build
 ```
 
-## Troubleshooting
+### **Infrastructure as Code**
+The entire email forwarding system is now managed via code:
+- **Lambda Functions**: Defined in `amplify/functions/`
+- **SES Configuration**: Managed via AWS CDK in `amplify/backend.ts`
+- **S3 Buckets**: Created and configured automatically
+- **DNS & Domain**: Route 53 integration via CDK
 
-### SES Issues
-- Make sure both sender and receiver emails are verified in SES
-- Check if you're in SES sandbox mode (production requires domain verification)
-- Verify AWS credentials have SES permissions
+### **Deployment**
+Deployment is **fully automated**:
+1. Push changes to GitHub repository
+2. AWS Amplify automatically builds and deploys infrastructure + application
+3. Changes are live at `mapsuche.de` within minutes
 
-### Amplify Issues
-- Ensure AWS CLI is configured with appropriate permissions
-- Check that you're in the correct AWS region
-- Verify that your account has the necessary service quotas
+### **Manual Resource Cleanup**
+If upgrading from manual setup, see `cleanup-manual-resources.md` for migration guide.
 
-### TypeScript Errors
-- Run `npm install` in both root and `amplify/` directories
-- The `amplify_outputs.json` file is generated after first deployment
+## 🔧 Technical Stack
 
-## License
+| Category | Technology |
+|----------|------------|
+| **Frontend** | React 18, TypeScript, Tailwind CSS |
+| **Backend** | AWS Lambda, Node.js, TypeScript |
+| **Database** | Amazon DynamoDB |
+| **Email** | Amazon SES + Lambda forwarding |
+| **Storage** | Amazon S3 |
+| **DNS** | AWS Route 53 |
+| **SSL** | AWS Certificate Manager |
+| **CI/CD** | AWS Amplify |
+| **Monitoring** | AWS CloudWatch |
 
-MIT License - see LICENSE file for details. 
+## 📊 Current Status
+
+- ✅ **Website**: Live at [mapsuche.de](https://mapsuche.de)
+- ✅ **Domain**: Registered and configured in AWS
+- ✅ **Email System**: Fully operational
+- ✅ **SSL Certificate**: Active and auto-renewing
+- ✅ **CI/CD Pipeline**: Automated GitHub deployments
+- ✅ **Monitoring**: CloudWatch logs and metrics enabled
+
+## 🎯 Infrastructure Highlights
+
+- **Zero Downtime**: Serverless architecture with auto-scaling
+- **Cost Optimized**: Pay-per-use Lambda and DynamoDB pricing
+- **Enterprise Security**: AWS IAM roles and policies
+- **High Availability**: Multi-AZ deployment in Frankfurt region
+- **Automated Backups**: S3 storage for email attachments
+
+## 📞 Support
+
+For technical support or questions:
+- **Email**: Any address `@mapsuche.de` (forwards to owner)
+- **Primary Contact**: `artinada@gmail.com`
+
+---
+
+**Note**: This infrastructure is fully managed as code via Amplify Gen 2 and AWS CDK, ensuring consistent, version-controlled, and reproducible deployments in the Frankfurt (`eu-central-1`) region. The migration from manual AWS CLI setup to Infrastructure as Code provides better maintainability and deployment reliability. 

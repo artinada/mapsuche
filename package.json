@@ -9,7 +9,8 @@
     "preview": "vite preview",
     "check": "tsc",
     "amplify:dev": "npx ampx sandbox",
-    "amplify:deploy": "npx ampx pipeline-deploy"
+    "amplify:deploy": "npx ampx pipeline-deploy",
+    "aws" : "/usr/local/bin/aws"
   },
   "dependencies": {
     "@aws-amplify/backend": "^1.16.1",
