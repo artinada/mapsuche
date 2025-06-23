@@ -114,6 +114,12 @@ const securityHeadersPolicy = new cloudfront.ResponseHeadersPolicy(securityStack
       preload: false,           // Start without preload for safety
       override: true,
     },
+    // XSS Protection - moved from custom headers to security headers
+    xssProtection: { 
+      protection: true, 
+      modeBlock: true, 
+      override: true 
+    },
     contentSecurityPolicy: {
       contentSecurityPolicy: [
         "default-src 'self'",
@@ -135,11 +141,6 @@ const securityHeadersPolicy = new cloudfront.ResponseHeadersPolicy(securityStack
   },
   customHeadersBehavior: {
     customHeaders: [
-      {
-        header: 'X-XSS-Protection',
-        value: '1; mode=block',
-        override: true,
-      },
       {
         header: 'Permissions-Policy',
         value: 'camera=(), microphone=(), geolocation=(), payment=(), usb=(), accelerometer=(), gyroscope=(), magnetometer=()',
