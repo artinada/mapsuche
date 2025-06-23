@@ -3,6 +3,7 @@ import { MapPin, Globe, Star, ArrowRight, Check, Users, Clock, DollarSign } from
 import { useLanguage } from '@/hooks/useLanguage';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
+import LazyImage from '@/components/LazyImage';
 
 export default function HomePage() {
   const { t } = useLanguage();
@@ -91,10 +92,16 @@ export default function HomePage() {
               </Link>
             </div>
             <div className="lg:flex justify-center">
-              <img
-                src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600"
+              <LazyImage
+                src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop"
                 alt="Local business growth concept"
                 className="rounded-xl shadow-2xl w-full max-w-md"
+                width={400}
+                height={300}
+                priority={true}
+                quality={80}
+                sizes="(max-width: 768px) 100vw, 400px"
+                placeholder="blur"
               />
             </div>
           </div>
@@ -154,10 +161,15 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <img
-                src="https://images.unsplash.com/photo-1556761175-b413da4baf72?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600"
+              <LazyImage
+                src="https://images.unsplash.com/photo-1556761175-b413da4baf72?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop"
                 alt="Small business team collaboration"
                 className="rounded-xl shadow-lg w-full"
+                width={600}
+                height={400}
+                quality={75}
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
+                placeholder="blur"
               />
             </div>
             <div>
