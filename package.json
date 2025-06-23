@@ -17,7 +17,8 @@
     "amplify:dev": "npx ampx sandbox",
     "amplify:deploy": "npx ampx pipeline-deploy",
     "aws": "/usr/local/bin/aws",
-    "hsts": "node scripts/hsts-deploy.js"
+    "hsts": "node scripts/hsts-deploy.js",
+    "generate-favicons": "node scripts/generate-favicons.js"
   },
   "dependencies": {
     "@aws-amplify/backend": "^1.16.1",
