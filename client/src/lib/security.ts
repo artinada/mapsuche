@@ -33,7 +33,7 @@ export const sanitizeHTML = (html: string): string => {
   const allowedTags = ['p', 'br', 'strong', 'em', 'u', 'b', 'i'];
   const tagRegex = /<(\/?)([\w]+)([^>]*)>/gi;
   
-  return html.replace(tagRegex, (match, slash, tag, attributes) => {
+  return html.replace(tagRegex, (_, slash, tag) => {
     const tagLower = tag.toLowerCase();
     
     // Only allow whitelisted tags
@@ -198,9 +198,6 @@ export const hstsUtils = {
         return;
       }
 
-      // Check if we're already on HTTPS
-      const isHTTPS = window.location.protocol === 'https:';
-      
       // Make a test request to check HSTS headers
       fetch(window.location.origin, { method: 'HEAD' })
         .then(response => {

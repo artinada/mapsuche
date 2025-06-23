@@ -1,7 +1,7 @@
 import { useLanguage } from '@/hooks/useLanguage';
 
 export default function PrivacyPage() {
-  const { t, language } = useLanguage();
+  const { language } = useLanguage();
 
   const content = {
     en: {

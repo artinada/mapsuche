@@ -8,7 +8,7 @@ interface FAQItem {
 }
 
 export default function FAQPage() {
-  const { t, language } = useLanguage();
+  const { language } = useLanguage();
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   const faqs: { [key: string]: FAQItem[] } = {

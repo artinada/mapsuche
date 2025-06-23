@@ -4,7 +4,6 @@ import {
   optimizeUnsplashImage, 
   generateResponsiveSrcSet, 
   generateLQIP,
-  getMobileOptimizedDimensions,
   createImageObserver
 } from '@/lib/imageOptimization';
 
@@ -42,9 +41,6 @@ const LazyImage = ({
   const imgRef = useRef<HTMLImageElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
-  // Generate optimized dimensions for mobile
-  const mobileOptimized = getMobileOptimizedDimensions(width, height);
-  
   // Generate image URLs
   const lqipUrl = generateLQIP(src);
   const optimizedUrl = optimizeUnsplashImage(src, { width, height, quality });
