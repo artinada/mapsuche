@@ -1,5 +1,6 @@
 import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 import { translations, type Language, type TranslationKey } from '@/lib/translations';
+import { secureStorage } from '@/lib/security';
 
 interface LanguageContextType {
   language: Language;
@@ -13,8 +14,8 @@ export function LanguageProvider({ children }: { children: ReactNode }): JSX.Ele
   const [language, setLanguage] = useState<Language>('en');
 
   useEffect(() => {
-    // Get language from localStorage or browser preference
-    const savedLanguage = localStorage.getItem('language') as Language;
+    // Get language from secure localStorage or browser preference
+    const savedLanguage = secureStorage.getItem('language') as Language;
     if (savedLanguage && (savedLanguage === 'en' || savedLanguage === 'de')) {
       setLanguage(savedLanguage);
     } else {
@@ -28,7 +29,7 @@ export function LanguageProvider({ children }: { children: ReactNode }): JSX.Ele
 
   const switchLanguage = (lang: Language) => {
     setLanguage(lang);
-    localStorage.setItem('language', lang);
+    secureStorage.setItem('language', lang);
     document.documentElement.lang = lang;
   };
 

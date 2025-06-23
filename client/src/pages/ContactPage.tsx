@@ -13,18 +13,19 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { useToast } from '@/hooks/use-toast';
+import { sanitizeInput, formRateLimiter, isValidEmail, isValidPhone } from '@/lib/security';
 import type { Schema } from '../../../amplify/data/resource';
 
 const client = generateClient<Schema>();
 
 const contactSchema = z.object({
-  firstName: z.string().min(1, 'First name is required'),
-  lastName: z.string().min(1, 'Last name is required'),
-  email: z.string().email('Valid email is required'),
-  phone: z.string().optional(),
-  businessName: z.string().min(1, 'Business name is required'),
-  service: z.string().min(1, 'Please select a service'),
-  message: z.string().optional(),
+  firstName: z.string().min(1, 'First name is required').max(50, 'First name too long').transform(sanitizeInput),
+  lastName: z.string().min(1, 'Last name is required').max(50, 'Last name too long').transform(sanitizeInput),
+  email: z.string().email('Valid email is required').max(254, 'Email too long').refine(isValidEmail, 'Invalid email format'),
+  phone: z.string().optional().transform(val => val ? sanitizeInput(val) : val).refine(val => !val || isValidPhone(val), 'Invalid phone format'),
+  businessName: z.string().min(1, 'Business name is required').max(100, 'Business name too long').transform(sanitizeInput),
+  service: z.string().min(1, 'Please select a service').transform(sanitizeInput),
+  message: z.string().optional().transform(val => val ? sanitizeInput(val) : val).refine(val => !val || val.length <= 1000, 'Message too long'),
 });
 
 type ContactFormData = z.infer<typeof contactSchema>;
@@ -79,6 +80,17 @@ export default function ContactPage() {
   });
 
   const onSubmit = (data: ContactFormData) => {
+    // Rate limiting check
+    const userIdentifier = data.email || 'anonymous';
+    if (!formRateLimiter.isAllowed(userIdentifier)) {
+      toast({
+        title: "Too Many Requests",
+        description: "Please wait before submitting another form.",
+        variant: "destructive",
+      });
+      return;
+    }
+    
     contactMutation.mutate(data);
   };
 

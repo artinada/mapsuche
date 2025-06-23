@@ -5,6 +5,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { LanguageProvider } from '@/hooks/useLanguage';
 import { loadFontsOptimized, loadCSSDeferred } from '@/lib/cssLoader';
+import { initCSPReporting } from '@/lib/security';
 
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
@@ -39,6 +40,9 @@ export default function App() {
     
     // Load non-critical CSS after initial render
     loadCSSDeferred('/src/styles/deferred.css');
+    
+    // Initialize CSP violation reporting
+    initCSPReporting();
   }, []);
 
   return (
