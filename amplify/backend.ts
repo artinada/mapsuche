@@ -78,6 +78,24 @@ ruleSet.addRule('ForwardAllEmails', {
 // Add security headers for XSS protection
 const securityStack = backend.createStack('SecurityStack');
 
+// HSTS Deployment Strategy - Gradual Implementation
+// Stage 1: Initial deployment (1 hour) - for testing and monitoring
+// Stage 2: Short-term (1 day) - after successful Stage 1
+// Stage 3: Medium-term (1 week) - after successful Stage 2  
+// Stage 4: Long-term (1 month) - after successful Stage 3
+// Stage 5: Production (1 year) - final production setting
+
+const HSTS_STAGES = {
+  STAGE_1_TESTING: Duration.seconds(3600),      // 1 hour - initial testing
+  STAGE_2_SHORT: Duration.seconds(86400),       // 1 day - short-term validation
+  STAGE_3_MEDIUM: Duration.seconds(604800),     // 1 week - medium-term validation
+  STAGE_4_EXTENDED: Duration.seconds(2592000),  // 1 month - extended validation
+  STAGE_5_PRODUCTION: Duration.seconds(31536000), // 1 year - production setting
+};
+
+// Current HSTS Stage - Change this to progress through deployment stages
+const CURRENT_HSTS_STAGE = HSTS_STAGES.STAGE_1_TESTING; // Start with 1 hour for safety
+
 // Create CloudFront response headers policy for security
 const securityHeadersPolicy = new cloudfront.ResponseHeadersPolicy(securityStack, 'SecurityHeadersPolicy', {
   responseHeadersPolicyName: 'MapSucheSecurityHeaders',
@@ -89,9 +107,9 @@ const securityHeadersPolicy = new cloudfront.ResponseHeadersPolicy(securityStack
       override: true 
     },
     strictTransportSecurity: {
-      accessControlMaxAge: Duration.seconds(31536000),
-      includeSubdomains: true,
-      preload: true,
+      accessControlMaxAge: CURRENT_HSTS_STAGE,
+      includeSubdomains: false,  // Start without subdomains for safety
+      preload: false,           // Start without preload for safety
       override: true,
     },
     contentSecurityPolicy: {

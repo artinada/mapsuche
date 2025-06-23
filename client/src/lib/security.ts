@@ -173,6 +173,260 @@ class RateLimiter {
 export const formRateLimiter = new RateLimiter();
 
 /**
+ * HSTS (HTTP Strict Transport Security) utilities and monitoring
+ */
+export const hstsUtils = {
+  /**
+   * Check if HSTS is properly configured
+   */
+  checkHSTSStatus: (): Promise<{
+    isEnabled: boolean;
+    maxAge: number | null;
+    includeSubdomains: boolean;
+    preload: boolean;
+    stage: string;
+  }> => {
+    return new Promise((resolve) => {
+      if (typeof window === 'undefined') {
+        resolve({
+          isEnabled: false,
+          maxAge: null,
+          includeSubdomains: false,
+          preload: false,
+          stage: 'unknown'
+        });
+        return;
+      }
+
+      // Check if we're already on HTTPS
+      const isHTTPS = window.location.protocol === 'https:';
+      
+      // Make a test request to check HSTS headers
+      fetch(window.location.origin, { method: 'HEAD' })
+        .then(response => {
+          const hstsHeader = response.headers.get('Strict-Transport-Security');
+          
+          if (!hstsHeader) {
+            resolve({
+              isEnabled: false,
+              maxAge: null,
+              includeSubdomains: false,
+              preload: false,
+              stage: 'not-configured'
+            });
+            return;
+          }
+
+          // Parse HSTS header
+          const maxAgeMatch = hstsHeader.match(/max-age=(\d+)/);
+          const maxAge = maxAgeMatch ? parseInt(maxAgeMatch[1]) : null;
+          const includeSubdomains = hstsHeader.includes('includeSubDomains');
+          const preload = hstsHeader.includes('preload');
+
+          // Determine deployment stage based on max-age
+          let stage = 'unknown';
+          if (maxAge) {
+            if (maxAge <= 3600) stage = 'stage-1-testing';
+            else if (maxAge <= 86400) stage = 'stage-2-short';
+            else if (maxAge <= 604800) stage = 'stage-3-medium';
+            else if (maxAge <= 2592000) stage = 'stage-4-extended';
+            else if (maxAge >= 31536000) stage = 'stage-5-production';
+          }
+
+          resolve({
+            isEnabled: true,
+            maxAge,
+            includeSubdomains,
+            preload,
+            stage
+          });
+        })
+        .catch(() => {
+          resolve({
+            isEnabled: false,
+            maxAge: null,
+            includeSubdomains: false,
+            preload: false,
+            stage: 'error'
+          });
+        });
+    });
+  },
+
+  /**
+   * Monitor HSTS effectiveness
+   */
+  monitorHSTS: (): void => {
+    if (typeof window === 'undefined') return;
+
+    // Check if user tried to access via HTTP
+    if (window.location.protocol === 'http:' && window.location.hostname !== 'localhost') {
+      console.warn('HSTS Warning: Site accessed via HTTP instead of HTTPS');
+      
+      // In production, you might want to log this to your monitoring service
+      if (process.env.NODE_ENV === 'production') {
+        // Example: Send to logging service
+        // logService.warn('HSTS bypass detected', { 
+        //   url: window.location.href,
+        //   userAgent: navigator.userAgent,
+        //   timestamp: new Date().toISOString()
+        // });
+      }
+    }
+
+    // Check HSTS status on page load
+    hstsUtils.checkHSTSStatus().then(status => {
+      console.log('HSTS Status:', status);
+      
+      // Log warnings for suboptimal configurations
+      if (status.isEnabled && status.maxAge && status.maxAge < 86400) {
+        console.warn('HSTS Warning: max-age is less than 1 day, consider increasing for better security');
+      }
+      
+      if (status.isEnabled && !status.includeSubdomains) {
+        console.info('HSTS Info: includeSubDomains not set, consider enabling for comprehensive protection');
+      }
+      
+      if (status.isEnabled && !status.preload && status.maxAge && status.maxAge >= 31536000) {
+        console.info('HSTS Info: preload not set, consider enabling for HSTS preload list inclusion');
+      }
+    });
+  },
+
+  /**
+   * Validate HSTS configuration for security best practices
+   */
+  validateHSTSConfig: (config: {
+    maxAge: number;
+    includeSubdomains: boolean;
+    preload: boolean;
+  }): {
+    isValid: boolean;
+    warnings: string[];
+    recommendations: string[];
+  } => {
+    const warnings: string[] = [];
+    const recommendations: string[] = [];
+
+    // Check max-age
+    if (config.maxAge < 3600) {
+      warnings.push('max-age is less than 1 hour - too short for effective protection');
+    } else if (config.maxAge < 86400) {
+      recommendations.push('Consider increasing max-age to at least 1 day for better protection');
+    } else if (config.maxAge < 31536000) {
+      recommendations.push('Consider increasing max-age to 1 year for production deployment');
+    }
+
+    // Check includeSubdomains
+    if (!config.includeSubdomains) {
+      recommendations.push('Consider enabling includeSubDomains for comprehensive subdomain protection');
+    }
+
+    // Check preload
+    if (!config.preload && config.maxAge >= 31536000) {
+      recommendations.push('Consider enabling preload for HSTS preload list inclusion');
+    }
+
+    return {
+      isValid: warnings.length === 0,
+      warnings,
+      recommendations
+    };
+  },
+
+  /**
+   * Get HSTS deployment recommendations based on current stage
+   */
+  getDeploymentRecommendations: (currentStage: string): {
+    nextStage: string;
+    timeframe: string;
+    actions: string[];
+    risks: string[];
+  } => {
+    const stages = {
+      'stage-1-testing': {
+        nextStage: 'stage-2-short',
+        timeframe: '24-48 hours after successful testing',
+        actions: [
+          'Monitor for any HTTPS-related issues',
+          'Check all site functionality works correctly',
+          'Verify no mixed content warnings',
+          'Test on different browsers and devices'
+        ],
+        risks: [
+          'Minimal risk due to short max-age',
+          'Easy to recover if issues arise'
+        ]
+      },
+      'stage-2-short': {
+        nextStage: 'stage-3-medium',
+        timeframe: '1 week after successful short-term deployment',
+        actions: [
+          'Monitor analytics for any drop in traffic',
+          'Check for any user-reported issues',
+          'Validate all external integrations work',
+          'Consider enabling includeSubDomains if using subdomains'
+        ],
+        risks: [
+          'Users will be forced to HTTPS for 1 day',
+          'Recovery requires waiting for header expiration'
+        ]
+      },
+      'stage-3-medium': {
+        nextStage: 'stage-4-extended',
+        timeframe: '2-3 weeks after successful medium-term deployment',
+        actions: [
+          'Comprehensive security audit',
+          'Performance monitoring',
+          'User experience validation',
+          'Prepare for longer commitment'
+        ],
+        risks: [
+          'Users will be forced to HTTPS for 1 week',
+          'Longer recovery time if issues arise'
+        ]
+      },
+      'stage-4-extended': {
+        nextStage: 'stage-5-production',
+        timeframe: '1-2 months after successful extended deployment',
+        actions: [
+          'Final security review',
+          'Enable includeSubDomains if not already enabled',
+          'Consider enabling preload',
+          'Prepare for HSTS preload list submission'
+        ],
+        risks: [
+          'Users will be forced to HTTPS for 1 month',
+          'Significant commitment to HTTPS-only'
+        ]
+      },
+      'stage-5-production': {
+        nextStage: 'hsts-preload-list',
+        timeframe: 'After 6+ months of stable operation',
+        actions: [
+          'Submit to HSTS preload list',
+          'Monitor for any security issues',
+          'Regular security audits',
+          'Keep certificates up to date'
+        ],
+        risks: [
+          'Users will be forced to HTTPS for 1 year',
+          'Very difficult to recover from issues',
+          'Preload list submission is permanent'
+        ]
+      }
+    };
+
+    return stages[currentStage as keyof typeof stages] || {
+      nextStage: 'unknown',
+      timeframe: 'unknown',
+      actions: ['Review HSTS configuration'],
+      risks: ['Unknown configuration state']
+    };
+  }
+};
+
+/**
  * Secure local storage wrapper
  */
 export const secureStorage = {

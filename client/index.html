@@ -37,6 +37,61 @@
       magnetometer=()
     " />
     
+    <!-- 
+    HSTS (HTTP Strict Transport Security) Deployment Strategy
+    ========================================================
+    
+    Current Stage: STAGE_1_TESTING (1 hour max-age)
+    
+    HSTS is configured server-side via AWS CloudFront Response Headers Policy.
+    The deployment follows a gradual approach to minimize risk:
+    
+    Stage 1: Testing (1 hour) - Current
+    - max-age: 3600 seconds (1 hour)
+    - includeSubDomains: false
+    - preload: false
+    - Purpose: Initial testing and validation
+    - Risk: Minimal - easy recovery
+    
+    Stage 2: Short-term (1 day) - Next
+    - max-age: 86400 seconds (1 day)  
+    - includeSubDomains: false
+    - preload: false
+    - Timeframe: 24-48 hours after Stage 1 success
+    
+    Stage 3: Medium-term (1 week)
+    - max-age: 604800 seconds (1 week)
+    - includeSubDomains: consider enabling
+    - preload: false
+    - Timeframe: 1 week after Stage 2 success
+    
+    Stage 4: Extended (1 month)
+    - max-age: 2592000 seconds (1 month)
+    - includeSubDomains: recommended
+    - preload: consider enabling
+    - Timeframe: 2-3 weeks after Stage 3 success
+    
+    Stage 5: Production (1 year)
+    - max-age: 31536000 seconds (1 year)
+    - includeSubDomains: true
+    - preload: true
+    - Timeframe: 1-2 months after Stage 4 success
+    - Consider HSTS preload list submission
+    
+    To advance to the next stage:
+    1. Monitor for 24-48 hours minimum
+    2. Check for any HTTPS-related issues
+    3. Verify all functionality works correctly
+    4. Update CURRENT_HSTS_STAGE in amplify/backend.ts
+    5. Deploy the updated configuration
+    
+    Monitoring:
+    - Browser console shows HSTS status on page load
+    - Automatic detection of HTTP access attempts
+    - Validation warnings for suboptimal configurations
+    - Deployment recommendations based on current stage
+    -->
+    
     <title>MapSuche - Local Business Digital Marketing | Google Maps & Website Services</title>
     <meta name="description" content="Professional digital marketing agency helping small local businesses dominate Google search. Google Maps optimization, Business Profile setup & custom websites. Get found by more customers today!" />
     

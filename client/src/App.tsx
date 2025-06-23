@@ -5,7 +5,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { LanguageProvider } from '@/hooks/useLanguage';
 import { loadFontsOptimized, loadCSSDeferred } from '@/lib/cssLoader';
-import { initCSPReporting } from '@/lib/security';
+import { initCSPReporting, hstsUtils } from '@/lib/security';
 
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
@@ -43,6 +43,9 @@ export default function App() {
     
     // Initialize CSP violation reporting
     initCSPReporting();
+    
+    // Initialize HSTS monitoring
+    hstsUtils.monitorHSTS();
   }, []);
 
   return (
