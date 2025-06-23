@@ -44,6 +44,7 @@ MapSuche is a complete business directory solution featuring:
 ```
 MapSuche_v1.00/
 ├── client/                     # React frontend application
+│   ├── public/                # Static assets (robots.txt, sitemap.xml)
 │   ├── src/
 │   │   ├── components/         # Reusable UI components
 │   │   ├── pages/             # Page components (Home, Contact, etc.)
@@ -52,8 +53,9 @@ MapSuche_v1.00/
 ├── amplify/                   # AWS Amplify Gen 2 backend
 │   ├── backend.ts            # Main backend configuration
 │   ├── data/resource.ts      # GraphQL schema and DynamoDB
-│   └── functions/contact/    # Contact form Lambda function
-├── lambda-function/          # Email forwarding Lambda
+│   └── functions/
+│       ├── contact/          # Contact form Lambda function
+│       └── email-forwarder/  # Email forwarding Lambda (Infrastructure as Code)
 └── amplify_outputs.json     # Generated Amplify configuration
 ```
 
@@ -91,8 +93,6 @@ npm install
 # Start development server
 npm run dev
 
-# Start Amplify sandbox (deploys all infrastructure)
-npx ampx sandbox
 ```
 
 ### **Infrastructure as Code**
@@ -108,8 +108,7 @@ Deployment is **fully automated**:
 2. AWS Amplify automatically builds and deploys infrastructure + application
 3. Changes are live at `mapsuche.de` within minutes
 
-### **Manual Resource Cleanup**
-If upgrading from manual setup, see `cleanup-manual-resources.md` for migration guide.
+
 
 ## 🔧 Technical Stack
 

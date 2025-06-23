@@ -1,0 +1,31 @@
+User-agent: *
+Allow: /
+
+# Block access to admin areas and sensitive files
+Disallow: /admin/
+Disallow: /api/
+Disallow: /.well-known/
+Disallow: /amplify/
+Disallow: /node_modules/
+
+# Allow all major search engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+# Sitemap location (fix the domain)
+Sitemap: https://mapsuche.de/sitemap.xml
+
+# Crawl delay for politeness
+Crawl-delay: 1
+
+# MapSuche - Business Directory Platform
+# Contact: info@mapsuche.de
