@@ -5,6 +5,45 @@ export const translations = {
     services: "Services",
     contact: "Contact",
     
+    // SEO Meta Data for Pages
+    seoMeta: {
+      home: {
+        title: "MapSuche - Local Business Digital Marketing | Google Maps & SEO Experts Germany",
+        description: "Professional digital marketing agency helping small local businesses dominate Google search results in Germany. Google Maps optimization, Business Profile setup & custom SEO websites. Get found by more customers today!",
+        keywords: "local business marketing, google maps optimization, google business profile, local seo germany, small business digital marketing, google my business setup, local search optimization, business listing optimization"
+      },
+      services: {
+        title: "Local SEO & Digital Marketing Services | MapSuche Germany",
+        description: "Comprehensive local SEO and digital marketing services for small businesses in Germany. Google Maps listing, Business Profile management, website development & local search optimization. Dominate your local market!",
+        keywords: "local seo services, digital marketing services, google maps listing, business profile management, local search optimization, small business marketing germany, website development"
+      },
+      googleMaps: {
+        title: "Google Maps Optimization & Local SEO Services | MapSuche",
+        description: "Professional Google Maps optimization services to get your business found by local customers. Complete Google Maps listing setup, optimization & management. Rank #1 in local search results across Germany.",
+        keywords: "google maps optimization, google maps listing, local seo, google my business, local search ranking, business listing optimization, local visibility, google maps marketing"
+      },
+      businessProfile: {
+        title: "Google Business Profile Setup & Management | Local SEO Expert",
+        description: "Expert Google Business Profile creation, verification & optimization services. Increase local visibility, manage reviews, and attract more customers with professional Google My Business management in Germany.",
+        keywords: "google business profile, google my business setup, business profile optimization, local business listing, google business management, review management, local seo germany"
+      },
+      website: {
+        title: "Local Business Website Development & SEO | Mobile-First Design",
+        description: "Custom mobile-friendly websites designed for local businesses in Germany. SEO-optimized web design that ranks high on Google and converts visitors into customers. Professional website development services.",
+        keywords: "local business website, seo website design, mobile-friendly websites, small business web design, local website development, seo web design germany, responsive business websites"
+      },
+      contact: {
+        title: "Contact MapSuche - Free Local SEO Consultation | Digital Marketing Germany",
+        description: "Get a free consultation for your local business digital marketing needs. Contact MapSuche for Google Maps optimization, Business Profile setup, and website development services across Germany.",
+        keywords: "free seo consultation, local business marketing consultation, digital marketing contact, google maps optimization contact, business profile setup contact, local seo expert germany"
+      },
+      faq: {
+        title: "Local SEO FAQ - Common Questions About Digital Marketing | MapSuche",
+        description: "Frequently asked questions about local SEO, Google Maps optimization, and digital marketing for small businesses. Get expert answers from MapSuche's local SEO specialists in Germany.",
+        keywords: "local seo faq, digital marketing questions, google maps optimization faq, business profile questions, local search marketing faq, seo help germany"
+      }
+    },
+    
     // Hero Section
     heroTitle: "Get Your Local Business Found on Google - Dominate Local Search Results",
     heroSubtitle: "Professional digital marketing agency specializing in Google Maps optimization, Google Business Profile setup, and custom websites for small local businesses. Increase your online visibility and attract more customers today.",
@@ -115,6 +154,45 @@ export const translations = {
     home: "Startseite",
     services: "Leistungen",
     contact: "Kontakt",
+    
+    // SEO Meta Data for Pages (German)
+    seoMeta: {
+      home: {
+        title: "MapSuche - Lokales Marketing & SEO | Google Maps Optimierung Deutschland",
+        description: "Professionelle Digital Marketing Agentur für kleine lokale Unternehmen in Deutschland. Google Maps Optimierung, Unternehmensprofil Setup & SEO Websites. Mehr Kunden durch bessere Online-Sichtbarkeit!",
+        keywords: "lokales marketing, google maps optimierung, google unternehmensprofil, lokale seo deutschland, digital marketing kleine unternehmen, google my business einrichtung, lokale suchoptimierung, unternehmenseintrag optimierung"
+      },
+      services: {
+        title: "Lokale SEO & Digital Marketing Services | MapSuche Deutschland",
+        description: "Umfassende lokale SEO und Digital Marketing Services für kleine Unternehmen in Deutschland. Google Maps Eintrag, Unternehmensprofil Verwaltung, Website Entwicklung & lokale Suchoptimierung.",
+        keywords: "lokale seo dienstleistungen, digital marketing services, google maps eintrag, unternehmensprofil verwaltung, lokale suchoptimierung, kleine unternehmen marketing deutschland, website entwicklung"
+      },
+      googleMaps: {
+        title: "Google Maps Optimierung & Lokale SEO Services | MapSuche",
+        description: "Professionelle Google Maps Optimierung Services für bessere lokale Sichtbarkeit. Komplette Google Maps Eintrag Einrichtung, Optimierung & Verwaltung. Platz 1 in lokalen Suchergebnissen in Deutschland.",
+        keywords: "google maps optimierung, google maps eintrag, lokale seo, google my business, lokales suchranking, unternehmenseintrag optimierung, lokale sichtbarkeit, google maps marketing"
+      },
+      businessProfile: {
+        title: "Google Unternehmensprofil Setup & Verwaltung | Lokale SEO Experte",
+        description: "Experten Google Unternehmensprofil Erstellung, Verifizierung & Optimierung Services. Lokale Sichtbarkeit erhöhen, Bewertungen verwalten und mehr Kunden mit professionellem Google My Business Management.",
+        keywords: "google unternehmensprofil, google my business einrichtung, unternehmensprofil optimierung, lokaler unternehmenseintrag, google business verwaltung, bewertungsmanagement, lokale seo deutschland"
+      },
+      website: {
+        title: "Lokale Unternehmenswebsite Entwicklung & SEO | Mobile-First Design",
+        description: "Maßgeschneiderte mobilfreundliche Websites für lokale Unternehmen in Deutschland. SEO-optimiertes Webdesign das bei Google gut rankt und Besucher zu Kunden konvertiert.",
+        keywords: "lokale unternehmenswebsite, seo website design, mobilfreundliche websites, kleine unternehmen webdesign, lokale website entwicklung, seo webdesign deutschland, responsive unternehmenswebsites"
+      },
+      contact: {
+        title: "Kontakt MapSuche - Kostenlose Lokale SEO Beratung | Digital Marketing",
+        description: "Kostenlose Beratung für Ihre lokalen Unternehmen Digital Marketing Bedürfnisse. Kontaktieren Sie MapSuche für Google Maps Optimierung, Unternehmensprofil Setup und Website Entwicklung in Deutschland.",
+        keywords: "kostenlose seo beratung, lokale unternehmen marketing beratung, digital marketing kontakt, google maps optimierung kontakt, unternehmensprofil setup kontakt, lokale seo experte deutschland"
+      },
+      faq: {
+        title: "Lokale SEO FAQ - Häufige Fragen Digital Marketing | MapSuche",
+        description: "Häufig gestellte Fragen zu lokaler SEO, Google Maps Optimierung und Digital Marketing für kleine Unternehmen. Expertenantworten von MapSuche's lokalen SEO Spezialisten in Deutschland.",
+        keywords: "lokale seo faq, digital marketing fragen, google maps optimierung faq, unternehmensprofil fragen, lokales suchmarketing faq, seo hilfe deutschland"
+      }
+    },
     
     // Hero Section
     heroTitle: "Ihr lokales Unternehmen bei Google auf Platz 1 - Lokale SEO Experten",

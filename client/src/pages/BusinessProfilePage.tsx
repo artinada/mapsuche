@@ -1,11 +1,25 @@
 import { ArrowRight, Check, Star } from 'lucide-react';
 import { Link } from 'wouter';
 import { useLanguage } from '@/hooks/useLanguage';
+import { useSEO } from '@/hooks/useSEO';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 
 export default function BusinessProfilePage() {
   const { t } = useLanguage();
+
+  // SEO optimization for Business Profile page
+  useSEO({ 
+    page: 'businessProfile',
+    customKeywords: [
+      'google my business management',
+      'business profile verification',
+      'local business reputation',
+      'customer review management',
+      'business listing services',
+      'professional business profile'
+    ]
+  });
 
   return (
     <div className="min-h-screen py-20">

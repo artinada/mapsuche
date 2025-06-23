@@ -1,11 +1,24 @@
 import { Link } from "wouter";
 import { useLanguage } from "@/hooks/useLanguage";
+import { useSEO } from "@/hooks/useSEO";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { MapPin, Building2, Globe, Check, ArrowRight } from "lucide-react";
 
 export default function ServicesPage() {
   const { t } = useLanguage();
+
+  // SEO optimization for services page
+  useSEO({ 
+    page: 'services',
+    customKeywords: [
+      'comprehensive digital marketing',
+      'local business solutions',
+      'seo service packages',
+      'professional marketing services',
+      'business growth solutions'
+    ]
+  });
 
   const services = [
     {

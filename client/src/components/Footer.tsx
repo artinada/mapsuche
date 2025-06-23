@@ -18,16 +18,32 @@ export function Footer() {
               {t('footerDescription')}
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">
+              <a 
+                href="#" 
+                className="text-gray-400 hover:text-white transition-colors"
+                aria-label="Follow MapSuche on Facebook - Get local SEO tips and business marketing insights"
+              >
                 <Facebook size={20} />
               </a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">
+              <a 
+                href="#" 
+                className="text-gray-400 hover:text-white transition-colors"
+                aria-label="Follow MapSuche on Twitter - Latest updates on Google Maps optimization and local search"
+              >
                 <Twitter size={20} />
               </a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">
+              <a 
+                href="#" 
+                className="text-gray-400 hover:text-white transition-colors"
+                aria-label="Connect with MapSuche on LinkedIn - Professional local SEO and digital marketing services"
+              >
                 <Linkedin size={20} />
               </a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">
+              <a 
+                href="#" 
+                className="text-gray-400 hover:text-white transition-colors"
+                aria-label="Follow MapSuche on Instagram - See our local business success stories and marketing tips"
+              >
                 <Instagram size={20} />
               </a>
             </div>

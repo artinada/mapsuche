@@ -1,12 +1,25 @@
 import { Link } from 'wouter';
 import { MapPin, Globe, Star, ArrowRight, Check, Users, Clock, DollarSign } from 'lucide-react';
 import { useLanguage } from '@/hooks/useLanguage';
+import { useSEO } from '@/hooks/useSEO';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import LazyImage from '@/components/LazyImage';
 
 export default function HomePage() {
   const { t } = useLanguage();
+
+  // SEO optimization for homepage
+  useSEO({ 
+    page: 'home',
+    customKeywords: [
+      'local business growth',
+      'small business marketing',
+      'google visibility',
+      'digital presence',
+      'online marketing germany'
+    ]
+  });
 
   const services = [
     {

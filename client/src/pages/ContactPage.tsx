@@ -6,6 +6,7 @@ import { z } from 'zod';
 import { Send } from 'lucide-react';
 import { generateClient } from 'aws-amplify/data';
 import { useLanguage } from '@/hooks/useLanguage';
+import { useSEO } from '@/hooks/useSEO';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
@@ -34,6 +35,19 @@ export default function ContactPage() {
   const { t } = useLanguage();
   const { toast } = useToast();
   const [isSubmitted, setIsSubmitted] = useState(false);
+
+  // SEO optimization for Contact page
+  useSEO({ 
+    page: 'contact',
+    customKeywords: [
+      'free seo consultation',
+      'digital marketing consultation',
+      'local business help',
+      'marketing strategy consultation',
+      'business growth consultation',
+      'seo expert contact'
+    ]
+  });
 
   const form = useForm<ContactFormData>({
     resolver: zodResolver(contactSchema),

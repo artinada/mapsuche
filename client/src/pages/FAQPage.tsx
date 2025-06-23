@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { ChevronDown, ChevronUp } from 'lucide-react';
 import { useLanguage } from '@/hooks/useLanguage';
+import { useSEO } from '@/hooks/useSEO';
 
 interface FAQItem {
   question: string;
@@ -10,6 +11,19 @@ interface FAQItem {
 export default function FAQPage() {
   const { language } = useLanguage();
   const [openIndex, setOpenIndex] = useState<number | null>(null);
+
+  // SEO optimization for FAQ page
+  useSEO({ 
+    page: 'faq',
+    customKeywords: [
+      'local seo questions',
+      'digital marketing faq',
+      'google maps help',
+      'business profile questions',
+      'seo consultation',
+      'local marketing help'
+    ]
+  });
 
   const faqs: { [key: string]: FAQItem[] } = {
     en: [
