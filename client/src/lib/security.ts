@@ -173,6 +173,590 @@ class RateLimiter {
 export const formRateLimiter = new RateLimiter();
 
 /**
+ * COOP (Cross-Origin Opener Policy) utilities and monitoring
+ */
+export const coopUtils = {
+  /**
+   * Check if COOP headers are properly configured
+   */
+  checkCOOPStatus: (): Promise<{
+    isEnabled: boolean;
+    policy: string | null;
+    coepEnabled: boolean;
+    coepPolicy: string | null;
+    crossOriginIsolated: boolean;
+  }> => {
+    return new Promise((resolve) => {
+      if (typeof window === 'undefined') {
+        resolve({
+          isEnabled: false,
+          policy: null,
+          coepEnabled: false,
+          coepPolicy: null,
+          crossOriginIsolated: false
+        });
+        return;
+      }
+
+      // Make a test request to check COOP headers
+      fetch(window.location.origin, { method: 'HEAD' })
+        .then(response => {
+          const coopHeader = response.headers.get('Cross-Origin-Opener-Policy');
+          const coepHeader = response.headers.get('Cross-Origin-Embedder-Policy');
+          
+          resolve({
+            isEnabled: !!coopHeader,
+            policy: coopHeader,
+            coepEnabled: !!coepHeader,
+            coepPolicy: coepHeader,
+            crossOriginIsolated: window.crossOriginIsolated || false
+          });
+        })
+        .catch(() => {
+          resolve({
+            isEnabled: false,
+            policy: null,
+            coepEnabled: false,
+            coepPolicy: null,
+            crossOriginIsolated: window.crossOriginIsolated || false
+          });
+        });
+    });
+  },
+
+  /**
+   * Monitor COOP effectiveness and potential bypass attempts
+   */
+  monitorCOOP: (): void => {
+    if (typeof window === 'undefined') return;
+
+    // Check COOP status on page load
+    coopUtils.checkCOOPStatus().then(status => {
+      console.log('COOP Status:', status);
+      
+      if (!status.isEnabled) {
+        console.warn('COOP Warning: Cross-Origin Opener Policy not configured');
+      } else {
+        console.log(`COOP Policy: ${status.policy}`);
+      }
+
+      if (!status.coepEnabled) {
+        console.warn('COEP Warning: Cross-Origin Embedder Policy not configured');
+      } else {
+        console.log(`COEP Policy: ${status.coepPolicy}`);
+      }
+
+      if (status.crossOriginIsolated) {
+        console.log('Cross-Origin Isolation: Enabled - Enhanced security features available');
+      } else {
+        console.info('Cross-Origin Isolation: Disabled - Some security features may be limited');
+      }
+    });
+
+    // Monitor for potential opener manipulation attempts
+    if (window.opener && window.opener !== window) {
+      console.warn('COOP Warning: Window has opener reference - potential security risk');
+      
+      // In production, log this for security monitoring
+      if (process.env.NODE_ENV === 'production') {
+        // Example: Send to security monitoring service
+        // securityLogger.warn('Potential opener manipulation detected', {
+        //   referrer: document.referrer,
+        //   userAgent: navigator.userAgent,
+        //   timestamp: new Date().toISOString()
+        // });
+      }
+    }
+
+    // Check for cross-origin window access attempts
+    const originalOpen = window.open;
+    window.open = function(...args) {
+      const newWindow = originalOpen.apply(window, args);
+      
+      if (newWindow) {
+        // Monitor for cross-origin access attempts
+        try {
+          // This will throw if COOP is working correctly for cross-origin windows
+          const testAccess = newWindow.location.href;
+          console.log('Window access allowed:', testAccess);
+        } catch (error) {
+          console.log('COOP: Cross-origin window access properly blocked');
+        }
+      }
+      
+      return newWindow;
+    };
+  },
+
+  /**
+   * Validate COOP configuration for security best practices
+   */
+  validateCOOPConfig: (config: {
+    coopPolicy: string;
+    coepPolicy: string;
+  }): {
+    isValid: boolean;
+    warnings: string[];
+    recommendations: string[];
+  } => {
+    const warnings: string[] = [];
+    const recommendations: string[] = [];
+
+    // Validate COOP policy
+    const validCOOPPolicies = ['same-origin', 'same-origin-allow-popups', 'unsafe-none'];
+    if (!validCOOPPolicies.includes(config.coopPolicy)) {
+      warnings.push(`Invalid COOP policy: ${config.coopPolicy}`);
+    } else if (config.coopPolicy === 'unsafe-none') {
+      warnings.push('COOP policy "unsafe-none" provides no protection');
+    } else if (config.coopPolicy === 'same-origin-allow-popups') {
+      recommendations.push('Consider using "same-origin" for maximum security if popups are not needed');
+    }
+
+    // Validate COEP policy
+    const validCOEPPolicies = ['require-corp', 'credentialless', 'unsafe-none'];
+    if (!validCOEPPolicies.includes(config.coepPolicy)) {
+      warnings.push(`Invalid COEP policy: ${config.coepPolicy}`);
+    } else if (config.coepPolicy === 'unsafe-none') {
+      warnings.push('COEP policy "unsafe-none" provides no protection');
+    }
+
+    // Check for optimal combination
+    if (config.coopPolicy === 'same-origin' && config.coepPolicy === 'require-corp') {
+      recommendations.push('Excellent: COOP and COEP configured for maximum cross-origin isolation');
+    }
+
+    return {
+      isValid: warnings.length === 0,
+      warnings,
+      recommendations
+    };
+  },
+
+  /**
+   * Test cross-origin isolation capabilities
+   */
+  testCrossOriginIsolation: (): {
+    isIsolated: boolean;
+    availableFeatures: string[];
+    limitations: string[];
+  } => {
+    if (typeof window === 'undefined') {
+      return {
+        isIsolated: false,
+        availableFeatures: [],
+        limitations: ['Not in browser environment']
+      };
+    }
+
+    const availableFeatures: string[] = [];
+    const limitations: string[] = [];
+
+    // Check if cross-origin isolated
+    const isIsolated = window.crossOriginIsolated || false;
+
+    if (isIsolated) {
+      // Check for enhanced features available with cross-origin isolation
+      if ('SharedArrayBuffer' in window) {
+        availableFeatures.push('SharedArrayBuffer');
+      }
+      
+      if ('performance' in window && 'measureUserAgentSpecificMemory' in performance) {
+        availableFeatures.push('High-precision memory measurement');
+      }
+      
+      if ('performance' in window && 'now' in performance) {
+        // High-resolution timers are more precise with cross-origin isolation
+        availableFeatures.push('High-resolution performance timers');
+      }
+    } else {
+      limitations.push('SharedArrayBuffer not available');
+      limitations.push('High-precision memory APIs not available');
+      limitations.push('Some performance APIs have reduced precision');
+    }
+
+    return {
+      isIsolated,
+      availableFeatures,
+      limitations
+    };
+  }
+};
+
+/**
+ * Clickjacking protection utilities and monitoring
+ */
+export const clickjackingUtils = {
+  /**
+   * Check if clickjacking protection headers are properly configured
+   */
+  checkClickjackingProtection: (): Promise<{
+    xfoEnabled: boolean;
+    xfoPolicy: string | null;
+    cspFrameAncestors: boolean;
+    cspFrameAncestorsPolicy: string | null;
+    frameSourceBlocked: boolean;
+    protectionLevel: 'none' | 'partial' | 'full';
+  }> => {
+    return new Promise((resolve) => {
+      if (typeof window === 'undefined') {
+        resolve({
+          xfoEnabled: false,
+          xfoPolicy: null,
+          cspFrameAncestors: false,
+          cspFrameAncestorsPolicy: null,
+          frameSourceBlocked: false,
+          protectionLevel: 'none'
+        });
+        return;
+      }
+
+      // Make a test request to check headers
+      fetch(window.location.origin, { method: 'HEAD' })
+        .then(response => {
+          const xfoHeader = response.headers.get('X-Frame-Options');
+          const cspHeader = response.headers.get('Content-Security-Policy');
+          
+          // Parse CSP for frame-ancestors directive
+          let frameAncestorsPolicy = null;
+          let cspFrameAncestors = false;
+          let frameSourceBlocked = false;
+          
+          if (cspHeader) {
+            const frameAncestorsMatch = cspHeader.match(/frame-ancestors\s+([^;]+)/);
+            if (frameAncestorsMatch) {
+              frameAncestorsPolicy = frameAncestorsMatch[1].trim();
+              cspFrameAncestors = true;
+            }
+            
+            // Check if frame-src is blocked
+            const frameSrcMatch = cspHeader.match(/frame-src\s+([^;]+)/);
+            if (frameSrcMatch && frameSrcMatch[1].includes("'none'")) {
+              frameSourceBlocked = true;
+            }
+          }
+
+          // Determine protection level
+          let protectionLevel: 'none' | 'partial' | 'full' = 'none';
+          if (xfoHeader || cspFrameAncestors) {
+            if ((xfoHeader && (xfoHeader.toLowerCase() === 'deny' || xfoHeader.toLowerCase() === 'sameorigin')) &&
+                (cspFrameAncestors && (frameAncestorsPolicy === "'none'" || frameAncestorsPolicy === "'self'"))) {
+              protectionLevel = 'full';
+            } else {
+              protectionLevel = 'partial';
+            }
+          }
+
+          resolve({
+            xfoEnabled: !!xfoHeader,
+            xfoPolicy: xfoHeader,
+            cspFrameAncestors,
+            cspFrameAncestorsPolicy: frameAncestorsPolicy,
+            frameSourceBlocked,
+            protectionLevel
+          });
+        })
+        .catch(() => {
+          resolve({
+            xfoEnabled: false,
+            xfoPolicy: null,
+            cspFrameAncestors: false,
+            cspFrameAncestorsPolicy: null,
+            frameSourceBlocked: false,
+            protectionLevel: 'none'
+          });
+        });
+    });
+  },
+
+  /**
+   * Monitor for clickjacking attempts and frame embedding
+   */
+  monitorClickjacking: (): void => {
+    if (typeof window === 'undefined') return;
+
+    // Check if page is being framed
+    const isFramed = window.self !== window.top;
+    
+    if (isFramed) {
+      console.warn('Clickjacking Warning: Page is being displayed in a frame/iframe');
+      
+      // Try to break out of frame (defense mechanism)
+      try {
+        if (window.top && window.top.location) {
+          window.top.location = window.location;
+        }
+      } catch (error) {
+        // This is expected if proper clickjacking protection is in place
+        console.log('Clickjacking Protection: Frame breakout blocked (this is good)');
+      }
+      
+      // Log potential clickjacking attempt in production
+      if (process.env.NODE_ENV === 'production') {
+        // Example: Send to security monitoring service
+        // securityLogger.warn('Potential clickjacking attempt detected', {
+        //   referrer: document.referrer,
+        //   userAgent: navigator.userAgent,
+        //   timestamp: new Date().toISOString(),
+        //   frameLevel: window.frames.length
+        // });
+      }
+    }
+
+    // Check clickjacking protection status on page load
+    clickjackingUtils.checkClickjackingProtection().then(status => {
+      console.log('Clickjacking Protection Status:', status);
+      
+      if (status.protectionLevel === 'none') {
+        console.error('Clickjacking Error: No protection configured');
+      } else if (status.protectionLevel === 'partial') {
+        console.warn('Clickjacking Warning: Partial protection - consider strengthening');
+      } else {
+        console.log('Clickjacking Protection: Full protection enabled');
+      }
+
+      // Provide specific recommendations
+      if (!status.xfoEnabled && !status.cspFrameAncestors) {
+        console.warn('Recommendation: Enable X-Frame-Options or CSP frame-ancestors directive');
+      } else if (!status.xfoEnabled) {
+        console.info('Recommendation: Consider adding X-Frame-Options header for older browser support');
+      } else if (!status.cspFrameAncestors) {
+        console.info('Recommendation: Consider adding CSP frame-ancestors for modern browser support');
+      }
+    });
+
+    // Monitor for dynamic iframe creation attempts
+    const originalCreateElement = document.createElement;
+    document.createElement = function(tagName: string) {
+      const element = originalCreateElement.call(document, tagName);
+      
+      if (tagName.toLowerCase() === 'iframe') {
+        console.log('Iframe Creation: New iframe element created');
+        
+        // Monitor iframe load events
+        element.addEventListener('load', () => {
+          console.log('Iframe Loaded:', (element as HTMLIFrameElement).src);
+        });
+        
+        element.addEventListener('error', () => {
+          console.log('Iframe Error: Failed to load (possibly blocked by frame-ancestors)');
+        });
+      }
+      
+      return element;
+    };
+  },
+
+  /**
+   * Validate clickjacking protection configuration
+   */
+  validateClickjackingConfig: (config: {
+    xfoPolicy: string;
+    frameAncestorsPolicy: string;
+  }): {
+    isValid: boolean;
+    warnings: string[];
+    recommendations: string[];
+  } => {
+    const warnings: string[] = [];
+    const recommendations: string[] = [];
+
+    // Validate X-Frame-Options policy
+    const validXFOPolicies = ['DENY', 'SAMEORIGIN'];
+    const xfoUpper = config.xfoPolicy.toUpperCase();
+    
+    if (!validXFOPolicies.includes(xfoUpper) && !xfoUpper.startsWith('ALLOW-FROM')) {
+      warnings.push(`Invalid X-Frame-Options policy: ${config.xfoPolicy}`);
+    } else if (xfoUpper.startsWith('ALLOW-FROM')) {
+      warnings.push('ALLOW-FROM directive is deprecated and not supported by all browsers');
+      recommendations.push('Use CSP frame-ancestors instead of X-Frame-Options ALLOW-FROM');
+    } else if (xfoUpper === 'SAMEORIGIN') {
+      recommendations.push('Consider using DENY for maximum protection if same-origin framing is not needed');
+    }
+
+    // Validate CSP frame-ancestors policy
+    if (config.frameAncestorsPolicy) {
+      if (config.frameAncestorsPolicy === "'none'") {
+        recommendations.push('Excellent: frame-ancestors \'none\' provides maximum clickjacking protection');
+      } else if (config.frameAncestorsPolicy === "'self'") {
+        recommendations.push('Good: frame-ancestors \'self\' allows same-origin framing only');
+      } else if (config.frameAncestorsPolicy.includes('*')) {
+        warnings.push('frame-ancestors with wildcard (*) provides minimal protection');
+      }
+    } else {
+      recommendations.push('Consider adding CSP frame-ancestors directive for modern browser support');
+    }
+
+    // Check for conflicting policies
+    if (xfoUpper === 'SAMEORIGIN' && config.frameAncestorsPolicy === "'none'") {
+      warnings.push('Conflicting policies: X-Frame-Options SAMEORIGIN vs frame-ancestors \'none\'');
+      recommendations.push('Align both policies for consistent behavior');
+    }
+
+    return {
+      isValid: warnings.length === 0,
+      warnings,
+      recommendations
+    };
+  },
+
+  /**
+   * Test clickjacking protection effectiveness
+   */
+  testClickjackingProtection: (): Promise<{
+    canBeFramed: boolean;
+    frameBreakoutWorks: boolean;
+    protectionEffective: boolean;
+    testResults: string[];
+  }> => {
+    return new Promise((resolve) => {
+      if (typeof window === 'undefined') {
+        resolve({
+          canBeFramed: false,
+          frameBreakoutWorks: false,
+          protectionEffective: false,
+          testResults: ['Not in browser environment']
+        });
+        return;
+      }
+
+      const testResults: string[] = [];
+      
+      // Test 1: Check if currently framed
+      const isCurrentlyFramed = window.self !== window.top;
+      testResults.push(`Currently framed: ${isCurrentlyFramed}`);
+
+      // Test 2: Test frame breakout capability
+      let frameBreakoutWorks = false;
+      if (isCurrentlyFramed) {
+        try {
+          if (window.top && window.top.location) {
+            // If this doesn't throw, frame breakout is possible (bad)
+            frameBreakoutWorks = true;
+            testResults.push('Frame breakout: Possible (protection may be insufficient)');
+          }
+        } catch (error) {
+          // This is expected with proper protection
+          frameBreakoutWorks = false;
+          testResults.push('Frame breakout: Blocked (good protection)');
+        }
+      } else {
+        testResults.push('Frame breakout: Not applicable (not currently framed)');
+      }
+
+      // Test 3: Create test iframe to check if our own content can be framed
+      const testIframe = document.createElement('iframe');
+      testIframe.style.display = 'none';
+      testIframe.src = window.location.origin;
+      
+      let canBeFramed = false;
+      
+      const loadTimeout = setTimeout(() => {
+        testResults.push('Iframe test: Timeout (likely blocked by protection)');
+        document.body.removeChild(testIframe);
+        
+        resolve({
+          canBeFramed: false,
+          frameBreakoutWorks,
+          protectionEffective: !canBeFramed && !frameBreakoutWorks,
+          testResults
+        });
+      }, 3000);
+
+      testIframe.onload = () => {
+        clearTimeout(loadTimeout);
+        canBeFramed = true;
+        testResults.push('Iframe test: Loaded successfully (protection may be insufficient)');
+        document.body.removeChild(testIframe);
+        
+        resolve({
+          canBeFramed,
+          frameBreakoutWorks,
+          protectionEffective: !canBeFramed && !frameBreakoutWorks,
+          testResults
+        });
+      };
+
+      testIframe.onerror = () => {
+        clearTimeout(loadTimeout);
+        canBeFramed = false;
+        testResults.push('Iframe test: Failed to load (good protection)');
+        document.body.removeChild(testIframe);
+        
+        resolve({
+          canBeFramed,
+          frameBreakoutWorks,
+          protectionEffective: !canBeFramed && !frameBreakoutWorks,
+          testResults
+        });
+      };
+
+      document.body.appendChild(testIframe);
+    });
+  },
+
+  /**
+   * Get clickjacking protection recommendations
+   */
+  getProtectionRecommendations: (currentConfig: {
+    hasXFO: boolean;
+    hasFrameAncestors: boolean;
+    xfoPolicy?: string;
+    frameAncestorsPolicy?: string;
+  }): {
+    level: 'basic' | 'enhanced' | 'maximum';
+    recommendations: string[];
+    implementation: string[];
+  } => {
+    if (!currentConfig.hasXFO && !currentConfig.hasFrameAncestors) {
+      // No protection
+      return {
+        level: 'basic',
+        recommendations: [
+          'Implement X-Frame-Options header for basic protection',
+          'Add CSP frame-ancestors directive for modern browsers',
+          'Consider using DENY policy for maximum security'
+        ],
+        implementation: [
+          'Server: Add "X-Frame-Options: DENY" header',
+          'CSP: Add "frame-ancestors \'none\'" directive',
+          'Client: Add meta tag fallback'
+        ]
+      };
+    } else if (currentConfig.hasXFO && currentConfig.hasFrameAncestors) {
+      // Full protection
+      return {
+        level: 'maximum',
+        recommendations: [
+          'Excellent: Both X-Frame-Options and CSP frame-ancestors configured',
+          'Monitor for any framing attempts',
+          'Regularly test protection effectiveness'
+        ],
+        implementation: [
+          'Current configuration provides maximum protection',
+          'Consider adding client-side monitoring',
+          'Implement security event logging'
+        ]
+      };
+    } else {
+      // Partial protection
+      return {
+        level: 'enhanced',
+        recommendations: [
+          currentConfig.hasXFO ? 'Add CSP frame-ancestors for modern browser support' : 'Add X-Frame-Options for legacy browser support',
+          'Implement both methods for comprehensive protection',
+          'Test effectiveness across different browsers'
+        ],
+        implementation: [
+          currentConfig.hasXFO ? 'CSP: Add "frame-ancestors \'none\'" directive' : 'Server: Add "X-Frame-Options: DENY" header',
+          'Ensure both headers are consistent',
+          'Add monitoring and testing capabilities'
+        ]
+      };
+    }
+  }
+};
+
+/**
  * HSTS (HTTP Strict Transport Security) utilities and monitoring
  */
 export const hstsUtils = {

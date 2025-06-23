@@ -75,7 +75,7 @@ ruleSet.addRule('ForwardAllEmails', {
   ],
 });
 
-// Add security headers for XSS protection
+// Add comprehensive security headers for XSS, HSTS, and COOP protection
 const securityStack = backend.createStack('SecurityStack');
 
 // HSTS Deployment Strategy - Gradual Implementation
@@ -101,6 +101,8 @@ const securityHeadersPolicy = new cloudfront.ResponseHeadersPolicy(securityStack
   responseHeadersPolicyName: 'MapSucheSecurityHeaders',
   securityHeadersBehavior: {
     contentTypeOptions: { override: true },
+    // Clickjacking Protection: X-Frame-Options DENY prevents any framing of the site
+    // This blocks all attempts to embed the site in frames/iframes from any origin
     frameOptions: { frameOption: cloudfront.HeadersFrameOption.DENY, override: true },
     referrerPolicy: { 
       referrerPolicy: cloudfront.HeadersReferrerPolicy.STRICT_ORIGIN_WHEN_CROSS_ORIGIN, 
@@ -125,7 +127,7 @@ const securityHeadersPolicy = new cloudfront.ResponseHeadersPolicy(securityStack
         "frame-src 'none'",
         "base-uri 'self'",
         "form-action 'self'",
-        "frame-ancestors 'none'",
+        "frame-ancestors 'none'",  // Clickjacking Protection: Prevents framing from any origin
         "upgrade-insecure-requests"
       ].join('; '),
       override: true,
@@ -141,6 +143,19 @@ const securityHeadersPolicy = new cloudfront.ResponseHeadersPolicy(securityStack
       {
         header: 'Permissions-Policy',
         value: 'camera=(), microphone=(), geolocation=(), payment=(), usb=(), accelerometer=(), gyroscope=(), magnetometer=()',
+        override: true,
+      },
+      // COOP (Cross-Origin Opener Policy) and COEP (Cross-Origin Embedder Policy)
+      // These headers provide source isolation by preventing cross-origin documents
+      // from accessing the window object, protecting against attacks via popups
+      {
+        header: 'Cross-Origin-Opener-Policy',
+        value: 'same-origin',
+        override: true,
+      },
+      {
+        header: 'Cross-Origin-Embedder-Policy',
+        value: 'require-corp',
         override: true,
       },
     ],

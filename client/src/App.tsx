@@ -5,7 +5,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { LanguageProvider } from '@/hooks/useLanguage';
 import { loadFontsOptimized, loadCSSDeferred } from '@/lib/cssLoader';
-import { initCSPReporting, hstsUtils } from '@/lib/security';
+import { initCSPReporting, hstsUtils, coopUtils, clickjackingUtils } from '@/lib/security';
 
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
@@ -46,6 +46,12 @@ export default function App() {
     
     // Initialize HSTS monitoring
     hstsUtils.monitorHSTS();
+    
+    // Initialize COOP monitoring
+    coopUtils.monitorCOOP();
+    
+    // Initialize clickjacking protection monitoring
+    clickjackingUtils.monitorClickjacking();
   }, []);
 
   return (
