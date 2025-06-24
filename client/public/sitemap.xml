@@ -57,6 +57,52 @@
     <priority>0.6</priority>
   </url>
   
+  <!-- Blog Pages -->
+  <url>
+    <loc>https://mapsuche.de/blog</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Blog Articles -->
+  <url>
+    <loc>https://mapsuche.de/blog/wie-findet-man-gute-firmen-in-der-naehe</loc>
+    <lastmod>2024-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mapsuche.de/blog/warum-ist-ein-google-eintrag-wichtig</loc>
+    <lastmod>2024-01-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mapsuche.de/blog/top-5-restaurants-lutherstadt-wittenberg</loc>
+    <lastmod>2024-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mapsuche.de/blog/haeufigste-fehler-unternehmen-internet</loc>
+    <lastmod>2024-01-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mapsuche.de/blog/online-sichtbarkeit-tipps-lokale-unternehmen</loc>
+    <lastmod>2024-01-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mapsuche.de/blog/mobile-first-lokale-unternehmen-optimierung</loc>
+    <lastmod>2024-01-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
   <!-- Legal Pages -->
   <url>
     <loc>https://mapsuche.de/privacy</loc>

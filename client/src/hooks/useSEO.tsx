@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useLanguage } from './useLanguage';
 import { updatePageSEO, generatePageKeywords, type SEOConfig } from '@/lib/utils';
 
-type PageType = 'home' | 'services' | 'googleMaps' | 'businessProfile' | 'website' | 'contact' | 'faq';
+type PageType = 'home' | 'services' | 'googleMaps' | 'businessProfile' | 'website' | 'contact' | 'faq' | 'blog';
 
 interface UseSEOProps {
   page: PageType;
@@ -61,7 +61,8 @@ const getPageUrl = (page: PageType): string => {
     businessProfile: '/services/business-profile',
     website: '/services/website',
     contact: '/contact',
-    faq: '/faq'
+    faq: '/faq',
+    blog: '/blog'
   };
   return urls[page] || '/';
 };
@@ -185,6 +186,15 @@ const getDefaultStructuredData = (page: PageType, language: 'en' | 'de'): object
         "description": language === 'de'
           ? "Häufige Fragen zu lokaler SEO und Digital Marketing"
           : "Frequently asked questions about local SEO and digital marketing"
+      };
+
+    case 'blog':
+      return {
+        ...baseData,
+        "@type": "Blog",
+        "description": language === 'de'
+          ? "MapSuche Blog - Professionelle Tipps für lokales SEO und Digital Marketing"
+          : "MapSuche Blog - Professional tips for local SEO and digital marketing"
       };
 
     default:

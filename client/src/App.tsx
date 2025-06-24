@@ -24,6 +24,10 @@ import TermsPage from '@/pages/TermsPage';
 import ImpressumPage from '@/pages/ImpressumPage';
 import NotFound from '@/pages/not-found';
 
+// Blog Pages
+import BlogPage from '@/pages/BlogPage';
+import { BlogRouter } from '@/components/BlogRouter';
+
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
@@ -68,6 +72,8 @@ export default function App() {
                 <Route path="/services/google-maps" component={GoogleMapsPage} />
                 <Route path="/services/business-profile" component={BusinessProfilePage} />
                 <Route path="/services/website" component={WebsitePage} />
+                <Route path="/blog" component={BlogPage} />
+                <BlogRouter />
                 <Route path="/contact" component={ContactPage} />
                 <Route path="/faq" component={FAQPage} />
                 <Route path="/privacy" component={PrivacyPage} />
