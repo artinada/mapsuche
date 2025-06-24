@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ChevronDown, ChevronUp } from 'lucide-react';
+import { ChevronDown, ChevronUp, MessageCircle, ArrowRight } from 'lucide-react';
 import { useLanguage } from '@/hooks/useLanguage';
 import { useSEO } from '@/hooks/useSEO';
 
@@ -103,63 +103,76 @@ export default function FAQPage() {
   };
 
   return (
-    <div className="min-h-screen py-20">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h1 className="text-4xl font-bold text-gray-900 mb-6">
+    <div className="min-h-screen">
+      {/* Header Section */}
+      <section className="bg-gradient-to-br from-primary to-blue-700 text-white py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="bg-white/10 w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-6">
+            <MessageCircle className="h-10 w-10 text-white" />
+          </div>
+          <h1 className="text-4xl lg:text-5xl font-bold mb-6">
             {language === 'en' ? 'Frequently Asked Questions' : 'Häufig gestellte Fragen'}
           </h1>
-          <p className="text-xl text-gray-600">
+          <p className="text-xl text-blue-100 max-w-3xl mx-auto">
             {language === 'en' 
               ? 'Everything you need to know about our local SEO and digital marketing services'
               : 'Alles was Sie über unsere lokalen SEO- und Digital-Marketing-Dienstleistungen wissen müssen'}
           </p>
         </div>
+      </section>
 
-        <div className="space-y-4">
-          {currentFaqs.map((faq, index) => (
-            <div key={index} className="bg-white rounded-lg shadow-md border border-gray-200 overflow-hidden">
-              <button
-                onClick={() => toggleFAQ(index)}
-                className="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-50 transition-colors"
-              >
-                <h3 className="text-lg font-semibold text-gray-900 pr-4">
-                  {faq.question}
-                </h3>
-                {openIndex === index ? (
-                  <ChevronUp className="h-5 w-5 text-gray-500 flex-shrink-0" />
-                ) : (
-                  <ChevronDown className="h-5 w-5 text-gray-500 flex-shrink-0" />
+      {/* FAQ Content */}
+      <section className="py-20 bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="space-y-4">
+            {currentFaqs.map((faq, index) => (
+              <div key={index} className="bg-white rounded-lg shadow-md border border-gray-200 overflow-hidden">
+                <button
+                  onClick={() => toggleFAQ(index)}
+                  className="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-50 transition-colors"
+                >
+                  <h3 className="text-lg font-semibold text-gray-900 pr-4">
+                    {faq.question}
+                  </h3>
+                  {openIndex === index ? (
+                    <ChevronUp className="h-5 w-5 text-gray-500 flex-shrink-0" />
+                  ) : (
+                    <ChevronDown className="h-5 w-5 text-gray-500 flex-shrink-0" />
+                  )}
+                </button>
+                {openIndex === index && (
+                  <div className="px-6 pb-4">
+                    <p className="text-gray-700 leading-relaxed">
+                      {faq.answer}
+                    </p>
+                  </div>
                 )}
-              </button>
-              {openIndex === index && (
-                <div className="px-6 pb-4">
-                  <p className="text-gray-700 leading-relaxed">
-                    {faq.answer}
-                  </p>
-                </div>
-              )}
-            </div>
-          ))}
+              </div>
+            ))}
+          </div>
         </div>
+      </section>
 
-        <div className="mt-16 text-center bg-gray-50 rounded-lg p-8">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">
+      {/* CTA Section */}
+      <section className="py-16 bg-gradient-to-r from-primary to-blue-700 text-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl font-bold mb-4">
             {language === 'en' ? 'Still Have Questions?' : 'Haben Sie noch Fragen?'}
           </h2>
-          <p className="text-gray-600 mb-6">
+          <p className="text-blue-100 mb-8 text-lg">
             {language === 'en' 
               ? "We're here to help! Contact us for personalized answers about your local SEO needs."
               : 'Wir sind hier, um zu helfen! Kontaktieren Sie uns für persönliche Antworten zu Ihren lokalen SEO-Bedürfnissen.'}
           </p>
           <a
             href="/contact"
-            className="inline-flex items-center bg-primary hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition-colors"
+            className="inline-flex items-center bg-accent hover:bg-red-700 text-white px-8 py-4 rounded-lg font-medium shadow-lg hover:shadow-xl transition-all duration-300"
           >
             {language === 'en' ? 'Contact Our Experts' : 'Kontaktieren Sie unsere Experten'}
+            <ArrowRight className="ml-2 h-5 w-5" />
           </a>
         </div>
-      </div>
+      </section>
     </div>
   );
 }

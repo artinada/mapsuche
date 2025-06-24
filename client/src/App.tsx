@@ -4,7 +4,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { LanguageProvider } from '@/hooks/useLanguage';
-import { loadFontsOptimized, loadCSSDeferred } from '@/lib/cssLoader';
+import { loadFontsOptimized } from '@/lib/cssLoader';
 import { initCSPReporting, hstsUtils, coopUtils, clickjackingUtils } from '@/lib/security';
 
 import { Header } from '@/components/Header';
@@ -26,7 +26,13 @@ import NotFound from '@/pages/not-found';
 
 // Blog Pages
 import BlogPage from '@/pages/BlogPage';
-import { BlogRouter } from '@/components/BlogRouter';
+// Import blog articles directly
+import WieFindetManGuteFirmen from '@/pages/blog/WieFindetManGuteFirmen';
+import GoogleEintragWichtigkeit from '@/pages/blog/GoogleEintragWichtigkeit';
+import TopRestaurantsWittenberg from '@/pages/blog/TopRestaurantsWittenberg';
+import HaeufigsteFehlerUnternehmenInternet from '@/pages/blog/HaeufigsteFehlerUnternehmenInternet';
+import OnlineSichtbarkeitTipps from '@/pages/blog/OnlineSichtbarkeitTipps';
+import MobileFirstLokaleUnternehmen from '@/pages/blog/MobileFirstLokaleUnternehmen';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -41,9 +47,6 @@ export default function App() {
   useEffect(() => {
     // Load fonts optimized for performance
     loadFontsOptimized();
-    
-    // Load non-critical CSS after initial render
-    loadCSSDeferred('/src/styles/deferred.css');
     
     // Initialize CSP violation reporting
     initCSPReporting();
@@ -73,7 +76,15 @@ export default function App() {
                 <Route path="/services/business-profile" component={BusinessProfilePage} />
                 <Route path="/services/website" component={WebsitePage} />
                 <Route path="/blog" component={BlogPage} />
-                <BlogRouter />
+                
+                {/* Blog article routes */}
+                <Route path="/blog/wie-findet-man-gute-firmen-in-der-naehe" component={WieFindetManGuteFirmen} />
+                <Route path="/blog/warum-ist-ein-google-eintrag-wichtig" component={GoogleEintragWichtigkeit} />
+                <Route path="/blog/top-5-restaurants-lutherstadt-wittenberg" component={TopRestaurantsWittenberg} />
+                <Route path="/blog/haeufigste-fehler-unternehmen-internet" component={HaeufigsteFehlerUnternehmenInternet} />
+                <Route path="/blog/online-sichtbarkeit-tipps-lokale-unternehmen" component={OnlineSichtbarkeitTipps} />
+                <Route path="/blog/mobile-first-lokale-unternehmen" component={MobileFirstLokaleUnternehmen} />
+                
                 <Route path="/contact" component={ContactPage} />
                 <Route path="/faq" component={FAQPage} />
                 <Route path="/privacy" component={PrivacyPage} />

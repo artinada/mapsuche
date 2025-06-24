@@ -2,12 +2,16 @@ import { Link } from 'wouter';
 import { ArrowLeft, MapPin, Star, Utensils, Clock, Phone, Globe, Award, ExternalLink } from 'lucide-react';
 import { useLanguage } from '@/hooks/useLanguage';
 import { useSEO } from '@/hooks/useSEO';
+import { getPostBySlug } from '@/lib/blogConfig';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import LazyImage from '@/components/LazyImage';
 
 export default function TopRestaurantsWittenberg() {
   const { language } = useLanguage();
+
+  // Get the blog post configuration
+  const blogPost = getPostBySlug('top-5-restaurants-lutherstadt-wittenberg');
 
   // SEO optimization for this specific article
   useSEO({ 
@@ -175,7 +179,7 @@ export default function TopRestaurantsWittenberg() {
         {/* Featured Image */}
         <div className="mb-12">
           <LazyImage
-            src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&h=400&fit=crop&auto=format&q=80"
+            src={blogPost?.image || "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&h=400&fit=crop&auto=format&q=80"}
             alt={currentContent.title}
             className="w-full h-64 md:h-80 object-cover rounded-lg"
           />
@@ -183,21 +187,25 @@ export default function TopRestaurantsWittenberg() {
 
         {/* Intro */}
         <div className="mb-12">
-          <p className="text-lg text-gray-700 mb-8">
+          <p className="text-lg text-gray-700 mb-8 leading-relaxed">
             {currentContent.intro}
           </p>
           
-          <Card className="bg-gradient-to-r from-accent/5 to-primary/5">
-            <CardContent className="p-6">
+          <Card className="bg-white hover:shadow-lg transition-all duration-300 border border-gray-100">
+            <CardContent className="p-8">
               <div className="flex items-start mb-4">
-                <Award className="h-6 w-6 text-accent mr-3 mt-1" />
-                <h2 className="text-xl font-bold text-gray-900">
-                  {currentContent.methodology}
-                </h2>
+                <div className="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center mr-4 flex-shrink-0">
+                  <Award className="h-6 w-6 text-accent" />
+                </div>
+                <div className="flex-1">
+                  <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                    {currentContent.methodology}
+                  </h2>
+                  <p className="text-gray-700 leading-relaxed">
+                    {currentContent.methodologyText}
+                  </p>
+                </div>
               </div>
-              <p className="text-gray-700">
-                {currentContent.methodologyText}
-              </p>
             </CardContent>
           </Card>
         </div>
@@ -205,7 +213,7 @@ export default function TopRestaurantsWittenberg() {
         {/* Restaurant List */}
         <div className="space-y-8 mb-12">
           {restaurants.map((restaurant) => (
-            <Card key={restaurant.rank} className="overflow-hidden hover:shadow-lg transition-shadow">
+            <Card key={restaurant.rank} className="overflow-hidden bg-white hover:shadow-xl transition-all duration-300 border border-gray-100">
               <div className="md:flex">
                 <div className="md:w-1/3">
                   <LazyImage
@@ -214,18 +222,18 @@ export default function TopRestaurantsWittenberg() {
                     className="w-full h-64 md:h-full object-cover"
                   />
                 </div>
-                <div className="md:w-2/3 p-6">
+                <div className="md:w-2/3 p-8">
                   <div className="flex items-start justify-between mb-4">
                     <div>
                       <div className="flex items-center mb-2">
-                        <div className="bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center mr-3 font-bold">
+                        <div className="bg-accent text-white rounded-full w-10 h-10 flex items-center justify-center mr-3 font-bold shadow-lg">
                           {restaurant.rank}
                         </div>
                         <h3 className="text-2xl font-bold text-gray-900">
                           {restaurant.name}
                         </h3>
                       </div>
-                      <div className="flex items-center mb-2">
+                      <div className="flex items-center mb-3">
                         <Utensils className="h-4 w-4 text-gray-500 mr-2" />
                         <span className="text-gray-600">{restaurant.cuisine}</span>
                         <span className="mx-2 text-gray-400">•</span>
@@ -233,13 +241,13 @@ export default function TopRestaurantsWittenberg() {
                       </div>
                       
                       {/* Address */}
-                      <div className="flex items-start mb-2">
+                      <div className="flex items-start mb-3">
                         <MapPin className="h-4 w-4 text-gray-500 mr-2 mt-0.5" />
                         <span className="text-gray-600 text-sm">{restaurant.address}</span>
                       </div>
                       
                       {/* Contact Info */}
-                      <div className="flex flex-wrap gap-4 mb-3">
+                      <div className="flex flex-wrap gap-4 mb-4">
                         <div className="flex items-center">
                           <Phone className="h-4 w-4 text-gray-500 mr-2" />
                           <span className="text-gray-600 text-sm">{restaurant.phone}</span>
@@ -259,21 +267,21 @@ export default function TopRestaurantsWittenberg() {
                         )}
                       </div>
                     </div>
-                    <div className="flex items-center bg-secondary/10 px-3 py-1 rounded-full">
+                    <div className="flex items-center bg-secondary/10 px-3 py-2 rounded-full border border-secondary/20">
                       <Star className="h-4 w-4 text-secondary mr-1" />
                       <span className="font-bold text-secondary">{restaurant.rating}</span>
                     </div>
                   </div>
                   
-                  <p className="text-gray-700 mb-4">
+                  <p className="text-gray-700 mb-6 leading-relaxed">
                     {restaurant.description}
                   </p>
                   
-                  <div className="bg-gray-50 rounded-lg p-4">
-                    <h4 className="font-semibold text-gray-900 mb-2">
+                  <div className="bg-gray-50 rounded-lg p-6 border border-gray-100">
+                    <h4 className="font-semibold text-gray-900 mb-3">
                       {language === 'de' ? 'Spezialitäten:' : 'Specialties:'}
                     </h4>
-                    <p className="text-gray-700 text-sm">
+                    <p className="text-gray-700 leading-relaxed">
                       {restaurant.specialties}
                     </p>
                   </div>
@@ -284,15 +292,15 @@ export default function TopRestaurantsWittenberg() {
         </div>
 
         {/* Conclusion */}
-        <Card className="mb-8">
-          <CardContent className="p-6">
-            <p className="text-lg text-gray-700 mb-4">
+        <Card className="mb-8 bg-white hover:shadow-lg transition-all duration-300 border border-gray-100">
+          <CardContent className="p-8">
+            <p className="text-lg text-gray-700 mb-6 leading-relaxed">
               {currentContent.conclusion}
             </p>
-            <div className="bg-primary/10 rounded-lg p-4">
+            <div className="bg-primary/5 rounded-lg p-6 border border-primary/10">
               <div className="flex items-start">
-                <Clock className="h-5 w-5 text-primary mr-3 mt-0.5" />
-                <p className="text-gray-700">
+                <Clock className="h-5 w-5 text-primary mr-3 mt-0.5 flex-shrink-0" />
+                <p className="text-gray-700 leading-relaxed">
                   <strong>{language === 'de' ? 'Tipp:' : 'Tip:'}</strong> {currentContent.visitTip}
                 </p>
               </div>
@@ -301,19 +309,20 @@ export default function TopRestaurantsWittenberg() {
         </Card>
 
         {/* CTA */}
-        <Card className="bg-gradient-to-r from-accent/10 to-secondary/10">
+        <Card className="bg-gradient-to-r from-primary/10 to-accent/10 border border-primary/20 hover:shadow-xl transition-all duration-300">
           <CardContent className="p-8 text-center">
             <h3 className="text-2xl font-bold text-gray-900 mb-4">
               {language === 'de' ? 'Ihr Restaurant in Wittenberg?' : 'Your Restaurant in Wittenberg?'}
             </h3>
-            <p className="text-gray-600 mb-6">
+            <p className="text-gray-600 mb-6 leading-relaxed">
               {language === 'de' 
                 ? 'Betreiben Sie ein Restaurant in Wittenberg? Wir helfen Ihnen dabei, online gefunden zu werden und mehr Gäste zu gewinnen!'
                 : 'Do you run a restaurant in Wittenberg? We help you get found online and attract more guests!'
               }
             </p>
             <Link href="/contact">
-              <Button size="lg" className="bg-accent hover:bg-red-700">
+              <Button size="lg" className="bg-accent hover:bg-red-700 text-white shadow-lg hover:shadow-xl transition-all duration-300">
+                <ExternalLink className="mr-2 h-5 w-5" />
                 {language === 'de' ? 'Restaurant-Marketing anfragen' : 'Request Restaurant Marketing'}
               </Button>
             </Link>

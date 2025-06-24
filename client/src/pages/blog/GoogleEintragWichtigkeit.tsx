@@ -1,13 +1,17 @@
 import { Link } from 'wouter';
-import { ArrowLeft, MapPin, Star, CheckCircle, Globe } from 'lucide-react';
+import { ArrowLeft, MapPin, Star, CheckCircle, Globe, ExternalLink } from 'lucide-react';
 import { useLanguage } from '@/hooks/useLanguage';
 import { useSEO } from '@/hooks/useSEO';
+import { getPostBySlug } from '@/lib/blogConfig';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import LazyImage from '@/components/LazyImage';
 
 export default function GoogleEintragWichtigkeit() {
   const { language } = useLanguage();
+
+  // Get the blog post configuration
+  const blogPost = getPostBySlug('warum-ist-ein-google-eintrag-wichtig');
 
   // SEO optimization for this specific article
   useSEO({ 
@@ -115,7 +119,7 @@ export default function GoogleEintragWichtigkeit() {
         {/* Featured Image */}
         <div className="mb-12">
           <LazyImage
-            src="https://images.unsplash.com/photo-1573804633927-bfcbcd909acd?w=800&h=400&fit=crop"
+            src={blogPost?.image || "https://images.unsplash.com/photo-1573804633927-bfcbcd909acd?w=800&h=400&fit=crop"}
             alt={currentContent.title}
             className="w-full h-64 md:h-80 object-cover rounded-lg"
           />
@@ -123,87 +127,105 @@ export default function GoogleEintragWichtigkeit() {
 
         {/* Article Content */}
         <div className="prose prose-lg max-w-none mb-12">
-          <p className="text-lg text-gray-700 mb-8">
+          <p className="text-lg text-gray-700 mb-8 leading-relaxed">
             {currentContent.intro}
           </p>
 
-          <Card className="mb-8">
-            <CardContent className="p-6">
-              <div className="flex items-start mb-4">
-                <MapPin className="h-6 w-6 text-primary mr-3 mt-1" />
-                <h2 className="text-2xl font-bold text-gray-900">
-                  {currentContent.section1Title}
-                </h2>
+          <Card className="mb-8 bg-white hover:shadow-lg transition-all duration-300 border border-gray-100">
+            <CardContent className="p-8">
+              <div className="flex items-start mb-6">
+                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mr-4 flex-shrink-0">
+                  <MapPin className="h-6 w-6 text-primary" />
+                </div>
+                <div className="flex-1">
+                  <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                    {currentContent.section1Title}
+                  </h2>
+                  <p className="text-gray-700 leading-relaxed text-lg">
+                    {currentContent.section1Content}
+                  </p>
+                </div>
               </div>
-              <p className="text-gray-700">
-                {currentContent.section1Content}
-              </p>
             </CardContent>
           </Card>
 
-          <Card className="mb-8">
-            <CardContent className="p-6">
-              <div className="flex items-start mb-4">
-                <Star className="h-6 w-6 text-secondary mr-3 mt-1" />
-                <h2 className="text-2xl font-bold text-gray-900">
-                  {currentContent.section2Title}
-                </h2>
+          <Card className="mb-8 bg-white hover:shadow-lg transition-all duration-300 border border-gray-100">
+            <CardContent className="p-8">
+              <div className="flex items-start mb-6">
+                <div className="w-12 h-12 rounded-full bg-secondary/10 flex items-center justify-center mr-4 flex-shrink-0">
+                  <Star className="h-6 w-6 text-secondary" />
+                </div>
+                <div className="flex-1">
+                  <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                    {currentContent.section2Title}
+                  </h2>
+                  <p className="text-gray-700 leading-relaxed text-lg">
+                    {currentContent.section2Content}
+                  </p>
+                </div>
               </div>
-              <p className="text-gray-700">
-                {currentContent.section2Content}
-              </p>
             </CardContent>
           </Card>
 
-          <Card className="mb-8">
-            <CardContent className="p-6">
-              <div className="flex items-start mb-4">
-                <Globe className="h-6 w-6 text-accent mr-3 mt-1" />
-                <h2 className="text-2xl font-bold text-gray-900">
-                  {currentContent.section3Title}
-                </h2>
+          <Card className="mb-8 bg-white hover:shadow-lg transition-all duration-300 border border-gray-100">
+            <CardContent className="p-8">
+              <div className="flex items-start mb-6">
+                <div className="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center mr-4 flex-shrink-0">
+                  <Globe className="h-6 w-6 text-accent" />
+                </div>
+                <div className="flex-1">
+                  <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                    {currentContent.section3Title}
+                  </h2>
+                  <p className="text-gray-700 leading-relaxed text-lg">
+                    {currentContent.section3Content}
+                  </p>
+                </div>
               </div>
-              <p className="text-gray-700">
-                {currentContent.section3Content}
-              </p>
             </CardContent>
           </Card>
 
-          <Card className="mb-8 bg-gradient-to-r from-primary/5 to-secondary/5">
-            <CardContent className="p-6">
-              <h3 className="text-xl font-bold text-gray-900 mb-4">
+          <Card className="mb-8 bg-white hover:shadow-lg transition-all duration-300 border border-gray-100">
+            <CardContent className="p-8">
+              <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+                <CheckCircle className="h-6 w-6 text-secondary mr-3" />
                 {language === 'de' ? 'Wichtige Vorteile:' : 'Key Benefits:'}
               </h3>
-              <ul className="space-y-3">
+              <ul className="space-y-4">
                 {currentContent.benefits.map((benefit, index) => (
                   <li key={index} className="flex items-start">
                     <CheckCircle className="h-5 w-5 text-secondary mr-3 mt-0.5 flex-shrink-0" />
-                    <span className="text-gray-700">{benefit}</span>
+                    <span className="text-gray-700 leading-relaxed">{benefit}</span>
                   </li>
                 ))}
               </ul>
             </CardContent>
           </Card>
 
-          <p className="text-lg text-gray-700 mb-8">
-            {currentContent.conclusion}
-          </p>
+          <Card className="mb-8 bg-white hover:shadow-lg transition-all duration-300 border border-gray-100">
+            <CardContent className="p-8">
+              <p className="text-lg text-gray-700 leading-relaxed">
+                {currentContent.conclusion}
+              </p>
+            </CardContent>
+          </Card>
         </div>
 
         {/* CTA */}
-        <Card className="bg-gradient-to-r from-secondary/10 to-primary/10">
+        <Card className="bg-gradient-to-r from-primary/10 to-accent/10 border border-primary/20 hover:shadow-xl transition-all duration-300">
           <CardContent className="p-8 text-center">
             <h3 className="text-2xl font-bold text-gray-900 mb-4">
               {language === 'de' ? 'Ihr Google Business Profile optimieren?' : 'Optimize Your Google Business Profile?'}
             </h3>
-            <p className="text-gray-600 mb-6">
+            <p className="text-gray-600 mb-6 leading-relaxed">
               {language === 'de' 
                 ? 'Wir helfen Ihnen dabei, Ihr Google Business Profile zu erstellen und zu optimieren. Maximieren Sie Ihre lokale Sichtbarkeit und gewinnen Sie mehr Kunden!'
                 : 'We help you create and optimize your Google Business Profile. Maximize your local visibility and win more customers!'
               }
             </p>
             <Link href="/contact">
-              <Button size="lg" className="bg-secondary hover:bg-green-700">
+              <Button size="lg" className="bg-secondary hover:bg-green-700 text-white shadow-lg hover:shadow-xl transition-all duration-300">
+                <ExternalLink className="mr-2 h-5 w-5" />
                 {language === 'de' ? 'Jetzt optimieren lassen' : 'Get Optimized Now'}
               </Button>
             </Link>

@@ -220,7 +220,7 @@ export default function HomePage() {
 
       {/* SEO Content Section */}
       <section className="py-16 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-6">
               {t('seoSectionTitle')}
@@ -258,12 +258,12 @@ export default function HomePage() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-gradient-to-r from-primary to-blue-700 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">{t('ctaTitle')}</h2>
-          <p className="text-gray-600 mb-8">{t('ctaDescription')}</p>
+          <h2 className="text-3xl font-bold mb-4">{t('ctaTitle')}</h2>
+          <p className="text-blue-100 mb-8 text-lg">{t('ctaDescription')}</p>
           <Link href="/contact">
-            <Button size="lg" className="bg-primary hover:bg-blue-700 text-white">
+            <Button size="lg" className="bg-accent hover:bg-red-700 text-white shadow-lg hover:shadow-xl transition-all duration-300">
               {t('freeConsultation')}
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>

@@ -41,6 +41,11 @@ export const translations = {
         title: "Local SEO FAQ - Common Questions About Digital Marketing | MapSuche",
         description: "Frequently asked questions about local SEO, Google Maps optimization, and digital marketing for small businesses. Get expert answers from MapSuche's local SEO specialists in Germany.",
         keywords: "local seo faq, digital marketing questions, google maps optimization faq, business profile questions, local search marketing faq, seo help germany"
+      },
+      blog: {
+        title: "Local SEO Blog - Digital Marketing Tips & Strategies | MapSuche",
+        description: "Expert insights on local SEO, Google Maps optimization, and digital marketing strategies for small businesses. Professional tips to improve your online visibility and attract more customers in Germany.",
+        keywords: "local seo blog, digital marketing tips, google maps optimization guide, business profile tips, local search strategies, seo advice germany, small business marketing blog"
       }
     },
     
@@ -191,6 +196,11 @@ export const translations = {
         title: "Lokale SEO FAQ - Häufige Fragen Digital Marketing | MapSuche",
         description: "Häufig gestellte Fragen zu lokaler SEO, Google Maps Optimierung und Digital Marketing für kleine Unternehmen. Expertenantworten von MapSuche's lokalen SEO Spezialisten in Deutschland.",
         keywords: "lokale seo faq, digital marketing fragen, google maps optimierung faq, unternehmensprofil fragen, lokales suchmarketing faq, seo hilfe deutschland"
+      },
+      blog: {
+        title: "Lokale SEO Blog - Digital Marketing Tipps & Strategien | MapSuche",
+        description: "Experten-Einblicke in lokale SEO, Google Maps Optimierung und Digital Marketing Strategien für kleine Unternehmen. Professionelle Tipps für bessere Online-Sichtbarkeit und mehr Kunden in Deutschland.",
+        keywords: "lokale seo blog, digital marketing tipps, google maps optimierung anleitung, unternehmensprofil tipps, lokale suchstrategien, seo beratung deutschland, kleine unternehmen marketing blog"
       }
     },
     

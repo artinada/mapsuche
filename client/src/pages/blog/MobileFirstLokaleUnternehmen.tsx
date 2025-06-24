@@ -4,11 +4,15 @@ import { Card, CardContent } from '../../components/ui/card';
 import { Button } from '../../components/ui/button';
 import { useLanguage } from '../../hooks/useLanguage';
 import { useSEO } from '../../hooks/useSEO';
-import { Users, ExternalLink, CheckCircle, TrendingUp, Target, Lightbulb, ArrowRight, AlertTriangle, Zap, ArrowLeft } from 'lucide-react';
+import { getPostBySlug } from '../../lib/blogConfig';
+import { TrendingUp, Users, AlertTriangle, CheckCircle, Lightbulb, Zap, Target, ArrowLeft, ExternalLink } from 'lucide-react';
 import LazyImage from '../../components/LazyImage';
 
 const MobileFirstLokaleUnternehmen: React.FC = () => {
   const { language } = useLanguage();
+
+  // Get the blog post configuration
+  const blogPost = getPostBySlug('mobile-first-lokale-unternehmen');
 
   const content = {
     de: {
@@ -159,7 +163,7 @@ const MobileFirstLokaleUnternehmen: React.FC = () => {
         {/* Featured Image */}
         <div className="mb-12">
           <LazyImage
-            src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&h=400&fit=crop&auto=format&q=80"
+            src={blogPost?.image || "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&h=400&fit=crop&auto=format&q=80"}
             alt={currentContent.title}
             className="w-full h-64 md:h-80 object-cover rounded-lg"
           />
@@ -168,133 +172,157 @@ const MobileFirstLokaleUnternehmen: React.FC = () => {
         {/* Article Content */}
         <div className="prose prose-lg max-w-none">
           {/* Statistics Section */}
-          <Card className="mb-8">
-            <CardContent className="p-6">
-              <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center">
+          <Card className="mb-8 bg-white hover:shadow-lg transition-all duration-300 border border-gray-100">
+            <CardContent className="p-8">
+              <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
                 <TrendingUp className="h-6 w-6 text-primary mr-3" />
                 {language === 'de' ? 'Mobile Suche in Zahlen' : 'Mobile Search in Numbers'}
               </h2>
               <div className="grid md:grid-cols-2 gap-6">
-                <div className="text-center p-4 bg-blue-50 rounded-lg">
-                  <div className="text-4xl font-bold text-blue-600 mb-2">70%</div>
-                  <p className="text-gray-700 font-medium">{currentContent.section1.stat1}</p>
+                <div className="text-center p-6 bg-primary/5 rounded-lg border border-primary/10">
+                  <div className="text-4xl font-bold text-primary mb-2">70%</div>
+                  <p className="text-gray-700 font-medium leading-relaxed">{currentContent.section1.stat1}</p>
                 </div>
-                <div className="text-center p-4 bg-green-50 rounded-lg">
-                  <div className="text-4xl font-bold text-green-600 mb-2">50%</div>
-                  <p className="text-gray-700 font-medium">{currentContent.section1.stat2}</p>
+                <div className="text-center p-6 bg-secondary/5 rounded-lg border border-secondary/10">
+                  <div className="text-4xl font-bold text-secondary mb-2">50%</div>
+                  <p className="text-gray-700 font-medium leading-relaxed">{currentContent.section1.stat2}</p>
                 </div>
               </div>
             </CardContent>
           </Card>
 
           {/* Section 1: Customer Behavior */}
-          <Card className="mb-8 border-l-4 border-l-blue-500">
-            <CardContent className="p-6">
-              <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center">
-                <Users className="h-6 w-6 text-blue-600 mr-3" />
-                {currentContent.section1.title}
-              </h2>
-              <p className="text-gray-700 text-lg leading-relaxed">
-                {currentContent.section1.content}
-              </p>
+          <Card className="mb-8 bg-white hover:shadow-lg transition-all duration-300 border border-gray-100">
+            <CardContent className="p-8">
+              <div className="flex items-start mb-6">
+                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mr-4 flex-shrink-0">
+                  <Users className="h-6 w-6 text-primary" />
+                </div>
+                <div className="flex-1">
+                  <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                    {currentContent.section1.title}
+                  </h2>
+                  <p className="text-gray-700 text-lg leading-relaxed">
+                    {currentContent.section1.content}
+                  </p>
+                </div>
+              </div>
             </CardContent>
           </Card>
 
           {/* Section 2: Problems without mobile optimization */}
-          <Card className="mb-8 border-l-4 border-l-red-500">
-            <CardContent className="p-6">
-              <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center">
-                <AlertTriangle className="h-6 w-6 text-red-600 mr-3" />
-                {currentContent.section2.title}
-              </h2>
-              <p className="text-gray-700 mb-4">{currentContent.section2.intro}</p>
-              <ul className="space-y-2 mb-4">
-                {currentContent.section2.points.map((point, index) => (
-                  <li key={index} className="flex items-center text-gray-700">
-                    <div className="w-2 h-2 bg-red-400 rounded-full mr-3"></div>
-                    {point}
-                  </li>
-                ))}
-              </ul>
-              <p className="text-gray-700 mb-4">{currentContent.section2.conclusion}</p>
-              <div className="bg-red-50 border border-red-200 rounded-lg p-4">
-                <div className="flex items-center">
-                  <AlertTriangle className="h-5 w-5 text-red-600 mr-2" />
-                  <p className="text-red-800 font-medium">{currentContent.section2.warning}</p>
+          <Card className="mb-8 bg-white hover:shadow-lg transition-all duration-300 border border-gray-100">
+            <CardContent className="p-8">
+              <div className="flex items-start mb-6">
+                <div className="w-12 h-12 rounded-full bg-red-50 flex items-center justify-center mr-4 flex-shrink-0">
+                  <AlertTriangle className="h-6 w-6 text-red-600" />
+                </div>
+                <div className="flex-1">
+                  <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                    {currentContent.section2.title}
+                  </h2>
+                  <p className="text-gray-700 mb-6 leading-relaxed">{currentContent.section2.intro}</p>
+                  <ul className="space-y-3 mb-6">
+                    {currentContent.section2.points.map((point, index) => (
+                      <li key={index} className="flex items-start text-gray-700">
+                        <div className="w-2 h-2 bg-red-400 rounded-full mr-3 mt-2 flex-shrink-0"></div>
+                        <span className="leading-relaxed">{point}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <p className="text-gray-700 mb-6 leading-relaxed">{currentContent.section2.conclusion}</p>
+                  <div className="bg-red-50 border border-red-100 rounded-lg p-6">
+                    <div className="flex items-start">
+                      <AlertTriangle className="h-5 w-5 text-red-600 mr-3 mt-0.5 flex-shrink-0" />
+                      <p className="text-red-800 font-medium leading-relaxed">{currentContent.section2.warning}</p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </CardContent>
           </Card>
 
           {/* Section 3: What mobile optimized means */}
-          <Card className="mb-8 border-l-4 border-l-green-500">
-            <CardContent className="p-6">
-              <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
-                <CheckCircle className="h-6 w-6 text-green-600 mr-3" />
-                {currentContent.section3.title}
-              </h2>
-              <div className="space-y-4 mb-6">
-                {currentContent.section3.points.map((point, index) => (
-                  <div key={index} className="flex items-start gap-3">
-                    <CheckCircle className="h-5 w-5 text-green-600 mt-1 flex-shrink-0" />
-                    <p className="text-gray-700">{point}</p>
+          <Card className="mb-8 bg-white hover:shadow-lg transition-all duration-300 border border-gray-100">
+            <CardContent className="p-8">
+              <div className="flex items-start mb-6">
+                <div className="w-12 h-12 rounded-full bg-secondary/10 flex items-center justify-center mr-4 flex-shrink-0">
+                  <CheckCircle className="h-6 w-6 text-secondary" />
+                </div>
+                <div className="flex-1">
+                  <h2 className="text-2xl font-bold text-gray-900 mb-6">
+                    {currentContent.section3.title}
+                  </h2>
+                  <div className="space-y-4 mb-6">
+                    {currentContent.section3.points.map((point, index) => (
+                      <div key={index} className="flex items-start gap-3">
+                        <CheckCircle className="h-5 w-5 text-secondary mt-1 flex-shrink-0" />
+                        <p className="text-gray-700 leading-relaxed">{point}</p>
+                      </div>
+                    ))}
                   </div>
-                ))}
-              </div>
-              <div className="bg-green-50 border border-green-200 rounded-lg p-4">
-                <div className="flex items-start gap-3">
-                  <Lightbulb className="h-5 w-5 text-green-600 mt-1 flex-shrink-0" />
-                  <p className="text-green-800">{currentContent.section3.note}</p>
+                  <div className="bg-secondary/5 border border-secondary/10 rounded-lg p-6">
+                    <div className="flex items-start gap-3">
+                      <Lightbulb className="h-5 w-5 text-secondary mt-1 flex-shrink-0" />
+                      <p className="text-gray-700 leading-relaxed">{currentContent.section3.note}</p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </CardContent>
           </Card>
 
           {/* Section 4: Good news */}
-          <Card className="mb-8 border-l-4 border-l-purple-500">
-            <CardContent className="p-6">
-              <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center">
-                <Zap className="h-6 w-6 text-purple-600 mr-3" />
-                {currentContent.section4.title}
-              </h2>
-              <p className="text-gray-700 mb-4">{currentContent.section4.intro}</p>
-              <ul className="space-y-2 mb-4">
-                {currentContent.section4.points.map((point, index) => (
-                  <li key={index} className="flex items-center text-gray-700">
-                    <ArrowRight className="h-4 w-4 text-purple-600 mr-3" />
-                    {point}
-                  </li>
-                ))}
-              </ul>
-              <div className="bg-purple-50 border border-purple-200 rounded-lg p-4">
-                <p className="text-purple-800 font-medium">{currentContent.section4.conclusion}</p>
+          <Card className="mb-8 bg-white hover:shadow-lg transition-all duration-300 border border-gray-100">
+            <CardContent className="p-8">
+              <div className="flex items-start mb-6">
+                <div className="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center mr-4 flex-shrink-0">
+                  <Zap className="h-6 w-6 text-accent" />
+                </div>
+                <div className="flex-1">
+                  <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                    {currentContent.section4.title}
+                  </h2>
+                  <p className="text-gray-700 mb-6 leading-relaxed">{currentContent.section4.intro}</p>
+                  <ul className="space-y-3 mb-6">
+                    {currentContent.section4.points.map((point, index) => (
+                      <li key={index} className="flex items-start text-gray-700">
+                        <CheckCircle className="h-5 w-5 text-secondary mr-3 mt-0.5 flex-shrink-0" />
+                        <span className="leading-relaxed">{point}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="bg-accent/5 border border-accent/10 rounded-lg p-6">
+                    <p className="text-gray-700 font-medium leading-relaxed">{currentContent.section4.conclusion}</p>
+                  </div>
+                </div>
               </div>
             </CardContent>
           </Card>
 
           {/* Conclusion */}
-          <Card className="mb-8">
-            <CardContent className="p-6">
+          <Card className="mb-8 bg-white hover:shadow-lg transition-all duration-300 border border-gray-100">
+            <CardContent className="p-8">
               <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center">
                 <Target className="h-6 w-6 text-primary mr-3" />
                 {currentContent.conclusionTitle}
               </h2>
-              <p className="text-gray-700 text-lg">
+              <p className="text-gray-700 text-lg leading-relaxed">
                 {currentContent.conclusionText}
               </p>
             </CardContent>
           </Card>
 
           {/* Call to Action */}
-          <Card className="bg-gradient-to-r from-primary/10 to-accent/10 border-primary/20">
+          <Card className="bg-gradient-to-r from-primary/10 to-accent/10 border border-primary/20 hover:shadow-xl transition-all duration-300">
             <CardContent className="p-8 text-center">
               <h2 className="text-2xl font-bold text-gray-900 mb-4">
                 {currentContent.ctaTitle}
               </h2>
-              <p className="text-gray-700 mb-6 text-lg">
+              <p className="text-gray-700 mb-6 text-lg leading-relaxed">
                 {currentContent.ctaText}
               </p>
-              <Button size="lg" className="mb-4">
+              <Button size="lg" className="mb-4 bg-accent hover:bg-red-700 text-white shadow-lg hover:shadow-xl transition-all duration-300">
                 <ExternalLink className="mr-2 h-5 w-5" />
                 {language === 'de' ? 'Jetzt auf mapsuche.de eintragen' : 'Register on mapsuche.de now'}
               </Button>

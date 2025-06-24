@@ -2,12 +2,16 @@ import { Link } from 'wouter';
 import { ArrowLeft, AlertTriangle, CheckCircle, Clock, Phone, Camera, MessageCircle, Target, ExternalLink, Shield, Eye, Users } from 'lucide-react';
 import { useLanguage } from '@/hooks/useLanguage';
 import { useSEO } from '@/hooks/useSEO';
+import { getPostBySlug } from '@/lib/blogConfig';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import LazyImage from '@/components/LazyImage';
 
 export default function HaeufigsteFehlerUnternehmenInternet() {
   const { language } = useLanguage();
+
+  // Get the blog post configuration
+  const blogPost = getPostBySlug('haeufigste-fehler-unternehmen-internet');
 
   // SEO optimization for this specific article
   useSEO({ 
@@ -216,7 +220,7 @@ export default function HaeufigsteFehlerUnternehmenInternet() {
         {/* Featured Image */}
         <div className="mb-12">
           <LazyImage
-            src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=400&fit=crop&auto=format&q=80"
+            src={blogPost?.image || "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=400&fit=crop&auto=format&q=80"}
             alt={currentContent.title}
             className="w-full h-64 md:h-80 object-cover rounded-lg"
           />
@@ -230,7 +234,7 @@ export default function HaeufigsteFehlerUnternehmenInternet() {
           </p>
 
           {/* Warning Card */}
-          <Card className="mb-8 border-red-200">
+          <Card className="mb-8 bg-white hover:shadow-lg transition-all duration-300 border border-red-200 hover:border-red-300">
             <CardContent className="p-6">
               <div className="flex items-start">
                 <AlertTriangle className="h-6 w-6 text-red-500 mr-3 mt-1 flex-shrink-0" />
@@ -238,7 +242,7 @@ export default function HaeufigsteFehlerUnternehmenInternet() {
                   <h3 className="text-lg font-semibold text-gray-900 mb-2">
                     {language === 'de' ? 'Warum diese Fehler so gefährlich sind' : 'Why These Mistakes Are So Dangerous'}
                   </h3>
-                  <p className="text-gray-700">
+                  <p className="text-gray-700 leading-relaxed">
                     {language === 'de' 
                       ? 'Jeder dieser Fehler kann dazu führen, dass potenzielle Kunden zur Konkurrenz wechseln – oft ohne dass Sie es überhaupt merken.'
                       : 'Each of these mistakes can cause potential customers to switch to competitors – often without you even noticing.'
@@ -255,40 +259,40 @@ export default function HaeufigsteFehlerUnternehmenInternet() {
               <Target className="h-8 w-8 text-primary mr-3" />
               {currentContent.mistakesTitle}
             </h2>
-            <p className="text-gray-600 mb-8">{currentContent.mistakesSubtitle}</p>
+            <p className="text-gray-600 mb-8 leading-relaxed">{currentContent.mistakesSubtitle}</p>
 
             <div className="space-y-8">
               {mistakes.map((mistake) => {
                 const IconComponent = mistake.icon;
                 return (
-                  <Card key={mistake.number} className={`${getColorClasses(mistake.color)} border-l-4`}>
-                    <CardContent className="p-6">
+                  <Card key={mistake.number} className="bg-white hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-gray-200">
+                    <CardContent className="p-8">
                       <div className="flex items-start mb-4">
-                        <div className={`rounded-full w-10 h-10 flex items-center justify-center mr-4 flex-shrink-0 ${
+                        <div className={`rounded-full w-12 h-12 flex items-center justify-center mr-4 flex-shrink-0 ${
                           mistake.color === 'red' ? 'bg-red-500' :
                           mistake.color === 'orange' ? 'bg-orange-500' :
                           mistake.color === 'blue' ? 'bg-blue-500' :
                           mistake.color === 'green' ? 'bg-green-500' :
                           'bg-purple-500'
-                        } text-white font-bold`}>
+                        } text-white font-bold shadow-lg`}>
                           {mistake.number}
                         </div>
                         <div className="flex-1">
-                          <div className="flex items-center mb-3">
+                          <div className="flex items-center mb-4">
                             <IconComponent className={`h-6 w-6 ${getIconColor(mistake.color)} mr-3`} />
-                            <h3 className="text-xl font-bold text-gray-900">
+                            <h3 className="text-2xl font-bold text-gray-900">
                               {mistake.title[language]}
                             </h3>
                           </div>
-                          <p className="text-gray-700 mb-4 leading-relaxed">
+                          <p className="text-gray-700 mb-6 leading-relaxed text-lg">
                             {mistake.description[language]}
                           </p>
-                          <div className="bg-white/70 p-4 rounded-lg">
+                          <div className="bg-gray-50 p-6 rounded-lg border border-gray-100">
                             <div className="flex items-start">
-                              <CheckCircle className="h-5 w-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+                              <CheckCircle className="h-5 w-5 text-secondary mr-3 mt-0.5 flex-shrink-0" />
                               <div>
                                 <span className="font-semibold text-gray-900">{currentContent.tipLabel}</span>
-                                <p className="text-gray-700 mt-1">{mistake.tip[language]}</p>
+                                <p className="text-gray-700 mt-1 leading-relaxed">{mistake.tip[language]}</p>
                               </div>
                             </div>
                           </div>
@@ -302,34 +306,34 @@ export default function HaeufigsteFehlerUnternehmenInternet() {
           </div>
 
           {/* Impact Statistics */}
-          <Card className="mb-8">
-            <CardContent className="p-6">
-              <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center">
+          <Card className="mb-8 bg-white hover:shadow-lg transition-all duration-300 border border-gray-100">
+            <CardContent className="p-8">
+              <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
                 <Users className="h-6 w-6 text-accent mr-3" />
                 {language === 'de' ? 'Die Auswirkungen in Zahlen' : 'The Impact in Numbers'}
               </h2>
-              <div className="grid md:grid-cols-3 gap-4">
-                <div className="text-center p-4 bg-accent/5 rounded-lg">
-                  <div className="text-2xl font-bold text-accent mb-2">73%</div>
-                  <p className="text-gray-700 text-sm">
+              <div className="grid md:grid-cols-3 gap-6">
+                <div className="text-center p-6 bg-accent/5 rounded-lg border border-accent/10">
+                  <div className="text-3xl font-bold text-accent mb-2">73%</div>
+                  <p className="text-gray-700 text-sm leading-relaxed">
                     {language === 'de' 
                       ? 'der Kunden verlassen Websites mit unvollständigen Informationen'
                       : 'of customers leave websites with incomplete information'
                     }
                   </p>
                 </div>
-                <div className="text-center p-4 bg-accent/5 rounded-lg">
-                  <div className="text-2xl font-bold text-accent mb-2">46%</div>
-                  <p className="text-gray-700 text-sm">
+                <div className="text-center p-6 bg-accent/5 rounded-lg border border-accent/10">
+                  <div className="text-3xl font-bold text-accent mb-2">46%</div>
+                  <p className="text-gray-700 text-sm leading-relaxed">
                     {language === 'de' 
                       ? 'suchen nicht weiter, wenn Kontaktdaten fehlen'
                       : 'don\'t search further when contact details are missing'
                     }
                   </p>
                 </div>
-                <div className="text-center p-4 bg-accent/5 rounded-lg">
-                  <div className="text-2xl font-bold text-accent mb-2">68%</div>
-                  <p className="text-gray-700 text-sm">
+                <div className="text-center p-6 bg-accent/5 rounded-lg border border-accent/10">
+                  <div className="text-3xl font-bold text-accent mb-2">68%</div>
+                  <p className="text-gray-700 text-sm leading-relaxed">
                     {language === 'de' 
                       ? 'vertrauen Unternehmen mit aktuellen Bewertungsantworten mehr'
                       : 'trust businesses more that respond to current reviews'
@@ -341,8 +345,8 @@ export default function HaeufigsteFehlerUnternehmenInternet() {
           </Card>
 
           {/* Conclusion */}
-          <Card className="mb-8">
-            <CardContent className="p-6">
+          <Card className="mb-8 bg-white hover:shadow-lg transition-all duration-300 border border-gray-100">
+            <CardContent className="p-8">
               <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center">
                 <Shield className="h-6 w-6 text-primary mr-3" />
                 {currentContent.conclusionTitle}
@@ -354,17 +358,17 @@ export default function HaeufigsteFehlerUnternehmenInternet() {
           </Card>
 
           {/* Call to Action */}
-          <Card className="bg-gradient-to-r from-primary/10 to-accent/10 border-primary/20">
+          <Card className="bg-gradient-to-r from-primary/10 to-accent/10 border border-primary/20 hover:shadow-xl transition-all duration-300">
             <CardContent className="p-8 text-center">
               <h2 className="text-3xl font-bold text-gray-900 mb-4">
                 {currentContent.ctaTitle}
               </h2>
-              <p className="text-gray-700 mb-6 text-lg">
+              <p className="text-gray-700 mb-6 text-lg leading-relaxed">
                 {currentContent.ctaText}
               </p>
-              <Button size="lg" className="mb-4">
+              <Button size="lg" className="mb-4 bg-accent hover:bg-red-700 text-white shadow-lg hover:shadow-xl transition-all duration-300">
                 <ExternalLink className="mr-2 h-5 w-5" />
-                {language === 'de' ? 'Jetzt kostenlos eintragen' : 'Register for free now'}
+                {language === 'de' ? 'Jetzt eintragen' : 'Register now'}
               </Button>
               <p className="text-sm text-gray-600 italic">
                 {language === 'de' 

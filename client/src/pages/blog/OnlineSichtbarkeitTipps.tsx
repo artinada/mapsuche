@@ -4,11 +4,15 @@ import { Card, CardContent } from '../../components/ui/card';
 import { Button } from '../../components/ui/button';
 import { useLanguage } from '../../hooks/useLanguage';
 import { useSEO } from '../../hooks/useSEO';
+import { getPostBySlug } from '../../lib/blogConfig';
 import { Search, Star, Globe, Monitor, Users, ExternalLink, CheckCircle, TrendingUp, Target, ArrowLeft } from 'lucide-react';
 import LazyImage from '../../components/LazyImage';
 
 const OnlineSichtbarkeitTipps: React.FC = () => {
   const { language } = useLanguage();
+
+  // Get the blog post configuration
+  const blogPost = getPostBySlug('online-sichtbarkeit-tipps-lokale-unternehmen');
 
   const content = {
     de: {
@@ -239,7 +243,7 @@ const OnlineSichtbarkeitTipps: React.FC = () => {
         {/* Featured Image */}
         <div className="mb-12">
           <LazyImage
-            src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=400&fit=crop&auto=format&q=80"
+            src={blogPost?.image || "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=400&fit=crop&auto=format&q=80"}
             alt={currentContent.title}
             className="w-full h-64 md:h-80 object-cover rounded-lg"
           />
@@ -253,17 +257,17 @@ const OnlineSichtbarkeitTipps: React.FC = () => {
           </p>
 
           {/* Statistics Section */}
-          <Card className="mb-8">
-            <CardContent className="p-6">
-              <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center">
+          <Card className="mb-8 bg-white hover:shadow-lg transition-all duration-300 border border-gray-100">
+            <CardContent className="p-8">
+              <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
                 <TrendingUp className="h-6 w-6 text-primary mr-3" />
                 {currentContent.statistics.title}
               </h2>
-              <div className="grid md:grid-cols-3 gap-4">
+              <div className="grid md:grid-cols-3 gap-6">
                 {currentContent.statistics.stats.map((stat, index) => (
-                  <div key={index} className="text-center p-4 bg-accent/5 rounded-lg">
+                  <div key={index} className="text-center p-6 bg-primary/5 rounded-lg border border-primary/10">
                     <div className="text-3xl font-bold text-primary mb-2">{stat.value}</div>
-                    <p className="text-gray-700 text-sm">{stat.label}</p>
+                    <p className="text-gray-700 text-sm leading-relaxed">{stat.label}</p>
                   </div>
                 ))}
               </div>
@@ -275,34 +279,34 @@ const OnlineSichtbarkeitTipps: React.FC = () => {
             {currentContent.tips.map((tip, index) => {
               const IconComponent = tip.icon;
               return (
-                <Card key={index} className={`${tip.color} transition-all duration-300 hover:shadow-lg`}>
-                  <CardContent className="p-6">
+                <Card key={index} className="bg-white hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-gray-200">
+                  <CardContent className="p-8">
                     <div className="flex items-start gap-4">
                       <div className="flex-shrink-0">
-                        <div className={`w-12 h-12 rounded-full bg-white flex items-center justify-center shadow-sm border-2 ${tip.color.replace('bg-', 'border-').replace('-50', '-200')}`}>
+                        <div className={`w-12 h-12 rounded-full bg-white flex items-center justify-center shadow-lg border-2 ${tip.color.replace('bg-', 'border-').replace('-50', '-200')}`}>
                           <span className="text-lg font-bold text-gray-700">
                             {tip.number}
                           </span>
                         </div>
                       </div>
                       <div className="flex-1">
-                        <div className="flex items-center gap-3 mb-3">
+                        <div className="flex items-center gap-3 mb-4">
                           <IconComponent className={`w-6 h-6 ${tip.iconColor}`} />
-                          <h3 className="text-xl font-bold text-gray-900">
+                          <h3 className="text-2xl font-bold text-gray-900">
                             {tip.title}
                           </h3>
                         </div>
-                        <p className="text-gray-700 mb-3 leading-relaxed">
+                        <p className="text-gray-700 mb-6 leading-relaxed text-lg">
                           {tip.description}
                         </p>
-                        <div className="bg-white p-3 rounded-lg border-l-4 border-l-gray-300 mb-3">
-                          <p className="text-sm text-gray-600">
+                        <div className="bg-gray-50 p-6 rounded-lg border border-gray-100 mb-4">
+                          <p className="text-gray-700">
                             <strong>{language === 'de' ? 'Beispiel:' : 'Example:'}</strong> {tip.example}
                           </p>
                         </div>
-                        <div className="flex items-start gap-2">
-                          <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
-                          <p className="text-gray-600 text-sm">
+                        <div className="flex items-start gap-3">
+                          <CheckCircle className="w-5 h-5 text-secondary flex-shrink-0 mt-0.5" />
+                          <p className="text-gray-600 leading-relaxed">
                             {tip.explanation}
                           </p>
                         </div>
@@ -315,28 +319,28 @@ const OnlineSichtbarkeitTipps: React.FC = () => {
           </div>
 
           {/* Conclusion */}
-          <Card className="mb-8">
-            <CardContent className="p-6">
+          <Card className="mb-8 bg-white hover:shadow-lg transition-all duration-300 border border-gray-100">
+            <CardContent className="p-8">
               <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center">
                 <Target className="h-6 w-6 text-primary mr-3" />
                 {currentContent.conclusion.title}
               </h2>
-              <p className="text-gray-700 text-lg mb-4">
+              <p className="text-gray-700 text-lg mb-4 leading-relaxed">
                 {currentContent.conclusion.text}
               </p>
             </CardContent>
           </Card>
 
           {/* Call to Action */}
-          <Card className="bg-gradient-to-r from-primary/10 to-accent/10 border-primary/20">
+          <Card className="bg-gradient-to-r from-primary/10 to-accent/10 border border-primary/20 hover:shadow-xl transition-all duration-300">
             <CardContent className="p-8 text-center">
               <h2 className="text-2xl font-bold text-gray-900 mb-4">
                 {currentContent.ctaTitle}
               </h2>
-              <p className="text-gray-700 mb-6 text-lg">
+              <p className="text-gray-700 mb-6 text-lg leading-relaxed">
                 {currentContent.ctaText}
               </p>
-              <Button size="lg" className="mb-4">
+              <Button size="lg" className="mb-4 bg-accent hover:bg-red-700 text-white shadow-lg hover:shadow-xl transition-all duration-300">
                 <ExternalLink className="mr-2 h-5 w-5" />
                 {language === 'de' ? 'Jetzt auf mapsuche.de eintragen' : 'Register on mapsuche.de now'}
               </Button>

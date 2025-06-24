@@ -232,24 +232,30 @@ export const coopUtils = {
 
     // Check COOP status on page load
     coopUtils.checkCOOPStatus().then(status => {
-      console.log('COOP Status:', status);
+      // Only log detailed security info in production or when debugging
+      const shouldLog = process.env.NODE_ENV === 'production' || 
+                       window.location.search.includes('debug=security');
       
-      if (!status.isEnabled) {
-        console.warn('COOP Warning: Cross-Origin Opener Policy not configured');
-      } else {
-        console.log(`COOP Policy: ${status.policy}`);
-      }
+      if (shouldLog) {
+        console.log('COOP Status:', status);
+        
+        if (!status.isEnabled) {
+          console.warn('COOP Warning: Cross-Origin Opener Policy not configured');
+        } else {
+          console.log(`COOP Policy: ${status.policy}`);
+        }
 
-      if (!status.coepEnabled) {
-        console.warn('COEP Warning: Cross-Origin Embedder Policy not configured');
-      } else {
-        console.log(`COEP Policy: ${status.coepPolicy}`);
-      }
+        if (!status.coepEnabled) {
+          console.warn('COEP Warning: Cross-Origin Embedder Policy not configured');
+        } else {
+          console.log(`COEP Policy: ${status.coepPolicy}`);
+        }
 
-      if (status.crossOriginIsolated) {
-        console.log('Cross-Origin Isolation: Enabled - Enhanced security features available');
-      } else {
-        console.info('Cross-Origin Isolation: Disabled - Some security features may be limited');
+        if (status.crossOriginIsolated) {
+          console.log('Cross-Origin Isolation: Enabled - Enhanced security features available');
+        } else {
+          console.info('Cross-Origin Isolation: Disabled - Some security features may be limited');
+        }
       }
     });
 
@@ -274,13 +280,21 @@ export const coopUtils = {
       const newWindow = originalOpen.apply(window, args);
       
       if (newWindow) {
+        // Only log detailed security info in production or when debugging
+        const shouldLog = process.env.NODE_ENV === 'production' || 
+                         window.location.search.includes('debug=security');
+        
         // Monitor for cross-origin access attempts
         try {
           // This will throw if COOP is working correctly for cross-origin windows
           const testAccess = newWindow.location.href;
-          console.log('Window access allowed:', testAccess);
+          if (shouldLog) {
+            console.log('Window access allowed:', testAccess);
+          }
         } catch (error) {
-          console.log('COOP: Cross-origin window access properly blocked');
+          if (shouldLog) {
+            console.log('COOP: Cross-origin window access properly blocked');
+          }
         }
       }
       
@@ -504,23 +518,29 @@ export const clickjackingUtils = {
 
     // Check clickjacking protection status on page load
     clickjackingUtils.checkClickjackingProtection().then(status => {
-      console.log('Clickjacking Protection Status:', status);
+      // Only log detailed security info in production or when debugging
+      const shouldLog = process.env.NODE_ENV === 'production' || 
+                       window.location.search.includes('debug=security');
       
-      if (status.protectionLevel === 'none') {
-        console.error('Clickjacking Error: No protection configured');
-      } else if (status.protectionLevel === 'partial') {
-        console.warn('Clickjacking Warning: Partial protection - consider strengthening');
-      } else {
-        console.log('Clickjacking Protection: Full protection enabled');
-      }
+      if (shouldLog) {
+        console.log('Clickjacking Protection Status:', status);
+        
+        if (status.protectionLevel === 'none') {
+          console.error('Clickjacking Error: No protection configured');
+        } else if (status.protectionLevel === 'partial') {
+          console.warn('Clickjacking Warning: Partial protection - consider strengthening');
+        } else {
+          console.log('Clickjacking Protection: Full protection enabled');
+        }
 
-      // Provide specific recommendations
-      if (!status.xfoEnabled && !status.cspFrameAncestors) {
-        console.warn('Recommendation: Enable X-Frame-Options or CSP frame-ancestors directive');
-      } else if (!status.xfoEnabled) {
-        console.info('Recommendation: Consider adding X-Frame-Options header for older browser support');
-      } else if (!status.cspFrameAncestors) {
-        console.info('Recommendation: Consider adding CSP frame-ancestors for modern browser support');
+        // Provide specific recommendations
+        if (!status.xfoEnabled && !status.cspFrameAncestors) {
+          console.warn('Recommendation: Enable X-Frame-Options or CSP frame-ancestors directive');
+        } else if (!status.xfoEnabled) {
+          console.info('Recommendation: Consider adding X-Frame-Options header for older browser support');
+        } else if (!status.cspFrameAncestors) {
+          console.info('Recommendation: Consider adding CSP frame-ancestors for modern browser support');
+        }
       }
     });
 
@@ -530,15 +550,25 @@ export const clickjackingUtils = {
       const element = originalCreateElement.call(document, tagName);
       
       if (tagName.toLowerCase() === 'iframe') {
-        console.log('Iframe Creation: New iframe element created');
+        // Only log detailed security info in production or when debugging
+        const shouldLog = process.env.NODE_ENV === 'production' || 
+                         window.location.search.includes('debug=security');
+        
+        if (shouldLog) {
+          console.log('Iframe Creation: New iframe element created');
+        }
         
         // Monitor iframe load events
         element.addEventListener('load', () => {
-          console.log('Iframe Loaded:', (element as HTMLIFrameElement).src);
+          if (shouldLog) {
+            console.log('Iframe Loaded:', (element as HTMLIFrameElement).src);
+          }
         });
         
         element.addEventListener('error', () => {
-          console.log('Iframe Error: Failed to load (possibly blocked by frame-ancestors)');
+          if (shouldLog) {
+            console.log('Iframe Error: Failed to load (possibly blocked by frame-ancestors)');
+          }
         });
       }
       
@@ -857,19 +887,25 @@ export const hstsUtils = {
 
     // Check HSTS status on page load
     hstsUtils.checkHSTSStatus().then(status => {
-      console.log('HSTS Status:', status);
+      // Only log detailed security info in production or when debugging
+      const shouldLog = process.env.NODE_ENV === 'production' || 
+                       window.location.search.includes('debug=security');
       
-      // Log warnings for suboptimal configurations
-      if (status.isEnabled && status.maxAge && status.maxAge < 86400) {
-        console.warn('HSTS Warning: max-age is less than 1 day, consider increasing for better security');
-      }
-      
-      if (status.isEnabled && !status.includeSubdomains) {
-        console.info('HSTS Info: includeSubDomains not set, consider enabling for comprehensive protection');
-      }
-      
-      if (status.isEnabled && !status.preload && status.maxAge && status.maxAge >= 31536000) {
-        console.info('HSTS Info: preload not set, consider enabling for HSTS preload list inclusion');
+      if (shouldLog) {
+        console.log('HSTS Status:', status);
+        
+        // Log warnings for suboptimal configurations
+        if (status.isEnabled && status.maxAge && status.maxAge < 86400) {
+          console.warn('HSTS Warning: max-age is less than 1 day, consider increasing for better security');
+        }
+        
+        if (status.isEnabled && !status.includeSubdomains) {
+          console.info('HSTS Info: includeSubDomains not set, consider enabling for comprehensive protection');
+        }
+        
+        if (status.isEnabled && !status.preload && status.maxAge && status.maxAge >= 31536000) {
+          console.info('HSTS Info: preload not set, consider enabling for HSTS preload list inclusion');
+        }
       }
     });
   },

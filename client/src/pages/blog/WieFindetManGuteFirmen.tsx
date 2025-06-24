@@ -2,12 +2,16 @@ import { Link } from 'wouter';
 import { ArrowLeft, MapPin, Star, Search, Shield, Clock, CheckCircle, AlertTriangle, X, Lightbulb, TrendingUp, Target, ExternalLink } from 'lucide-react';
 import { useLanguage } from '@/hooks/useLanguage';
 import { useSEO } from '@/hooks/useSEO';
+import { getPostBySlug } from '@/lib/blogConfig';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import LazyImage from '@/components/LazyImage';
 
 export default function WieFindetManGuteFirmen() {
   const { language } = useLanguage();
+
+  // Get the blog post configuration
+  const blogPost = getPostBySlug('wie-findet-man-gute-firmen-in-der-naehe');
 
   // SEO optimization for this specific article
   useSEO({ 
@@ -64,7 +68,7 @@ export default function WieFindetManGuteFirmen() {
       step1Text: 'Damit erscheinst du automatisch bei Google und Google Maps. Du kannst Öffnungszeiten eintragen, Fotos hochladen und Bewertungen sammeln.',
       
       step2Title: '2. Eintrag auf mapsuche.de anlegen',
-      step2Text: 'Auf mapsuche.de kannst du dein Unternehmen kostenlos eintragen und wirst damit Teil eines schnell wachsenden, lokalen Firmenverzeichnisses in Deutschland. Kund*innen finden dich nach Branche, Standort und Sprache – ideal für lokale Sichtbarkeit.',
+      step2Text: 'Auf mapsuche.de kannst du dein Unternehmen eintragen und wirst damit Teil eines schnell wachsenden, lokalen Firmenverzeichnisses in Deutschland. Kund*innen finden dich nach Branche, Standort und Sprache – ideal für lokale Sichtbarkeit.',
       
       statisticsTitle: 'Ein kurzer Blick auf die Zahlen:',
       statistics: [
@@ -78,7 +82,7 @@ export default function WieFindetManGuteFirmen() {
       
       ctaTitle: 'Jetzt handeln!',
       ctaSubtitle: 'Möchten Sie, dass Kundinnen Ihr Unternehmen finden?',
-      ctaText: 'Dann tragen Sie sich noch heute auf mapsuche.de ein – schnell, einfach und kostenlos.',
+      ctaText: 'Dann tragen Sie sich noch heute auf mapsuche.de ein – schnell und einfach.',
       ctaFooter: 'Weil gute Arbeit auch gefunden werden darf.'
     },
     en: {
@@ -112,7 +116,7 @@ export default function WieFindetManGuteFirmen() {
       step1Text: 'This makes you automatically appear on Google and Google Maps. You can enter opening hours, upload photos, and collect reviews.',
       
       step2Title: '2. Create entry on mapsuche.de',
-      step2Text: 'On mapsuche.de you can list your business for free and become part of a rapidly growing, local business directory in Germany. Customers find you by industry, location, and language – ideal for local visibility.',
+      step2Text: 'On mapsuche.de you can list your business and become part of a rapidly growing, local business directory in Germany. Customers find you by industry, location, and language – ideal for local visibility.',
       
       statisticsTitle: 'A Quick Look at the Numbers:',
       statistics: [
@@ -126,7 +130,7 @@ export default function WieFindetManGuteFirmen() {
       
       ctaTitle: 'Act Now!',
       ctaSubtitle: 'Do you want customers to find your business?',
-      ctaText: 'Then register on mapsuche.de today – quick, easy, and free.',
+      ctaText: 'Then register on mapsuche.de today – quick and easy.',
       ctaFooter: 'Because good work deserves to be found.'
     }
   };
@@ -166,7 +170,7 @@ export default function WieFindetManGuteFirmen() {
         {/* Featured Image */}
         <div className="mb-12">
           <LazyImage
-            src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=400&fit=crop&auto=format&q=80"
+            src={blogPost?.image || "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=400&fit=crop&auto=format&q=80"}
             alt={currentContent.title}
             className="w-full h-64 md:h-80 object-cover rounded-lg"
           />
@@ -180,25 +184,25 @@ export default function WieFindetManGuteFirmen() {
           </p>
 
           {/* Modern Search Behavior */}
-          <Card className="mb-8">
-            <CardContent className="p-6">
-              <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center">
+          <Card className="mb-8 bg-white hover:shadow-lg transition-all duration-300 border border-gray-100">
+            <CardContent className="p-8">
+              <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
                 <Search className="h-6 w-6 text-primary mr-3" />
                 {currentContent.modernSearchTitle}
               </h2>
-              <p className="text-gray-700 mb-4">
+              <p className="text-gray-700 mb-6 leading-relaxed text-lg">
                 {currentContent.modernSearchText}
               </p>
-              <ul className="space-y-2 mb-4">
+              <ul className="space-y-3 mb-6">
                 {currentContent.modernSearchPoints.map((point, index) => (
                   <li key={index} className="flex items-center">
-                    <CheckCircle className="h-5 w-5 text-green-500 mr-3 flex-shrink-0" />
-                    <span className="text-gray-700">{point}</span>
+                    <CheckCircle className="h-5 w-5 text-secondary mr-3 flex-shrink-0" />
+                    <span className="text-gray-700 leading-relaxed">{point}</span>
                   </li>
                 ))}
               </ul>
-              <div className="bg-primary/5 p-4 rounded-lg">
-                <p className="text-gray-700 font-medium">
+              <div className="bg-primary/5 p-6 rounded-lg border border-primary/10">
+                <p className="text-gray-700 font-medium leading-relaxed">
                   {currentContent.modernSearchConclusion}
                 </p>
               </div>
@@ -206,22 +210,22 @@ export default function WieFindetManGuteFirmen() {
           </Card>
 
           {/* Consequences */}
-          <Card className="mb-8 border-red-200">
-            <CardContent className="p-6">
-              <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center">
+          <Card className="mb-8 bg-white hover:shadow-lg transition-all duration-300 border border-red-200 hover:border-red-300">
+            <CardContent className="p-8">
+              <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
                 <AlertTriangle className="h-6 w-6 text-red-500 mr-3" />
                 {currentContent.consequencesTitle}
               </h2>
-              <ul className="space-y-3 mb-4">
+              <ul className="space-y-4 mb-6">
                 {currentContent.consequences.map((consequence, index) => (
                   <li key={index} className="flex items-start">
                     <X className="h-5 w-5 text-red-500 mr-3 flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-700">{consequence}</span>
+                    <span className="text-gray-700 leading-relaxed">{consequence}</span>
                   </li>
                 ))}
               </ul>
-              <div className="bg-red-50 p-4 rounded-lg">
-                <p className="text-gray-700 font-medium">
+              <div className="bg-red-50 p-6 rounded-lg border border-red-100">
+                <p className="text-gray-700 font-medium leading-relaxed">
                   {currentContent.consequencesConclusion}
                 </p>
               </div>
@@ -229,34 +233,34 @@ export default function WieFindetManGuteFirmen() {
           </Card>
 
           {/* Solution */}
-          <Card className="mb-8 border-green-200">
-            <CardContent className="p-6">
-              <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center">
+          <Card className="mb-8 bg-white hover:shadow-lg transition-all duration-300 border border-green-200 hover:border-green-300">
+            <CardContent className="p-8">
+              <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
                 <Lightbulb className="h-6 w-6 text-green-500 mr-3" />
                 {currentContent.solutionTitle}
               </h2>
-              <p className="text-gray-700 mb-6">
+              <p className="text-gray-700 mb-8 leading-relaxed text-lg">
                 {currentContent.solutionIntro}
               </p>
               
               {/* Step 1 */}
-              <div className="mb-6 p-4 bg-blue-50 rounded-lg">
-                <h3 className="text-xl font-bold text-gray-900 mb-2 flex items-center">
-                  <div className="bg-blue-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm mr-3">1</div>
+              <div className="mb-6 p-6 bg-blue-50 rounded-lg border border-blue-100">
+                <h3 className="text-xl font-bold text-gray-900 mb-3 flex items-center">
+                  <div className="bg-blue-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm mr-3 shadow-lg">1</div>
                   {currentContent.step1Title}
                 </h3>
-                <p className="text-gray-700">
+                <p className="text-gray-700 leading-relaxed">
                   {currentContent.step1Text}
                 </p>
               </div>
 
               {/* Step 2 */}
-              <div className="p-4 bg-green-50 rounded-lg">
-                <h3 className="text-xl font-bold text-gray-900 mb-2 flex items-center">
-                  <div className="bg-green-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm mr-3">2</div>
+              <div className="p-6 bg-green-50 rounded-lg border border-green-100">
+                <h3 className="text-xl font-bold text-gray-900 mb-3 flex items-center">
+                  <div className="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm mr-3 shadow-lg">2</div>
                   {currentContent.step2Title}
                 </h3>
-                <p className="text-gray-700">
+                <p className="text-gray-700 leading-relaxed">
                   {currentContent.step2Text}
                 </p>
               </div>
@@ -264,16 +268,16 @@ export default function WieFindetManGuteFirmen() {
           </Card>
 
           {/* Statistics */}
-          <Card className="mb-8">
-            <CardContent className="p-6">
-              <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center">
+          <Card className="mb-8 bg-white hover:shadow-lg transition-all duration-300 border border-gray-100">
+            <CardContent className="p-8">
+              <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
                 <TrendingUp className="h-6 w-6 text-accent mr-3" />
                 {currentContent.statisticsTitle}
               </h2>
-              <div className="grid md:grid-cols-3 gap-4">
+              <div className="grid md:grid-cols-3 gap-6">
                 {currentContent.statistics.map((stat, index) => (
-                  <div key={index} className="text-center p-4 bg-accent/5 rounded-lg">
-                    <p className="text-gray-700 font-medium">{stat}</p>
+                  <div key={index} className="text-center p-6 bg-accent/5 rounded-lg border border-accent/10">
+                    <p className="text-gray-700 font-medium leading-relaxed">{stat}</p>
                   </div>
                 ))}
               </div>
@@ -281,20 +285,20 @@ export default function WieFindetManGuteFirmen() {
           </Card>
 
           {/* Conclusion */}
-          <Card className="mb-8">
-            <CardContent className="p-6">
+          <Card className="mb-8 bg-white hover:shadow-lg transition-all duration-300 border border-gray-100">
+            <CardContent className="p-8">
               <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center">
                 <Target className="h-6 w-6 text-primary mr-3" />
                 {currentContent.conclusionTitle}
               </h2>
-              <p className="text-gray-700 text-lg">
+              <p className="text-gray-700 text-lg leading-relaxed">
                 {currentContent.conclusionText}
               </p>
             </CardContent>
           </Card>
 
           {/* Call to Action */}
-          <Card className="bg-gradient-to-r from-primary/10 to-accent/10 border-primary/20">
+          <Card className="bg-gradient-to-r from-primary/10 to-accent/10 border border-primary/20 hover:shadow-xl transition-all duration-300">
             <CardContent className="p-8 text-center">
               <h2 className="text-3xl font-bold text-gray-900 mb-2">
                 {currentContent.ctaTitle}
@@ -302,10 +306,10 @@ export default function WieFindetManGuteFirmen() {
               <p className="text-xl text-gray-700 mb-4">
                 {currentContent.ctaSubtitle}
               </p>
-              <p className="text-gray-700 mb-6">
+              <p className="text-gray-700 mb-6 leading-relaxed">
                 {currentContent.ctaText}
               </p>
-              <Button size="lg" className="mb-4">
+              <Button size="lg" className="mb-4 bg-accent hover:bg-red-700 text-white shadow-lg hover:shadow-xl transition-all duration-300">
                 <ExternalLink className="mr-2 h-5 w-5" />
                 {language === 'de' ? 'Jetzt auf mapsuche.de eintragen' : 'Register on mapsuche.de now'}
               </Button>

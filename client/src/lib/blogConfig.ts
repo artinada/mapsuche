@@ -34,7 +34,7 @@ export const blogPosts: BlogPost[] = [
       en: 'Online visibility is a necessity for small businesses today. Learn how modern customers search and why digital presence is crucial for business success.'
     },
     image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=400&fit=crop&auto=format&q=80',
-    date: '2024-01-15',
+    date: '2024-03-15',
     readTime: 7,
     category: {
       de: 'Geschäftstipps',
@@ -74,7 +74,7 @@ export const blogPosts: BlogPost[] = [
       en: 'A Google Business Profile is essential for local businesses today. Learn why visibility on Google determines success or failure.'
     },
     image: 'https://images.unsplash.com/photo-1573804633927-bfcbcd909acd?w=400&h=250&fit=crop',
-    date: '2024-01-10',
+    date: '2024-02-20',
     readTime: 7,
     category: {
       de: 'Google Business',
@@ -101,7 +101,7 @@ export const blogPosts: BlogPost[] = [
       en: 'Discover the best restaurants in Luther\'s city with real addresses, contact details and authentic reviews from our experts.'
     },
     image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&h=400&fit=crop&auto=format&q=80',
-    date: '2024-01-15',
+    date: '2024-06-12',
     readTime: 6,
     category: {
       de: 'Lokale Empfehlungen',
@@ -137,7 +137,7 @@ export const blogPosts: BlogPost[] = [
       en: 'These 5 online mistakes cost potential customers daily. Discover the most common problems businesses face online and how to easily avoid them.'
     },
     image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=400&fit=crop&auto=format&q=80',
-    date: '2024-01-20',
+    date: '2024-08-05',
     readTime: 6,
     category: {
       de: 'Online-Marketing',
@@ -179,7 +179,7 @@ export const blogPosts: BlogPost[] = [
       en: 'Essential Local SEO strategies every small business should know. Practical tips for better local visibility.'
     },
     image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=250&fit=crop',
-    date: '2024-01-01',
+    date: '2024-04-18',
     readTime: 10,
     category: {
       de: 'SEO Grundlagen',
@@ -192,7 +192,7 @@ export const blogPosts: BlogPost[] = [
       'local search optimization',
       'business visibility'
     ],
-    published: false // Not yet implemented
+    published: false
   },
   {
     id: 6,
@@ -206,7 +206,7 @@ export const blogPosts: BlogPost[] = [
       en: 'Learn how to professionally manage Google reviews, respond to negative reviews, and get more positive ratings.'
     },
     image: 'https://images.unsplash.com/photo-1556745757-8d76bdb6984b?w=400&h=250&fit=crop',
-    date: '2023-12-28',
+    date: '2024-07-22',
     readTime: 12,
     category: {
       de: 'Bewertungsmanagement',
@@ -218,7 +218,7 @@ export const blogPosts: BlogPost[] = [
       'review management',
       'customer feedback'
     ],
-    published: false // Not yet implemented
+    published: false
   },
   {
     id: 7,
@@ -232,7 +232,7 @@ export const blogPosts: BlogPost[] = [
       en: 'Over 60% of local searches come from mobile devices. Learn how to optimize your business for mobile users.'
     },
     image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=400&h=250&fit=crop',
-    date: '2023-12-25',
+    date: '2024-09-14',
     readTime: 6,
     category: {
       de: 'Mobile Marketing',
@@ -244,7 +244,7 @@ export const blogPosts: BlogPost[] = [
       'lokale mobile suche',
       'responsive design'
     ],
-    published: false // Not yet implemented
+    published: true
   },
   {
     id: 8,
@@ -257,8 +257,8 @@ export const blogPosts: BlogPost[] = [
       de: 'Entdecken Sie 5 einfache, aber effektive Strategien für bessere Online-Sichtbarkeit Ihres lokalen Unternehmens. Praktische Tipps ohne großes Budget oder Technik-Know-how.',
       en: 'Discover 5 simple but effective strategies for better online visibility of your local business. Practical tips without large budget or technical know-how.'
     },
-    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=400&fit=crop&auto=format&q=80',
-    date: '2024-01-25',
+    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=400&fit=crop&auto=format&q=80',
+    date: '2024-11-08',
     readTime: 8,
     category: {
       de: 'Online-Marketing',
@@ -294,48 +294,6 @@ export const blogPosts: BlogPost[] = [
     published: true,
     featured: false
   },
-  {
-    id: 9,
-    slug: 'mobile-first-lokale-unternehmen-optimierung',
-    title: {
-      de: 'Mobile-First: Warum lokale Unternehmen mobile Optimierung brauchen',
-      en: 'Mobile-First: Why Local Businesses Need Mobile Optimization'
-    },
-    excerpt: {
-      de: '70% der lokalen Suchen kommen von mobilen Geräten. Entdecken Sie, warum mobile Optimierung für lokale Unternehmen entscheidend ist und wie Sie mobil besser gefunden werden.',
-      en: '70% of local searches come from mobile devices. Discover why mobile optimization is crucial for local businesses and how to be found better on mobile.'
-    },
-    image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&h=400&fit=crop&auto=format&q=80',
-    date: '2024-01-26',
-    readTime: 7,
-    category: {
-      de: 'Mobile Marketing',
-      en: 'Mobile Marketing'
-    },
-    keywords: [
-      'mobile optimierung',
-      'lokale unternehmen mobile',
-      'smartphone suche lokal',
-      'mobile first strategie',
-      'google maps mobile',
-      'responsive design kleine unternehmen',
-      'mobile seo tipps',
-      'lokale suche smartphone',
-      'mobile website optimierung',
-      'mapsuche mobile',
-      'mobile optimization',
-      'local business mobile',
-      'smartphone local search',
-      'mobile first strategy',
-      'google maps mobile',
-      'responsive design small business',
-      'mobile seo tips',
-      'local search smartphone',
-      'mobile website optimization'
-    ],
-    published: true,
-    featured: false
-  }
 ];
 
 // Helper functions
