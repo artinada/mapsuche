@@ -171,16 +171,16 @@ export const blogPosts: BlogPost[] = [
     id: 5,
     slug: 'local-seo-grundlagen-kleine-unternehmen',
     title: {
-      de: 'Local SEO Grundlagen für kleine Unternehmen',
-      en: 'Local SEO Basics for Small Businesses'
+      de: 'Local SEO: Grundlagen für kleine Unternehmen',
+      en: 'Local SEO: Basics for Small Businesses'
     },
     excerpt: {
-      de: 'Die wichtigsten Local SEO Strategien, die jedes kleine Unternehmen kennen sollte. Praktische Tipps für bessere lokale Sichtbarkeit.',
-      en: 'Essential Local SEO strategies every small business should know. Practical tips for better local visibility.'
+      de: 'Für kleine, lokale Unternehmen ist es wichtiger denn je, online sichtbar zu sein – genau dort, wo potenzielle Kund*innen suchen: in ihrer Nähe. Erfahre die wichtigsten Local SEO Grundlagen.',
+      en: 'For small, local businesses, it\'s more important than ever to be visible online – exactly where potential customers are searching: nearby. Learn the essential Local SEO basics.'
     },
-    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=250&fit=crop',
-    date: '2024-04-18',
-    readTime: 10,
+    image: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&h=400&fit=crop&auto=format&q=80',
+    date: '2024-10-15',
+    readTime: 8,
     category: {
       de: 'SEO Grundlagen',
       en: 'SEO Basics'
@@ -189,36 +189,65 @@ export const blogPosts: BlogPost[] = [
       'local seo grundlagen',
       'lokale seo tipps',
       'kleine unternehmen seo',
+      'google unternehmensprofil',
       'local search optimization',
-      'business visibility'
+      'business visibility',
+      'lokale sichtbarkeit',
+      'standortbezogene keywords',
+      'mobile first local seo',
+      'nap daten konsistenz',
+      'lokale verzeichnisse',
+      'google business profile',
+      'location based keywords',
+      'local business marketing',
+      'seo für kleine betriebe',
+      'local ranking faktoren',
+      'proximity marketing',
+      'geo targeting'
     ],
-    published: false
+    published: true
   },
   {
     id: 6,
     slug: 'google-bewertungen-richtig-managen',
     title: {
-      de: 'Google Bewertungen richtig managen: Der komplette Leitfaden',
-      en: 'Managing Google Reviews Properly: The Complete Guide'
+      de: 'Google-Bewertungen richtig managen: So stärkst du dein lokales Geschäft',
+      en: 'Managing Google Reviews Properly: How to Strengthen Your Local Business'
     },
     excerpt: {
-      de: 'Lernen Sie, wie Sie Google Bewertungen professionell verwalten, auf negative Reviews reagieren und mehr positive Bewertungen erhalten.',
-      en: 'Learn how to professionally manage Google reviews, respond to negative reviews, and get more positive ratings.'
+      de: 'Google-Bewertungen sind oft der erste Eindruck, den Kundinnen von deinem Unternehmen bekommen. Erfahre, wie du richtig mit ihnen umgehst – freundlich, professionell und authentisch.',
+      en: 'Google reviews are often the first impression customers get of your business. Learn how to handle them properly – friendly, professional and authentic.'
     },
-    image: 'https://images.unsplash.com/photo-1556745757-8d76bdb6984b?w=400&h=250&fit=crop',
-    date: '2024-07-22',
-    readTime: 12,
+    image: 'https://images.unsplash.com/photo-1556745757-8d76bdb6984b?w=800&h=400&fit=crop&auto=format&q=80',
+    date: '2024-12-19',
+    readTime: 8,
     category: {
       de: 'Bewertungsmanagement',
       en: 'Review Management'
     },
     keywords: [
       'google bewertungen management',
+      'bewertungen richtig managen',
       'negative bewertungen antworten',
+      'positive bewertungen sammeln',
+      'google business profile bewertungen',
+      'kundenfeedback management',
+      'bewertungen beantworten',
+      'online reputation management',
       'review management',
-      'customer feedback'
+      'customer feedback',
+      'google reviews',
+      'business reviews',
+      'reputation management',
+      'customer satisfaction',
+      'local business reviews',
+      'review responses',
+      'negative review handling',
+      'review solicitation',
+      'online reviews',
+      'business reputation'
     ],
-    published: false
+    published: true
   },
   {
     id: 7,

@@ -33,6 +33,8 @@ import TopRestaurantsWittenberg from '@/pages/blog/TopRestaurantsWittenberg';
 import HaeufigsteFehlerUnternehmenInternet from '@/pages/blog/HaeufigsteFehlerUnternehmenInternet';
 import OnlineSichtbarkeitTipps from '@/pages/blog/OnlineSichtbarkeitTipps';
 import MobileFirstLokaleUnternehmen from '@/pages/blog/MobileFirstLokaleUnternehmen';
+import GoogleBewertungenRichtigManagen from '@/pages/blog/GoogleBewertungenRichtigManagen';
+import LocalSeoGrundlagenKleineUnternehmen from '@/pages/blog/LocalSeoGrundlagenKleineUnternehmen';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -84,6 +86,8 @@ export default function App() {
                 <Route path="/blog/haeufigste-fehler-unternehmen-internet" component={HaeufigsteFehlerUnternehmenInternet} />
                 <Route path="/blog/online-sichtbarkeit-tipps-lokale-unternehmen" component={OnlineSichtbarkeitTipps} />
                 <Route path="/blog/mobile-first-lokale-unternehmen" component={MobileFirstLokaleUnternehmen} />
+                <Route path="/blog/google-bewertungen-richtig-managen" component={GoogleBewertungenRichtigManagen} />
+                <Route path="/blog/local-seo-grundlagen-kleine-unternehmen" component={LocalSeoGrundlagenKleineUnternehmen} />
                 
                 <Route path="/contact" component={ContactPage} />
                 <Route path="/faq" component={FAQPage} />

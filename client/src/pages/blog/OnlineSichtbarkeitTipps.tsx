@@ -86,7 +86,7 @@ const OnlineSichtbarkeitTipps: React.FC = () => {
       conclusion: {
         title: 'Fazit: Kleine Schritte, große Wirkung',
         text: 'Du musst kein Marketingprofi sein, um online gefunden zu werden. Mit diesen fünf Tipps kannst du heute starten – ganz einfach, ganz ohne Stress.',
-        cta: 'Und wenn du noch schneller sichtbar werden willst:'
+        cta: ''
       },
 
       quickTips: {
@@ -102,7 +102,7 @@ const OnlineSichtbarkeitTipps: React.FC = () => {
 
       ctaTitle: 'Fazit: Kleine Schritte, große Wirkung',
       ctaText: 'Du musst kein Marketingprofi sein, um online gefunden zu werden. Mit diesen fünf Tipps kannst du heute starten – ganz einfach, ganz ohne Stress.',
-      ctaFooter: 'Und wenn du noch schneller sichtbar werden willst:'
+      ctaFooter: ''
     },
     en: {
       title: '5 Tips for Better Online Visibility of Your Local Business',
@@ -175,7 +175,7 @@ const OnlineSichtbarkeitTipps: React.FC = () => {
       conclusion: {
         title: 'Conclusion: Small Steps, Big Impact',
         text: 'You don\'t have to be a marketing professional to be found online. With these five tips, you can start today – simple and stress-free.',
-        cta: 'And if you want to become visible even faster:'
+        cta: ''
       },
 
       quickTips: {
@@ -191,7 +191,7 @@ const OnlineSichtbarkeitTipps: React.FC = () => {
 
       ctaTitle: 'Conclusion: Small Steps, Big Impact',
       ctaText: 'You don\'t have to be a marketing professional to be found online. With these five tips, you can start today – simple and stress-free.',
-      ctaFooter: 'And if you want to become visible even faster:'
+      ctaFooter: ''
     }
   };
 
@@ -290,12 +290,9 @@ const OnlineSichtbarkeitTipps: React.FC = () => {
                         </div>
                       </div>
                       <div className="flex-1">
-                        <div className="flex items-center gap-3 mb-4">
-                          <IconComponent className={`w-6 h-6 ${tip.iconColor}`} />
-                          <h3 className="text-2xl font-bold text-gray-900">
-                            {tip.title}
-                          </h3>
-                        </div>
+                        <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                          {tip.title}
+                        </h3>
                         <p className="text-gray-700 mb-6 leading-relaxed text-lg">
                           {tip.description}
                         </p>
@@ -340,10 +337,12 @@ const OnlineSichtbarkeitTipps: React.FC = () => {
               <p className="text-gray-700 mb-6 text-lg leading-relaxed">
                 {currentContent.ctaText}
               </p>
-              <Button size="lg" className="mb-4 bg-accent hover:bg-red-700 text-white shadow-lg hover:shadow-xl transition-all duration-300">
-                <ExternalLink className="mr-2 h-5 w-5" />
-                {language === 'de' ? 'Jetzt auf mapsuche.de eintragen' : 'Register on mapsuche.de now'}
-              </Button>
+              <Link href="/contact">
+                <Button size="lg" className="mb-4 bg-accent hover:bg-red-700 text-white shadow-lg hover:shadow-xl transition-all duration-300">
+                  <ExternalLink className="mr-2 h-5 w-5" />
+                  {language === 'de' ? 'Kostenlose Beratung anfragen' : 'Request Free Consultation'}
+                </Button>
+              </Link>
               <p className="text-sm text-gray-600">
                 {currentContent.ctaFooter}
               </p>

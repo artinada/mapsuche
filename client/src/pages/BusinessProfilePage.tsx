@@ -44,7 +44,7 @@ export default function BusinessProfilePage() {
           {/* Features */}
           <Card className="mb-12">
             <CardContent className="p-8">
-              <h2 className="text-2xl font-bold text-gray-900 mb-6">What's Included</h2>
+              <h2 className="text-2xl font-bold text-gray-900 mb-6">{t('whatsIncluded')}</h2>
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="space-y-4">
                   <div className="flex items-center">
@@ -63,15 +63,15 @@ export default function BusinessProfilePage() {
                 <div className="space-y-4">
                   <div className="flex items-center">
                     <Check className="h-5 w-5 text-secondary mr-3" />
-                    <span className="text-gray-700">Business description optimization</span>
+                    <span className="text-gray-700">{t('businessDescOptimization')}</span>
                   </div>
                   <div className="flex items-center">
                     <Check className="h-5 w-5 text-secondary mr-3" />
-                    <span className="text-gray-700">Service/product listings</span>
+                    <span className="text-gray-700">{t('serviceProductListings')}</span>
                   </div>
                   <div className="flex items-center">
                     <Check className="h-5 w-5 text-secondary mr-3" />
-                    <span className="text-gray-700">Q&A management</span>
+                    <span className="text-gray-700">{t('qaManagement')}</span>
                   </div>
                 </div>
               </div>
@@ -81,21 +81,21 @@ export default function BusinessProfilePage() {
           {/* Benefits */}
           <Card className="mb-12">
             <CardContent className="p-8">
-              <h2 className="text-2xl font-bold text-gray-900 mb-6">Why Your Business Needs This</h2>
+              <h2 className="text-2xl font-bold text-gray-900 mb-6">{t('whyBusinessNeeds')}</h2>
               <div className="grid md:grid-cols-2 gap-8">
                 <div>
-                  <h3 className="font-semibold text-gray-900 mb-3">Increased Visibility</h3>
-                  <p className="text-gray-600 mb-4">A complete Google Business Profile makes your business 2.7x more likely to be considered reputable by customers.</p>
+                  <h3 className="font-semibold text-gray-900 mb-3">{t('increasedVisibility')}</h3>
+                  <p className="text-gray-600 mb-4">{t('increasedVisibilityDesc')}</p>
                   
-                  <h3 className="font-semibold text-gray-900 mb-3">Customer Trust</h3>
-                  <p className="text-gray-600">Professional photos and complete information build trust before customers even visit your business.</p>
+                  <h3 className="font-semibold text-gray-900 mb-3">{t('customerTrust')}</h3>
+                  <p className="text-gray-600">{t('customerTrustDesc')}</p>
                 </div>
                 <div>
-                  <h3 className="font-semibold text-gray-900 mb-3">Direct Customer Communication</h3>
-                  <p className="text-gray-600 mb-4">Customers can message you directly, call, or get directions with just one click.</p>
+                  <h3 className="font-semibold text-gray-900 mb-3">{t('directCustomerComm')}</h3>
+                  <p className="text-gray-600 mb-4">{t('directCustomerCommDesc')}</p>
                   
-                  <h3 className="font-semibold text-gray-900 mb-3">Insights & Analytics</h3>
-                  <p className="text-gray-600">Track how customers find and interact with your business online.</p>
+                  <h3 className="font-semibold text-gray-900 mb-3">{t('insightsAnalytics')}</h3>
+                  <p className="text-gray-600">{t('insightsAnalyticsDesc')}</p>
                 </div>
               </div>
             </CardContent>
@@ -104,15 +104,15 @@ export default function BusinessProfilePage() {
           {/* Process */}
           <Card className="mb-12">
             <CardContent className="p-8">
-              <h2 className="text-2xl font-bold text-gray-900 mb-6">Our Process</h2>
+              <h2 className="text-2xl font-bold text-gray-900 mb-6">{t('ourProcess')}</h2>
               <div className="space-y-6">
                 <div className="flex items-start">
                   <div className="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center mr-4 flex-shrink-0 font-semibold">
                     1
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-900 mb-2">Profile Setup</h3>
-                    <p className="text-gray-600">We create your complete Google Business Profile with all necessary business information and verification.</p>
+                    <h3 className="font-semibold text-gray-900 mb-2">{t('profileSetup')}</h3>
+                    <p className="text-gray-600">{t('profileSetupDesc')}</p>
                   </div>
                 </div>
                 <div className="flex items-start">
@@ -120,8 +120,8 @@ export default function BusinessProfilePage() {
                     2
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-900 mb-2">Content Optimization</h3>
-                    <p className="text-gray-600">We optimize your business description, add professional photos, and set up your services or products.</p>
+                    <h3 className="font-semibold text-gray-900 mb-2">{t('contentOptimization')}</h3>
+                    <p className="text-gray-600">{t('contentOptimizationDesc')}</p>
                   </div>
                 </div>
                 <div className="flex items-start">
@@ -129,8 +129,8 @@ export default function BusinessProfilePage() {
                     3
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-900 mb-2">Ongoing Management</h3>
-                    <p className="text-gray-600">We help you manage reviews, update information, and maintain an active, engaging profile.</p>
+                    <h3 className="font-semibold text-gray-900 mb-2">{t('ongoingManagement')}</h3>
+                    <p className="text-gray-600">{t('ongoingManagementDesc')}</p>
                   </div>
                 </div>
               </div>
@@ -142,11 +142,11 @@ export default function BusinessProfilePage() {
       {/* CTA Section */}
       <section className="py-16 bg-gradient-to-r from-primary to-blue-700 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold mb-4">Ready to Build Trust with Customers?</h2>
-          <p className="text-blue-100 mb-8 text-lg">Let's create a professional Google Business Profile that attracts and converts local customers.</p>
+          <h2 className="text-3xl font-bold mb-4">{t('readyBuildTrust')}</h2>
+          <p className="text-blue-100 mb-8 text-lg">{t('businessProfileCtaDesc')}</p>
           <Link href="/contact">
             <Button size="lg" className="bg-accent hover:bg-red-700 text-white shadow-lg hover:shadow-xl transition-all duration-300">
-              Get Started
+              {t('getStarted')}
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
           </Link>

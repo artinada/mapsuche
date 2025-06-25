@@ -67,8 +67,8 @@ export default function WieFindetManGuteFirmen() {
       step1Title: '1. Google Unternehmensprofil erstellen (früher: Google My Business)',
       step1Text: 'Damit erscheinst du automatisch bei Google und Google Maps. Du kannst Öffnungszeiten eintragen, Fotos hochladen und Bewertungen sammeln.',
       
-      step2Title: '2. Eintrag auf mapsuche.de anlegen',
-      step2Text: 'Auf mapsuche.de kannst du dein Unternehmen eintragen und wirst damit Teil eines schnell wachsenden, lokalen Firmenverzeichnisses in Deutschland. Kund*innen finden dich nach Branche, Standort und Sprache – ideal für lokale Sichtbarkeit.',
+      step2Title: '2. Professionelle Online-Präsenz aufbauen',
+      step2Text: 'Mit einer professionellen Website und optimierten Online-Präsenz wirst du Teil der digitalen Geschäftswelt. Kund*innen finden dich nach Branche, Standort und Sprache – ideal für lokale Sichtbarkeit und Vertrauen.',
       
       statisticsTitle: 'Ein kurzer Blick auf die Zahlen:',
       statistics: [
@@ -82,7 +82,7 @@ export default function WieFindetManGuteFirmen() {
       
       ctaTitle: 'Jetzt handeln!',
       ctaSubtitle: 'Möchten Sie, dass Kundinnen Ihr Unternehmen finden?',
-      ctaText: 'Dann tragen Sie sich noch heute auf mapsuche.de ein – schnell und einfach.',
+      ctaText: 'Lassen Sie uns gemeinsam Ihre Online-Sichtbarkeit verbessern.',
       ctaFooter: 'Weil gute Arbeit auch gefunden werden darf.'
     },
     en: {
@@ -115,8 +115,8 @@ export default function WieFindetManGuteFirmen() {
       step1Title: '1. Create Google Business Profile (formerly: Google My Business)',
       step1Text: 'This makes you automatically appear on Google and Google Maps. You can enter opening hours, upload photos, and collect reviews.',
       
-      step2Title: '2. Create entry on mapsuche.de',
-      step2Text: 'On mapsuche.de you can list your business and become part of a rapidly growing, local business directory in Germany. Customers find you by industry, location, and language – ideal for local visibility.',
+      step2Title: '2. Build Professional Online Presence',
+      step2Text: 'With a professional website and optimized online presence, you become part of the digital business world. Customers find you by industry, location, and language – ideal for local visibility and trust.',
       
       statisticsTitle: 'A Quick Look at the Numbers:',
       statistics: [
@@ -130,7 +130,7 @@ export default function WieFindetManGuteFirmen() {
       
       ctaTitle: 'Act Now!',
       ctaSubtitle: 'Do you want customers to find your business?',
-      ctaText: 'Then register on mapsuche.de today – quick and easy.',
+      ctaText: 'Let us work together to improve your online visibility.',
       ctaFooter: 'Because good work deserves to be found.'
     }
   };
@@ -246,7 +246,7 @@ export default function WieFindetManGuteFirmen() {
               {/* Step 1 */}
               <div className="mb-6 p-6 bg-blue-50 rounded-lg border border-blue-100">
                 <h3 className="text-xl font-bold text-gray-900 mb-3 flex items-center">
-                  <div className="bg-blue-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm mr-3 shadow-lg">1</div>
+                  <div className="bg-white text-gray-700 rounded-full w-8 h-8 flex items-center justify-center text-sm mr-3 shadow-lg border-2 border-gray-200 font-bold">1</div>
                   {currentContent.step1Title}
                 </h3>
                 <p className="text-gray-700 leading-relaxed">
@@ -257,7 +257,7 @@ export default function WieFindetManGuteFirmen() {
               {/* Step 2 */}
               <div className="p-6 bg-green-50 rounded-lg border border-green-100">
                 <h3 className="text-xl font-bold text-gray-900 mb-3 flex items-center">
-                  <div className="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm mr-3 shadow-lg">2</div>
+                  <div className="bg-white text-gray-700 rounded-full w-8 h-8 flex items-center justify-center text-sm mr-3 shadow-lg border-2 border-gray-200 font-bold">2</div>
                   {currentContent.step2Title}
                 </h3>
                 <p className="text-gray-700 leading-relaxed">
@@ -309,10 +309,12 @@ export default function WieFindetManGuteFirmen() {
               <p className="text-gray-700 mb-6 leading-relaxed">
                 {currentContent.ctaText}
               </p>
-              <Button size="lg" className="mb-4 bg-accent hover:bg-red-700 text-white shadow-lg hover:shadow-xl transition-all duration-300">
-                <ExternalLink className="mr-2 h-5 w-5" />
-                {language === 'de' ? 'Jetzt auf mapsuche.de eintragen' : 'Register on mapsuche.de now'}
-              </Button>
+              <Link href="/contact">
+                <Button size="lg" className="mb-4 bg-accent hover:bg-red-700 text-white shadow-lg hover:shadow-xl transition-all duration-300">
+                  <ExternalLink className="mr-2 h-5 w-5" />
+                  {language === 'de' ? 'Kostenlose Beratung anfragen' : 'Request Free Consultation'}
+                </Button>
+              </Link>
               <p className="text-sm text-gray-600 italic">
                 {currentContent.ctaFooter}
               </p>

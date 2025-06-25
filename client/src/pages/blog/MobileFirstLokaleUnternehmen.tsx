@@ -225,7 +225,7 @@ const MobileFirstLokaleUnternehmen: React.FC = () => {
                   <ul className="space-y-3 mb-6">
                     {currentContent.section2.points.map((point, index) => (
                       <li key={index} className="flex items-start text-gray-700">
-                        <div className="w-2 h-2 bg-red-400 rounded-full mr-3 mt-2 flex-shrink-0"></div>
+                        <CheckCircle className="h-5 w-5 text-red-500 mr-3 mt-0.5 flex-shrink-0" />
                         <span className="leading-relaxed">{point}</span>
                       </li>
                     ))}
@@ -322,10 +322,12 @@ const MobileFirstLokaleUnternehmen: React.FC = () => {
               <p className="text-gray-700 mb-6 text-lg leading-relaxed">
                 {currentContent.ctaText}
               </p>
-              <Button size="lg" className="mb-4 bg-accent hover:bg-red-700 text-white shadow-lg hover:shadow-xl transition-all duration-300">
-                <ExternalLink className="mr-2 h-5 w-5" />
-                {language === 'de' ? 'Jetzt auf mapsuche.de eintragen' : 'Register on mapsuche.de now'}
-              </Button>
+              <Link href="/contact">
+                <Button size="lg" className="mb-4 bg-accent hover:bg-red-700 text-white shadow-lg hover:shadow-xl transition-all duration-300">
+                  <ExternalLink className="mr-2 h-5 w-5" />
+                  {language === 'de' ? 'Kostenlose Beratung anfragen' : 'Request Free Consultation'}
+                </Button>
+              </Link>
               <p className="text-sm text-gray-600">
                 {currentContent.ctaFooter}
               </p>

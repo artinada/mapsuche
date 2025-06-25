@@ -226,7 +226,7 @@ export default function TopRestaurantsWittenberg() {
                   <div className="flex items-start justify-between mb-4">
                     <div>
                       <div className="flex items-center mb-2">
-                        <div className="bg-accent text-white rounded-full w-10 h-10 flex items-center justify-center mr-3 font-bold shadow-lg">
+                        <div className="bg-white text-gray-700 rounded-full w-10 h-10 flex items-center justify-center mr-3 font-bold shadow-lg border-2 border-gray-200">
                           {restaurant.rank}
                         </div>
                         <h3 className="text-2xl font-bold text-gray-900">

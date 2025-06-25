@@ -263,27 +263,19 @@ export default function HaeufigsteFehlerUnternehmenInternet() {
 
             <div className="space-y-8">
               {mistakes.map((mistake) => {
-                const IconComponent = mistake.icon;
                 return (
                   <Card key={mistake.number} className="bg-white hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-gray-200">
                     <CardContent className="p-8">
                       <div className="flex items-start mb-4">
-                        <div className={`rounded-full w-12 h-12 flex items-center justify-center mr-4 flex-shrink-0 ${
-                          mistake.color === 'red' ? 'bg-red-500' :
-                          mistake.color === 'orange' ? 'bg-orange-500' :
-                          mistake.color === 'blue' ? 'bg-blue-500' :
-                          mistake.color === 'green' ? 'bg-green-500' :
-                          'bg-purple-500'
-                        } text-white font-bold shadow-lg`}>
-                          {mistake.number}
+                        <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center mr-4 flex-shrink-0 shadow-lg border-2 border-gray-200">
+                          <span className="text-lg font-bold text-gray-700">
+                            {mistake.number}
+                          </span>
                         </div>
                         <div className="flex-1">
-                          <div className="flex items-center mb-4">
-                            <IconComponent className={`h-6 w-6 ${getIconColor(mistake.color)} mr-3`} />
-                            <h3 className="text-2xl font-bold text-gray-900">
-                              {mistake.title[language]}
-                            </h3>
-                          </div>
+                          <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                            {mistake.title[language]}
+                          </h3>
                           <p className="text-gray-700 mb-6 leading-relaxed text-lg">
                             {mistake.description[language]}
                           </p>
@@ -366,10 +358,12 @@ export default function HaeufigsteFehlerUnternehmenInternet() {
               <p className="text-gray-700 mb-6 text-lg leading-relaxed">
                 {currentContent.ctaText}
               </p>
-              <Button size="lg" className="mb-4 bg-accent hover:bg-red-700 text-white shadow-lg hover:shadow-xl transition-all duration-300">
-                <ExternalLink className="mr-2 h-5 w-5" />
-                {language === 'de' ? 'Jetzt eintragen' : 'Register now'}
-              </Button>
+              <Link href="/contact">
+                <Button size="lg" className="mb-4 bg-accent hover:bg-red-700 text-white shadow-lg hover:shadow-xl transition-all duration-300">
+                  <ExternalLink className="mr-2 h-5 w-5" />
+                  {language === 'de' ? 'Kostenlose Beratung anfragen' : 'Request Free Consultation'}
+                </Button>
+              </Link>
               <p className="text-sm text-gray-600 italic">
                 {language === 'de' 
                   ? 'Professionell, vollständig und kundenfreundlich – so wie es sein sollte.'

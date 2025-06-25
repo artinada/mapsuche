@@ -44,7 +44,7 @@ export default function WebsitePage() {
           {/* Features */}
           <Card className="mb-12">
             <CardContent className="p-8">
-              <h2 className="text-2xl font-bold text-gray-900 mb-6">What's Included</h2>
+              <h2 className="text-2xl font-bold text-gray-900 mb-6">{t('whatsIncluded')}</h2>
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="space-y-4">
                   <div className="flex items-center">
@@ -63,15 +63,15 @@ export default function WebsitePage() {
                 <div className="space-y-4">
                   <div className="flex items-center">
                     <Check className="h-5 w-5 text-secondary mr-3" />
-                    <span className="text-gray-700">Contact forms & lead capture</span>
+                    <span className="text-gray-700">{t('contactFormsLeadCapture')}</span>
                   </div>
                   <div className="flex items-center">
                     <Check className="h-5 w-5 text-secondary mr-3" />
-                    <span className="text-gray-700">Social media integration</span>
+                    <span className="text-gray-700">{t('socialMediaIntegration')}</span>
                   </div>
                   <div className="flex items-center">
                     <Check className="h-5 w-5 text-secondary mr-3" />
-                    <span className="text-gray-700">Google Analytics setup</span>
+                    <span className="text-gray-700">{t('googleAnalyticsSetup')}</span>
                   </div>
                 </div>
               </div>
@@ -81,28 +81,28 @@ export default function WebsitePage() {
           {/* Website Types */}
           <Card className="mb-12">
             <CardContent className="p-8">
-              <h2 className="text-2xl font-bold text-gray-900 mb-6">Perfect For</h2>
+              <h2 className="text-2xl font-bold text-gray-900 mb-6">{t('perfectFor')}</h2>
               <div className="grid md:grid-cols-3 gap-6">
                 <div className="text-center">
                   <div className="bg-primary/10 w-16 h-16 rounded-xl flex items-center justify-center mx-auto mb-4">
                     <Globe className="h-8 w-8 text-primary" />
                   </div>
-                  <h3 className="font-semibold text-gray-900 mb-2">Service Businesses</h3>
-                  <p className="text-gray-600 text-sm">Plumbers, electricians, cleaners, consultants</p>
+                  <h3 className="font-semibold text-gray-900 mb-2">{t('serviceBusinesses')}</h3>
+                  <p className="text-gray-600 text-sm">{t('serviceBusinessesDesc')}</p>
                 </div>
                 <div className="text-center">
                   <div className="bg-secondary/10 w-16 h-16 rounded-xl flex items-center justify-center mx-auto mb-4">
                     <Globe className="h-8 w-8 text-secondary" />
                   </div>
-                  <h3 className="font-semibold text-gray-900 mb-2">Retail Stores</h3>
-                  <p className="text-gray-600 text-sm">Boutiques, cafes, restaurants, shops</p>
+                  <h3 className="font-semibold text-gray-900 mb-2">{t('retailStores')}</h3>
+                  <p className="text-gray-600 text-sm">{t('retailStoresDesc')}</p>
                 </div>
                 <div className="text-center">
                   <div className="bg-accent/10 w-16 h-16 rounded-xl flex items-center justify-center mx-auto mb-4">
                     <Globe className="h-8 w-8 text-accent" />
                   </div>
-                  <h3 className="font-semibold text-gray-900 mb-2">Professional Services</h3>
-                  <p className="text-gray-600 text-sm">Lawyers, doctors, accountants, agencies</p>
+                  <h3 className="font-semibold text-gray-900 mb-2">{t('professionalServices')}</h3>
+                  <p className="text-gray-600 text-sm">{t('professionalServicesDesc')}</p>
                 </div>
               </div>
             </CardContent>
@@ -111,15 +111,15 @@ export default function WebsitePage() {
           {/* Process */}
           <Card className="mb-12">
             <CardContent className="p-8">
-              <h2 className="text-2xl font-bold text-gray-900 mb-6">Our Process</h2>
+              <h2 className="text-2xl font-bold text-gray-900 mb-6">{t('ourProcess')}</h2>
               <div className="space-y-6">
                 <div className="flex items-start">
                   <div className="bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center mr-4 flex-shrink-0 font-semibold">
                     1
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-900 mb-2">Discovery & Planning</h3>
-                    <p className="text-gray-600">We learn about your business goals, target audience, and design preferences to create the perfect website strategy.</p>
+                    <h3 className="font-semibold text-gray-900 mb-2">{t('discoveryPlanning')}</h3>
+                    <p className="text-gray-600">{t('discoveryPlanningDesc')}</p>
                   </div>
                 </div>
                 <div className="flex items-start">
@@ -127,8 +127,8 @@ export default function WebsitePage() {
                     2
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-900 mb-2">Design & Development</h3>
-                    <p className="text-gray-600">We create a custom, mobile-friendly website that reflects your brand and converts visitors into customers.</p>
+                    <h3 className="font-semibold text-gray-900 mb-2">{t('designDevelopment')}</h3>
+                    <p className="text-gray-600">{t('designDevelopmentDesc')}</p>
                   </div>
                 </div>
                 <div className="flex items-start">
@@ -136,8 +136,8 @@ export default function WebsitePage() {
                     3
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-900 mb-2">Launch & Training</h3>
-                    <p className="text-gray-600">We launch your website and provide training so you can easily update content and manage your online presence.</p>
+                    <h3 className="font-semibold text-gray-900 mb-2">{t('launchTraining')}</h3>
+                    <p className="text-gray-600">{t('launchTrainingDesc')}</p>
                   </div>
                 </div>
               </div>
@@ -149,11 +149,11 @@ export default function WebsitePage() {
       {/* CTA Section */}
       <section className="py-16 bg-gradient-to-r from-primary to-blue-700 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold mb-4">Ready for a Professional Website?</h2>
-          <p className="text-blue-100 mb-8 text-lg">Let's create a website that works as hard as you do to grow your business.</p>
+          <h2 className="text-3xl font-bold mb-4">{t('readyProfessionalWebsite')}</h2>
+          <p className="text-blue-100 mb-8 text-lg">{t('websiteCtaDesc')}</p>
           <Link href="/contact">
             <Button size="lg" className="bg-accent hover:bg-red-700 text-white shadow-lg hover:shadow-xl transition-all duration-300">
-              Get Started
+              {t('getStarted')}
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
           </Link>
