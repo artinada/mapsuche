@@ -17,6 +17,7 @@ import ServicesPage from '@/pages/ServicesPage';
 import GoogleMapsPage from '@/pages/GoogleMapsPage';
 import BusinessProfilePage from '@/pages/BusinessProfilePage';
 import WebsitePage from '@/pages/WebsitePage';
+import AblaufAuditPage from '@/pages/AblaufAuditPage';
 import ContactPage from '@/pages/ContactPage';
 import FAQPage from '@/pages/FAQPage';
 import PrivacyPage from '@/pages/PrivacyPage';
@@ -77,6 +78,7 @@ export default function App() {
                 <Route path="/services/google-maps" component={GoogleMapsPage} />
                 <Route path="/services/business-profile" component={BusinessProfilePage} />
                 <Route path="/services/website" component={WebsitePage} />
+                <Route path="/services/ablauf-audit" component={AblaufAuditPage} />
                 <Route path="/blog" component={BlogPage} />
                 
                 {/* Blog article routes */}

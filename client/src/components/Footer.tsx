@@ -67,6 +67,11 @@ export function Footer() {
                   {t('websiteDevelopment')}
                 </Link>
               </li>
+              <li>
+                <Link href="/services/ablauf-audit" className="text-gray-300 hover:text-white transition-colors">
+                  {t('ablaufAuditService')}
+                </Link>
+              </li>
             </ul>
           </div>
 

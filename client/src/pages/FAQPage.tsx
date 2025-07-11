@@ -58,6 +58,38 @@ export default function FAQPage() {
       {
         question: "How do you track and report results?",
         answer: "We provide monthly reports showing Google ranking improvements, website traffic increases, and local search visibility metrics with clear, easy-to-understand data."
+      },
+      {
+        question: "What is the Ablauf-Audit service and what does it include?",
+        answer: "Our Ablauf-Audit service helps organize your business processes to reduce chaos and improve efficiency. It includes appointment and customer management systems, GDPR-compliant document storage, and professional templates for emails, invoices, and offers."
+      },
+      {
+        question: "How long does the process optimization take?",
+        answer: "Most process audits are completed within 2-4 weeks, depending on business complexity. We work at your pace and provide step-by-step implementation to ensure you're comfortable with all changes."
+      },
+      {
+        question: "Is Ablauf-Audit suitable for my type of business?",
+        answer: "Yes! Our process optimization works for restaurants, handwerkers, retail stores, service providers, and most small businesses. We customize solutions based on your specific industry and workflow needs."
+      },
+      {
+        question: "How does the Ablauf-Audit help with GDPR compliance?",
+        answer: "We implement secure, GDPR-compliant document storage and management systems. This includes proper data handling procedures, secure archiving, and clear documentation processes to meet German privacy regulations."
+      },
+      {
+        question: "What kind of templates do you provide?",
+        answer: "We create professional templates for your most common business communications: email responses, invoice formats, quote templates, appointment confirmations, and customer follow-up messages - all branded consistently for your business."
+      },
+      {
+        question: "How do you ensure confidentiality during the process audit?",
+        answer: "We treat all business information with strict confidentiality. We work discreetly, can sign NDAs if required, and focus on helping you organize processes without disrupting your daily operations."
+      },
+      {
+        question: "Do you provide ongoing support after the Ablauf-Audit?",
+        answer: "Yes! We provide follow-up support to ensure systems are working well and can make adjustments as your business evolves. We're here to help you maintain organized, efficient processes long-term."
+      },
+      {
+        question: "How much does the Ablauf-Audit cost?",
+        answer: "Pricing depends on your business size and complexity. We offer transparent, fixed-price packages with no hidden fees. Contact us for a free consultation and custom quote based on your specific needs."
       }
     ],
     de: [
@@ -92,6 +124,38 @@ export default function FAQPage() {
       {
         question: "Wie verfolgen und berichten Sie Ergebnisse?",
         answer: "Wir liefern monatliche Berichte mit Google-Ranking-Verbesserungen, Website-Traffic-Steigerungen und lokalen Suchsichtbarkeits-Metriken mit klaren, leicht verständlichen Daten."
+      },
+      {
+        question: "Was ist der Ablauf-Audit Service und was beinhaltet er?",
+        answer: "Unser Ablauf-Audit Service hilft dabei, Ihre Geschäftsprozesse zu organisieren, um Chaos zu reduzieren und die Effizienz zu verbessern. Er umfasst Termin- und Kundenmanagementsysteme, DSGVO-konforme Dokumentenspeicherung und professionelle Vorlagen für E-Mails, Rechnungen und Angebote."
+      },
+      {
+        question: "Wie lange dauert die Prozessoptimierung?",
+        answer: "Die meisten Prozessaudits werden innerhalb von 2-4 Wochen abgeschlossen, abhängig von der Komplexität des Unternehmens. Wir arbeiten in Ihrem Tempo und bieten schrittweise Umsetzung, um sicherzustellen, dass Sie mit allen Änderungen vertraut sind."
+      },
+      {
+        question: "Ist der Ablauf-Audit für meinen Unternehmenstyp geeignet?",
+        answer: "Ja! Unsere Prozessoptimierung funktioniert für Restaurants, Handwerker, Einzelhandelsgeschäfte, Dienstleister und die meisten kleinen Unternehmen. Wir passen Lösungen an Ihre spezifischen Branchen- und Workflow-Bedürfnisse an."
+      },
+      {
+        question: "Wie hilft der Ablauf-Audit bei der DSGVO-Compliance?",
+        answer: "Wir implementieren sichere, DSGVO-konforme Dokumentenspeicher- und Verwaltungssysteme. Dies umfasst ordnungsgemäße Datenverarbeitungsverfahren, sichere Archivierung und klare Dokumentationsprozesse zur Erfüllung deutscher Datenschutzbestimmungen."
+      },
+      {
+        question: "Welche Art von Vorlagen stellen Sie zur Verfügung?",
+        answer: "Wir erstellen professionelle Vorlagen für Ihre häufigsten Geschäftskommunikationen: E-Mail-Antworten, Rechnungsformate, Angebotsvorlagen, Terminbestätigungen und Kundennachfassungen - alles einheitlich für Ihr Unternehmen gebrandet."
+      },
+      {
+        question: "Wie gewährleisten Sie Vertraulichkeit während des Prozessaudits?",
+        answer: "Wir behandeln alle Geschäftsinformationen streng vertraulich. Wir arbeiten diskret, können bei Bedarf Geheimhaltungsvereinbarungen unterzeichnen und konzentrieren uns darauf, Ihnen bei der Prozessorganisation zu helfen, ohne Ihre täglichen Abläufe zu stören."
+      },
+      {
+        question: "Bieten Sie nach dem Ablauf-Audit laufende Unterstützung an?",
+        answer: "Ja! Wir bieten Folgeunterstützung, um sicherzustellen, dass die Systeme gut funktionieren und können Anpassungen vornehmen, wenn sich Ihr Unternehmen weiterentwickelt. Wir sind hier, um Ihnen langfristig bei der Aufrechterhaltung organisierter, effizienter Prozesse zu helfen."
+      },
+      {
+        question: "Wie viel kostet der Ablauf-Audit?",
+        answer: "Die Preise hängen von Ihrer Unternehmensgröße und -komplexität ab. Wir bieten transparente Festpreispakete ohne versteckte Kosten. Kontaktieren Sie uns für eine kostenlose Beratung und ein individuelles Angebot basierend auf Ihren spezifischen Bedürfnissen."
       }
     ]
   };

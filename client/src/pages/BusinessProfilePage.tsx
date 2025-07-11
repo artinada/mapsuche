@@ -1,4 +1,4 @@
-import { ArrowRight, Check, Star } from 'lucide-react';
+import { ArrowRight, Check, Building2 } from 'lucide-react';
 import { Link } from 'wouter';
 import { useLanguage } from '@/hooks/useLanguage';
 import { useSEO } from '@/hooks/useSEO';
@@ -27,7 +27,7 @@ export default function BusinessProfilePage() {
       <section className="bg-gradient-to-br from-primary to-blue-700 text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="bg-white/10 w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-6">
-            <Star className="h-10 w-10 text-white" />
+            <Building2 className="h-10 w-10 text-white" />
           </div>
           <h1 className="text-4xl lg:text-5xl font-bold mb-6">
             {t('businessProfileTitle')}

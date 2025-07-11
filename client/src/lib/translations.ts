@@ -46,6 +46,11 @@ export const translations = {
         title: "Local SEO Blog - Digital Marketing Tips & Strategies | MapSuche",
         description: "Expert insights on local SEO, Google Maps optimization, and digital marketing strategies for small businesses. Professional tips to improve your online visibility and attract more customers in Germany.",
         keywords: "local seo blog, digital marketing tips, google maps optimization guide, business profile tips, local search strategies, seo advice germany, small business marketing blog"
+      },
+      ablaufAudit: {
+        title: "Process Audit for Peace of Mind | Business Organization Services",
+        description: "Professional business process optimization and organization services. End paper chaos, secure document storage, and streamlined workflows for your business operations in Germany.",
+        keywords: "business process optimization, document organization, workflow management, business organization services, process audit, office organization, productivity consulting, business efficiency"
       }
     },
     
@@ -118,6 +123,7 @@ export const translations = {
     impressum: "Impressum",
     businessProfileSetup: "Business Profile Setup",
     websiteDevelopment: "Website Development",
+    ablaufAuditService: "Process Audit Services",
     allRightsReserved: "© 2024 MapSuche. All rights reserved.",
     
     // Form Messages
@@ -209,6 +215,79 @@ export const translations = {
     readyProfessionalWebsite: "Ready for a Professional Website?",
     websiteCtaDesc: "Let's create a website that works as hard as you do to grow your business.",
     
+    // Ablauf-Audit Page
+    ablaufAuditTitle: "Process Audit for Peace of Mind",
+    ablaufAuditDescription: "End the paper chaos and lost documents! Professional structural support for your business operations.",
+    ablaufAuditSubtitle: "Professional structural support for your business operations. End the paper chaos and lost documents!",
+    knowThisSituation: "Do you know this situation?",
+    searchImportantFile: "You search for an important file and cannot find it?",
+    customerMissingLink: "A customer has not received an important link?",
+    paperChaosDesk: "Paper chaos on the desk costs you time every day?",
+    forgottenAppointments: "Forgotten appointments cause stress and dissatisfaction?",
+    timeIsMoney: "Time is Money",
+    timeIsMoneyDesc: "Disorganized processes cost you valuable time and nerves every day. Let us create order together – once and for all.",
+    professionalStructuralSupport: "Your Solution: Professional Structural Support",
+    professionalStructuralSupportDesc: "I support you in organizing your internal processes – completely individually, discreetly and understandably.",
+    betterOverviewTitle: "Better overview of appointments & customers",
+    betterOverviewDesc: "Never again forgotten appointments or lost customer information",
+    secureDocStorageTitle: "Secure document storage (GDPR compliant)",
+    secureDocStorageDesc: "Professional and legally secure archiving of all important documents",
+    clearTemplatesTitle: "Clear templates for emails, invoices, offers",
+    clearTemplatesDesc: "Uniform templates for professional communication",
+    whatToExpect: "What you can expect",
+    whatToExpectDesc: "Every business is unique. That's why I develop customized solutions for you that fit your everyday life.",
+    individualProcessAnalysis: "Individual process analysis",
+    discreteAdvising: "Discrete and understandable consulting",
+    tailoredSolutions: "Tailored solutions",
+    practicalImplementation: "Practical implementation",
+    sustainableImprovement: "Sustainable improvement",
+    continuousSupport: "Continuous support",
+    discreteUnderstandable: "Discrete & Understandable",
+    discreteUnderstandableDesc: "I work with you, not against you. Together we find solutions that you understand and can implement independently.",
+    ablaufAuditMotto: "Less chaos, more overview: Structural help for your everyday life.",
+    contactForStructuralHelp: "Let us bring order to your processes together. Contact me for a non-binding conversation.",
+    contactNow: "Contact now",
+    
+    // Services Page Specific
+    whyChooseServices: "Why Choose Our Services?",
+    whyChooseServicesDesc: "Professional digital marketing services specifically designed for small German businesses",
+    whatMakesUsDifferent: "What Makes Us Different",
+    localMarketExpertise: "Local Market Expertise",
+    localMarketExpertiseDesc: "Deep understanding of German local search patterns and customer behavior",
+    smallBusinessFocus: "Small Business Focus", 
+    smallBusinessFocusDesc: "Solutions designed specifically for small business budgets and needs",
+    personalService: "Personal Service",
+    personalServiceDesc: "Direct access to your consultant, no call centers or automated responses",
+    industriesWeSpecialize: "Industries We Specialize In",
+    
+    // FAQ Section
+    faqTitle: "Questions? We Have Answers",
+    faqSubtitle: "Common questions from small business owners just like you",
+    faqQuestion1: "How quickly will I see results?",
+    faqAnswer1: "Most clients see their Google Business Profile appear in local searches within 1-2 weeks. Full optimization benefits typically show in 4-6 weeks.",
+    faqCheckmark1: "✓ Week 1: Profile setup complete",
+    faqQuestion2: "What makes you different from big agencies?",
+    faqAnswer2: "We focus exclusively on small businesses in Germany. Personal service, local market knowledge, and affordable pricing - no corporate overhead.",
+    faqCheckmark2: "✓ Direct contact with your specialist",
+    faqQuestion3: "Do you work with my specific industry?",
+    faqAnswer3: "Yes! We help restaurants, handwerkers, retail stores, service providers, and more. Each strategy is customized for your industry's unique needs.",
+    faqCheckmark3: "✓ Industry-specific optimization",
+    faqQuestion4: "How much does it cost?",
+    faqAnswer4: "Every business is different. We provide custom quotes based on your specific needs and goals. Free consultation to discuss your situation.",
+    faqCheckmark4: "✓ No hidden fees, transparent pricing",
+    viewAllFaqs: "View All FAQs",
+    getFreeConsultation: "Get Your Free Consultation",
+    
+    // How We Help Section
+    howWeHelpTitle: "How We Help Your Business Grow",
+    howWeHelpSubtitle: "Simple, effective process designed specifically for small business owners",
+    howWeHelpStep1Title: "Free Consultation",
+    howWeHelpStep1Desc: "We analyze your current online presence and identify opportunities for growth",
+    howWeHelpStep2Title: "Custom Strategy",
+    howWeHelpStep2Desc: "We create a tailored plan focused on your specific business goals and budget",
+    howWeHelpStep3Title: "See Results",
+    howWeHelpStep3Desc: "Watch your business appear in local searches and attract more customers",
+    
     // Legal Pages
     impressumTitle: "Impressum",
     privacyTitle: "Privacy Policy",
@@ -261,6 +340,11 @@ export const translations = {
         title: "Lokale SEO Blog - Digital Marketing Tipps & Strategien | MapSuche",
         description: "Experteneinblicke zu lokaler SEO, Google Maps Optimierung und Digital Marketing Strategien für kleine Unternehmen. Professionelle Tipps für bessere Online-Sichtbarkeit und mehr Kunden in Deutschland.",
         keywords: "lokale seo blog, digital marketing tipps, google maps optimierung guide, unternehmensprofil tipps, lokale suchstrategien, seo beratung deutschland, kleine unternehmen marketing blog"
+      },
+      ablaufAudit: {
+        title: "Ablauf-Audit für ruhigen Kopf | Geschäftsprozess-Optimierung",
+        description: "Professionelle Geschäftsprozess-Optimierung und Organisations-Services. Schluss mit Papierchaos, sichere Dokumentenablage und optimierte Arbeitsabläufe für Ihr Unternehmen in Deutschland.",
+        keywords: "geschäftsprozess optimierung, dokumentenorganisation, workflow management, büroorganisation, ablauf audit, prozessoptimierung, produktivitätsberatung, geschäftseffizienz"
       }
     },
     
@@ -333,6 +417,7 @@ export const translations = {
     impressum: "Impressum",
     businessProfileSetup: "Unternehmensprofil Setup",
     websiteDevelopment: "Website Entwicklung",
+    ablaufAuditService: "Ablauf-Audit Services",
     allRightsReserved: "© 2024 MapSuche. Alle Rechte vorbehalten.",
     
     // Form Messages
@@ -423,6 +508,79 @@ export const translations = {
     launchTrainingDesc: "Wir starten Ihre Website und bieten Schulungen damit Sie einfach Inhalte aktualisieren und Ihre Online-Präsenz verwalten können.",
     readyProfessionalWebsite: "Bereit für eine professionelle Website?",
     websiteCtaDesc: "Lassen Sie uns eine Website erstellen die genauso hart arbeitet wie Sie um Ihr Unternehmen zu vergrößern.",
+    
+    // Ablauf-Audit Page
+    ablaufAuditTitle: "Ablauf-Audit für ruhigen Kopf",
+    ablaufAuditDescription: "Schluss mit Papierchaos und verlorenen Dokumenten! Professionelle Strukturhilfe für Ihren Geschäftsalltag.",
+    ablaufAuditSubtitle: "Schluss mit Papierchaos und verlorenen Dokumenten! Professionelle Strukturhilfe für Ihren Geschäftsalltag.",
+    knowThisSituation: "Kennen Sie diese Situation?",
+    searchImportantFile: "Sie suchen eine wichtige Datei und können sie nicht finden?",
+    customerMissingLink: "Ein Kunde hat keinen wichtigen Link erhalten?",
+    paperChaosDesk: "Papierchaos auf dem Schreibtisch kostet Sie täglich Zeit?",
+    forgottenAppointments: "Vergessene Termine sorgen für Stress und Unzufriedenheit?",
+    timeIsMoney: "Zeit ist Geld",
+    timeIsMoneyDesc: "Unorganisierte Prozesse kosten Sie täglich wertvolle Zeit und Nerven. Lassen Sie uns gemeinsam Ordnung schaffen – ein für alle Mal.",
+    professionalStructuralSupport: "Ihre Lösung: Professionelle Strukturhilfe",
+    professionalStructuralSupportDesc: "Ich unterstütze Sie bei der Organisation Ihrer internen Prozesse – ganz individuell, diskret und verständlich.",
+    betterOverviewTitle: "Bessere Übersicht über Termine & Kunden",
+    betterOverviewDesc: "Nie wieder vergessene Termine oder verlorene Kundeninformationen",
+    secureDocStorageTitle: "Sichere Dokumentenablage (DSGVO-konform)",
+    secureDocStorageDesc: "Professionelle und rechtssichere Archivierung aller wichtigen Dokumente",
+    clearTemplatesTitle: "Übersichtliche Vorlagen für E-Mails, Rechnungen, Angebote",
+    clearTemplatesDesc: "Einheitliche Templates für professionelle Kommunikation",
+    whatToExpect: "Was Sie erwarten können",
+    whatToExpectDesc: "Jedes Unternehmen ist einzigartig. Deshalb entwickle ich für Sie maßgeschneiderte Lösungen, die zu Ihrem Alltag passen.",
+    individualProcessAnalysis: "Individuelle Prozessanalyse",
+    discreteAdvising: "Diskrete und verständliche Beratung",
+    tailoredSolutions: "Maßgeschneiderte Lösungen",
+    practicalImplementation: "Praktische Umsetzung",
+    sustainableImprovement: "Nachhaltige Verbesserung",
+    continuousSupport: "Kontinuierliche Unterstützung",
+    discreteUnderstandable: "Diskret & Verständlich",
+    discreteUnderstandableDesc: "Ich arbeite mit Ihnen zusammen, nicht gegen Sie. Gemeinsam finden wir Lösungen, die Sie verstehen und selbstständig umsetzen können.",
+    ablaufAuditMotto: "Weniger Chaos, mehr Übersicht: Strukturhilfe für Ihren Alltag.",
+    contactForStructuralHelp: "Lassen Sie uns gemeinsam Ordnung in Ihre Prozesse bringen. Kontaktieren Sie mich für ein unverbindliches Gespräch.",
+    contactNow: "Jetzt Kontakt aufnehmen",
+    
+    // Services Page Specific
+    whyChooseServices: "Warum unsere Services wählen?",
+    whyChooseServicesDesc: "Professionelle Digital Marketing Services speziell für kleine deutsche Unternehmen entwickelt",
+    whatMakesUsDifferent: "Was uns unterscheidet",
+    localMarketExpertise: "Lokale Marktexpertise",
+    localMarketExpertiseDesc: "Tiefes Verständnis deutscher lokaler Suchgewohnheiten und Kundenverhalten",
+    smallBusinessFocus: "Small Business Fokus",
+    smallBusinessFocusDesc: "Lösungen speziell für kleine Unternehmensbudgets und -bedürfnisse entwickelt",
+    personalService: "Persönlicher Service",
+    personalServiceDesc: "Direkter Zugang zu Ihrem Berater, keine Call-Center oder automatisierten Antworten",
+    industriesWeSpecialize: "Branchen in denen wir spezialisiert sind",
+    
+    // FAQ Section
+    faqTitle: "Fragen? Wir haben Antworten",
+    faqSubtitle: "Häufige Fragen von kleinen Unternehmern wie Ihnen",
+    faqQuestion1: "Wie schnell werde ich Ergebnisse sehen?",
+    faqAnswer1: "Die meisten Kunden sehen ihr Google Unternehmensprofil innerhalb von 1-2 Wochen in lokalen Suchergebnissen. Vollständige Optimierungsvorteile zeigen sich normalerweise in 4-6 Wochen.",
+    faqCheckmark1: "✓ Woche 1: Profil-Setup abgeschlossen",
+    faqQuestion2: "Was unterscheidet Sie von großen Agenturen?",
+    faqAnswer2: "Wir konzentrieren uns ausschließlich auf kleine Unternehmen in Deutschland. Persönlicher Service, lokale Marktkenntnis und erschwingliche Preise - keine Konzernkosten.",
+    faqCheckmark2: "✓ Direkter Kontakt zu Ihrem Spezialisten",
+    faqQuestion3: "Arbeiten Sie mit meiner spezifischen Branche?",
+    faqAnswer3: "Ja! Wir helfen Restaurants, Handwerkern, Einzelhändlern, Dienstleistern und mehr. Jede Strategie wird für die besonderen Bedürfnisse Ihrer Branche angepasst.",
+    faqCheckmark3: "✓ Branchenspezifische Optimierung",
+    faqQuestion4: "Wie viel kostet es?",
+    faqAnswer4: "Jedes Unternehmen ist anders. Wir bieten individuelle Angebote basierend auf Ihren spezifischen Bedürfnissen und Zielen. Kostenlose Beratung zur Besprechung Ihrer Situation.",
+    faqCheckmark4: "✓ Keine versteckten Kosten, transparente Preise",
+    viewAllFaqs: "Alle FAQs ansehen",
+    getFreeConsultation: "Ihre kostenlose Beratung erhalten",
+    
+    // How We Help Section
+    howWeHelpTitle: "Wie wir Ihrem Unternehmen beim Wachstum helfen",
+    howWeHelpSubtitle: "Einfacher, effektiver Prozess speziell für kleine Unternehmer entwickelt",
+    howWeHelpStep1Title: "Kostenlose Beratung",
+    howWeHelpStep1Desc: "Wir analysieren Ihre aktuelle Online-Präsenz und identifizieren Wachstumsmöglichkeiten",
+    howWeHelpStep2Title: "Individuelle Strategie",
+    howWeHelpStep2Desc: "Wir erstellen einen maßgeschneiderten Plan fokussiert auf Ihre spezifischen Unternehmensziele und Budget",
+    howWeHelpStep3Title: "Ergebnisse sehen",
+    howWeHelpStep3Desc: "Sehen Sie wie Ihr Unternehmen in lokalen Suchergebnissen erscheint und mehr Kunden anzieht",
     
     // Legal Pages
     impressumTitle: "Impressum",
