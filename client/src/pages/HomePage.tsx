@@ -1,5 +1,5 @@
 import { Link } from 'wouter';
-import { MapPin, Globe, Star, ArrowRight, Check, Users, Clock, DollarSign, Settings } from 'lucide-react';
+import { MapPin, Globe, Star, SearchCheck, ArrowRight, Check, Users, Clock, DollarSign, Settings } from 'lucide-react';
 import { useLanguage } from '@/hooks/useLanguage';
 import { useSEO } from '@/hooks/useSEO';
 import { Button } from '@/components/ui/button';
@@ -26,6 +26,15 @@ export default function HomePage() {
   });
 
   const services = [
+    {
+      icon: SearchCheck,
+      title: 'GEO Check & AI Visibility',
+      description: 'Entdecken Sie, wie Ihr lokales Unternehmen in KI-gestützten Suchantworten sichtbar wird.',
+      features: ['KI-Erwähnungen verstehen', 'Wettbewerber vergleichen', 'GEO-Optimierung entdecken'],
+      color: 'text-primary',
+      buttonColor: 'bg-primary hover:bg-blue-700',
+      href: '/geo-check'
+    },
     {
       icon: MapPin,
       title: t('googleMapsTitle'),
@@ -135,6 +144,14 @@ export default function HomePage() {
               />
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* GEO primary offer */}
+      <section className="py-16 bg-primary/10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row gap-6 md:items-center md:justify-between">
+          <div className="max-w-3xl"><span className="text-primary font-semibold text-sm">NEU · GEO ANALYTICS</span><h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mt-2 mb-3">Wird Ihr Unternehmen von ChatGPT und KI gefunden?</h2><p className="text-lg text-gray-600">Entdecken Sie Ihre lokale KI-Sichtbarkeit. Erfahren Sie, was ein GEO Check zeigt und wie Sie Ihre Inhalte gezielt verbessern können.</p></div>
+          <Link href="/geo-check"><Button size="lg" className="bg-primary text-white shrink-0">GEO Check entdecken <ArrowRight className="ml-2 h-5 w-5" /></Button></Link>
         </div>
       </section>
 
