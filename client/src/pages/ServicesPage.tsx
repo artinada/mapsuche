@@ -4,7 +4,7 @@ import { useSEO } from "@/hooks/useSEO";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
-import { MapPin, Building2, Globe, Check, ArrowRight, Settings } from "lucide-react";
+import { MapPin, Building2, Globe, SearchCheck, Check, ArrowRight, Settings } from "lucide-react";
 
 export default function ServicesPage() {
   const { t } = useLanguage();
@@ -26,6 +26,15 @@ export default function ServicesPage() {
   });
 
   const services = [
+    {
+      icon: SearchCheck,
+      title: 'GEO Check & KI-Sichtbarkeit',
+      description: 'Prüfen Sie, wie Ihr Unternehmen in KI-gestützten Suchantworten sichtbar werden kann.',
+      features: ['Lokale KI-Suchfragen', 'Erwähnungen und Wettbewerber', 'GEO-Optimierung auf Wunsch'],
+      href: '/geo-check',
+      color: 'text-primary',
+      buttonColor: 'bg-primary hover:bg-blue-700'
+    },
     {
       icon: MapPin,
       title: t('googleMapsTitle'),
