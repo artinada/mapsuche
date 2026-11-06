@@ -13,6 +13,10 @@ import { ScrollToTop } from '@/components/ScrollToTop';
 
 // Pages
 import HomePage from '@/pages/HomePage';
+import GeoCheckPage from '@/pages/GeoCheckPage';
+import GeoResultsPage from '@/pages/GeoResultsPage';
+import GeoDashboardPage from '@/pages/GeoDashboardPage';
+import GeoOptimizationPage from '@/pages/GeoOptimizationPage';
 import ServicesPage from '@/pages/ServicesPage';
 import GoogleMapsPage from '@/pages/GoogleMapsPage';
 import BusinessProfilePage from '@/pages/BusinessProfilePage';
@@ -74,6 +78,10 @@ export default function App() {
             <main className="flex-1">
               <Switch>
                 <Route path="/" component={HomePage} />
+                <Route path="/geo-check/results" component={GeoResultsPage} />
+                <Route path="/geo-check" component={GeoCheckPage} />
+                <Route path="/geo/dashboard" component={GeoDashboardPage} />
+                <Route path="/geo-optimierung" component={GeoOptimizationPage} />
                 <Route path="/services" component={ServicesPage} />
                 <Route path="/services/google-maps" component={GoogleMapsPage} />
                 <Route path="/services/business-profile" component={BusinessProfilePage} />
