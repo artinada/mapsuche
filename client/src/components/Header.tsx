@@ -17,6 +17,7 @@ export function Header() {
 
   const navigation = [
     { href: '/', label: t('home') },
+    { href: '/geo-check', label: 'GEO Check' },
     { href: '/services', label: t('services') },
     { href: '/blog', label: 'Blog' },
     { href: '/faq', label: 'FAQ' },
