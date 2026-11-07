@@ -1,5 +1,5 @@
 import { Link } from 'wouter';
-import { ArrowRight, CheckCircle2, ClipboardList, Globe2, MapPin } from 'lucide-react';
+import { ArrowRight, CheckCircle2, Globe2, MapPin } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 

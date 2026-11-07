@@ -1,6 +1,6 @@
 import { useState, type FormEvent } from 'react';
 import { Link, useLocation } from 'wouter';
-import { ArrowRight, BarChart3, CheckCircle2, Globe2, MapPin, SearchCheck, Sparkles } from 'lucide-react';
+import { ArrowRight, BarChart3, CheckCircle2, Globe2, SearchCheck, Sparkles } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 
