@@ -3,7 +3,6 @@ import { Link } from 'wouter';
 import { Card, CardContent } from '../../components/ui/card';
 import { Button } from '../../components/ui/button';
 import { useLanguage } from '../../hooks/useLanguage';
-import { useSEO } from '../../hooks/useSEO';
 import { getPostBySlug } from '../../lib/blogConfig';
 import { Search, Star, Globe, Monitor, Users, ExternalLink, CheckCircle, TrendingUp, Target, ArrowLeft } from 'lucide-react';
 import LazyImage from '../../components/LazyImage';
@@ -197,18 +196,6 @@ const OnlineSichtbarkeitTipps: React.FC = () => {
 
   const currentContent = content[language];
 
-  useSEO({
-    page: 'blog' as any,
-    customTitle: language === 'de' 
-      ? '5 Tipps für mehr Online-Sichtbarkeit deines lokalen Unternehmens | MapSuche'
-      : '5 Tips for Better Online Visibility of Your Local Business | MapSuche',
-    customDescription: language === 'de' 
-      ? 'Entdecken Sie 5 einfache Tipps für mehr Online-Sichtbarkeit Ihres lokalen Unternehmens. Praktische Strategien ohne großes Budget oder Technik-Know-how.'
-      : 'Discover 5 simple tips for better online visibility of your local business. Practical strategies without large budget or technical know-how.',
-    customKeywords: language === 'de'
-      ? ['online sichtbarkeit tipps', 'lokales unternehmen marketing', 'google business profile', 'bewertungen sammeln', 'lokale verzeichnisse', 'social media präsenz', 'website für kleine unternehmen', 'local seo tipps', 'digitale präsenz', 'online marketing kleine betriebe']
-      : ['online visibility tips', 'local business marketing', 'google business profile', 'collect reviews', 'local directories', 'social media presence', 'website small business', 'local seo tips', 'digital presence', 'online marketing small business']
-  });
 
   return (
     <div className="min-h-screen py-20">
@@ -277,7 +264,6 @@ const OnlineSichtbarkeitTipps: React.FC = () => {
           {/* Tips Section */}
           <div className="space-y-8 mb-12">
             {currentContent.tips.map((tip, index) => {
-              const IconComponent = tip.icon;
               return (
                 <Card key={index} className="bg-white hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-gray-200">
                   <CardContent className="p-8">

@@ -1,7 +1,6 @@
 import { Link } from 'wouter';
 import { Calendar, Clock, ArrowRight, BookOpen } from 'lucide-react';
 import { useLanguage } from '@/hooks/useLanguage';
-import { useSEO } from '@/hooks/useSEO';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import LazyImage from '@/components/LazyImage';
@@ -12,29 +11,6 @@ export default function BlogPage() {
   
   const publishedPosts = getPublishedPosts();
   const featuredPost = getFeaturedPost();
-
-  // SEO optimization for blog page
-  useSEO({ 
-    page: 'blog' as any,
-    customTitle: language === 'de' 
-      ? 'MapSuche Blog - Local SEO Tipps & Digital Marketing Ratgeber' 
-      : 'MapSuche Blog - Local SEO Tips & Digital Marketing Guide',
-    customDescription: language === 'de'
-      ? 'Entdecken Sie professionelle Tipps für lokales SEO, Google Maps Optimierung und digitales Marketing. Kostenlose Ratgeber für kleine Unternehmen in Deutschland.'
-      : 'Discover professional tips for local SEO, Google Maps optimization and digital marketing. Free guides for small businesses in Germany.',
-    customKeywords: [
-      'local seo blog',
-      'digital marketing tips',
-      'google maps optimization guide',
-      'small business marketing',
-      'local search tips',
-      'business visibility',
-      'seo ratgeber',
-      'lokales marketing',
-      'google unternehmensprofil',
-      'online marketing tipps'
-    ]
-  });
 
   // Helper function to get localized content from blog post
   const getLocalizedContent = (post: BlogPost) => ({

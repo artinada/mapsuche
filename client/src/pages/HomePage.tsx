@@ -1,93 +1,14 @@
+import { useGeoLanguage } from '@/hooks/useGeoLanguage';
 import { Link } from 'wouter';
-import { MapPin, Globe, Star, SearchCheck, ArrowRight, Check, Users, Clock, DollarSign, Settings } from 'lucide-react';
+import { ArrowRight, Users, Clock, DollarSign } from 'lucide-react';
 import { useLanguage } from '@/hooks/useLanguage';
-import { useSEO } from '@/hooks/useSEO';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import LazyImage from '@/components/LazyImage';
 
 export default function HomePage() {
+  const { g } = useGeoLanguage();
   const { t } = useLanguage();
-
-  // SEO optimization for homepage
-  useSEO({ 
-    page: 'home',
-    customKeywords: [
-      'local business growth',
-      'small business marketing',
-      'google visibility',
-      'digital presence',
-      'online marketing germany',
-      'ablauf audit',
-      'geschäftsprozesse',
-      'büroorganisation'
-    ]
-  });
-
-  const services = [
-    {
-      icon: SearchCheck,
-      title: 'GEO Check & AI Visibility',
-      description: 'Entdecken Sie, wie Ihr lokales Unternehmen in KI-gestützten Suchantworten sichtbar wird.',
-      features: ['KI-Erwähnungen verstehen', 'Wettbewerber vergleichen', 'GEO-Optimierung entdecken'],
-      color: 'text-primary',
-      buttonColor: 'bg-primary hover:bg-blue-700',
-      href: '/geo-check'
-    },
-    {
-      icon: MapPin,
-      title: t('googleMapsTitle'),
-      description: t('googleMapsDescription'),
-      features: [
-        t('businessLocationSetup'),
-        t('categoryOptimization'),
-        t('localSeoEnhancement')
-      ],
-      color: 'text-primary',
-      buttonColor: 'bg-primary hover:bg-blue-700',
-      href: '/services/google-maps'
-    },
-    {
-      icon: Star,
-      title: t('businessProfileTitle'),
-      description: t('businessProfileDescription'),
-      features: [
-        t('profileCreationVerification'),
-        t('photoOptimization'),
-        t('reviewManagement')
-      ],
-      color: 'text-secondary',
-      buttonColor: 'bg-secondary hover:bg-green-700',
-      href: '/services/business-profile'
-    },
-    {
-      icon: Globe,
-      title: t('websiteTitle'),
-      description: t('websiteDescription'),
-      features: [
-        t('responsiveDesign'),
-        t('easyContentManagement'),
-        t('seoOptimization')
-      ],
-      color: 'text-accent',
-      buttonColor: 'bg-accent hover:bg-red-700',
-      href: '/services/website'
-    },
-    {
-      icon: Settings,
-      title: t('ablaufAuditTitle'),
-      description: t('ablaufAuditSubtitle'),
-      features: [
-        t('betterOverviewTitle'),
-        t('secureDocStorageTitle'),
-        t('clearTemplatesTitle')
-      ],
-      color: 'text-slate-700',
-      buttonColor: 'bg-slate-600 hover:bg-slate-700',
-      href: '/services/ablauf-audit'
-    }
-  ];
 
   const whyChooseFeatures = [
     {
@@ -117,9 +38,9 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-4xl lg:text-5xl font-bold mb-6">
+              <h1 className="text-4xl lg:text-5xl font-bold mb-6">
                 {t('heroTitle')}
-              </h2>
+              </h1>
               <p className="text-xl mb-8 text-blue-100">
                 {t('heroSubtitle')}
               </p>
@@ -150,70 +71,8 @@ export default function HomePage() {
       {/* GEO primary offer */}
       <section className="py-16 bg-primary/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row gap-6 md:items-center md:justify-between">
-          <div className="max-w-3xl"><span className="text-primary font-semibold text-sm">NEU · GEO ANALYTICS</span><h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mt-2 mb-3">Wird Ihr Unternehmen von ChatGPT und KI gefunden?</h2><p className="text-lg text-gray-600">Entdecken Sie Ihre lokale KI-Sichtbarkeit. Erfahren Sie, was ein GEO Check zeigt und wie Sie Ihre Inhalte gezielt verbessern können.</p></div>
-          <Link href="/geo-check"><Button size="lg" className="bg-primary text-white shrink-0">GEO Check entdecken <ArrowRight className="ml-2 h-5 w-5" /></Button></Link>
-        </div>
-      </section>
-
-      {/* Services Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-              {t('ourServices')}
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              {t('servicesSubtitle')}
-            </p>
-          </div>
-
-          <Carousel 
-            opts={{
-              align: "start",
-              loop: true,
-            }}
-            className="w-full"
-          >
-            <CarouselContent className="-ml-2 md:-ml-4">
-              {services.map((service, index) => {
-                const IconComponent = service.icon;
-                return (
-                  <CarouselItem key={index} className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3">
-                    <Card className="bg-gray-50 hover:shadow-lg transition-shadow border border-gray-100 h-full">
-                      <CardContent className="p-8 flex flex-col h-full">
-                        <div className="w-16 h-16 flex items-center justify-center mb-6">
-                          <IconComponent size={32} className={service.color} />
-                        </div>
-                        <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                          {service.title}
-                        </h3>
-                        <p className="text-gray-600 mb-6 flex-grow">
-                          {service.description}
-                        </p>
-                        <ul className="space-y-2 mb-8">
-                          {service.features.map((feature, featureIndex) => (
-                            <li key={featureIndex} className="flex items-center text-gray-700">
-                              <Check className="h-5 w-5 text-secondary mr-3 flex-shrink-0" />
-                              <span className="text-sm">{feature}</span>
-                            </li>
-                          ))}
-                        </ul>
-                        <Link href={service.href}>
-                          <Button className={`w-full text-white ${service.buttonColor} mt-auto`}>
-                            {t('learnMore')}
-                          </Button>
-                        </Link>
-                      </CardContent>
-                    </Card>
-                  </CarouselItem>
-                );
-              })}
-            </CarouselContent>
-            <div className="flex justify-center mt-8 space-x-2">
-              <CarouselPrevious className="static" />
-              <CarouselNext className="static" />
-            </div>
-          </Carousel>
+          <div className="max-w-3xl"><span className="text-primary font-semibold text-sm">{g("NEU · GEO ANALYTICS")}</span><h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mt-2 mb-3">{g("Wird Ihr Unternehmen von ChatGPT und KI gefunden?")}</h2><p className="text-lg text-gray-600">{g("Entdecken Sie Ihre lokale KI-Sichtbarkeit. Erfahren Sie, was ein GEO Check zeigt und wie Sie Ihre Inhalte gezielt verbessern können.")}</p></div>
+          <Link href="/geo-check"><Button size="lg" className="bg-primary text-white shrink-0">{g("GEO Check entdecken")} <ArrowRight className="ml-2 h-5 w-5" /></Button></Link>
         </div>
       </section>
 

@@ -30,7 +30,7 @@ export function Header() {
         <div className="flex justify-between items-center py-4">
           <Link href="/" className="flex items-center hover:opacity-80 transition-opacity">
             <MapPin className="h-8 w-8 text-primary mr-3" />
-            <h1 className="text-2xl font-bold text-gray-900">MapSuche</h1>
+            <span className="text-2xl font-bold text-gray-900">MapSuche</span>
           </Link>
           
           {/* Desktop Navigation */}

@@ -1,0 +1,1682 @@
+[
+  {
+    "source": "/",
+    "target": "/en/",
+    "status": "301"
+  },
+  {
+    "source": "/index.html",
+    "target": "/en/",
+    "status": "301"
+  },
+  {
+    "source": "/en",
+    "target": "/en/",
+    "status": "301"
+  },
+  {
+    "source": "/en.html",
+    "target": "/en/",
+    "status": "301"
+  },
+  {
+    "source": "/en/index.html",
+    "target": "/en/",
+    "status": "301"
+  },
+  {
+    "source": "/de",
+    "target": "/de/",
+    "status": "301"
+  },
+  {
+    "source": "/de.html",
+    "target": "/de/",
+    "status": "301"
+  },
+  {
+    "source": "/de/index.html",
+    "target": "/de/",
+    "status": "301"
+  },
+  {
+    "source": "/geo-check/results",
+    "target": "/en/geo-check/results",
+    "status": "301"
+  },
+  {
+    "source": "/geo-check/results/",
+    "target": "/en/geo-check/results",
+    "status": "301"
+  },
+  {
+    "source": "/geo-check/results.html",
+    "target": "/en/geo-check/results",
+    "status": "301"
+  },
+  {
+    "source": "/geo-check/results/index.html",
+    "target": "/en/geo-check/results",
+    "status": "301"
+  },
+  {
+    "source": "/en/geo-check/results/",
+    "target": "/en/geo-check/results",
+    "status": "301"
+  },
+  {
+    "source": "/en/geo-check/results.html",
+    "target": "/en/geo-check/results",
+    "status": "301"
+  },
+  {
+    "source": "/en/geo-check/results/index.html",
+    "target": "/en/geo-check/results",
+    "status": "301"
+  },
+  {
+    "source": "/de/geo-check/results/",
+    "target": "/de/geo-check/results",
+    "status": "301"
+  },
+  {
+    "source": "/de/geo-check/results.html",
+    "target": "/de/geo-check/results",
+    "status": "301"
+  },
+  {
+    "source": "/de/geo-check/results/index.html",
+    "target": "/de/geo-check/results",
+    "status": "301"
+  },
+  {
+    "source": "/geo-check",
+    "target": "/en/geo-check",
+    "status": "301"
+  },
+  {
+    "source": "/geo-check/",
+    "target": "/en/geo-check",
+    "status": "301"
+  },
+  {
+    "source": "/geo-check.html",
+    "target": "/en/geo-check",
+    "status": "301"
+  },
+  {
+    "source": "/geo-check/index.html",
+    "target": "/en/geo-check",
+    "status": "301"
+  },
+  {
+    "source": "/en/geo-check/",
+    "target": "/en/geo-check",
+    "status": "301"
+  },
+  {
+    "source": "/en/geo-check.html",
+    "target": "/en/geo-check",
+    "status": "301"
+  },
+  {
+    "source": "/en/geo-check/index.html",
+    "target": "/en/geo-check",
+    "status": "301"
+  },
+  {
+    "source": "/de/geo-check/",
+    "target": "/de/geo-check",
+    "status": "301"
+  },
+  {
+    "source": "/de/geo-check.html",
+    "target": "/de/geo-check",
+    "status": "301"
+  },
+  {
+    "source": "/de/geo-check/index.html",
+    "target": "/de/geo-check",
+    "status": "301"
+  },
+  {
+    "source": "/geo/dashboard",
+    "target": "/en/geo/dashboard",
+    "status": "301"
+  },
+  {
+    "source": "/geo/dashboard/",
+    "target": "/en/geo/dashboard",
+    "status": "301"
+  },
+  {
+    "source": "/geo/dashboard.html",
+    "target": "/en/geo/dashboard",
+    "status": "301"
+  },
+  {
+    "source": "/geo/dashboard/index.html",
+    "target": "/en/geo/dashboard",
+    "status": "301"
+  },
+  {
+    "source": "/en/geo/dashboard/",
+    "target": "/en/geo/dashboard",
+    "status": "301"
+  },
+  {
+    "source": "/en/geo/dashboard.html",
+    "target": "/en/geo/dashboard",
+    "status": "301"
+  },
+  {
+    "source": "/en/geo/dashboard/index.html",
+    "target": "/en/geo/dashboard",
+    "status": "301"
+  },
+  {
+    "source": "/de/geo/dashboard/",
+    "target": "/de/geo/dashboard",
+    "status": "301"
+  },
+  {
+    "source": "/de/geo/dashboard.html",
+    "target": "/de/geo/dashboard",
+    "status": "301"
+  },
+  {
+    "source": "/de/geo/dashboard/index.html",
+    "target": "/de/geo/dashboard",
+    "status": "301"
+  },
+  {
+    "source": "/geo-optimierung",
+    "target": "/en/geo-optimierung",
+    "status": "301"
+  },
+  {
+    "source": "/geo-optimierung/",
+    "target": "/en/geo-optimierung",
+    "status": "301"
+  },
+  {
+    "source": "/geo-optimierung.html",
+    "target": "/en/geo-optimierung",
+    "status": "301"
+  },
+  {
+    "source": "/geo-optimierung/index.html",
+    "target": "/en/geo-optimierung",
+    "status": "301"
+  },
+  {
+    "source": "/en/geo-optimierung/",
+    "target": "/en/geo-optimierung",
+    "status": "301"
+  },
+  {
+    "source": "/en/geo-optimierung.html",
+    "target": "/en/geo-optimierung",
+    "status": "301"
+  },
+  {
+    "source": "/en/geo-optimierung/index.html",
+    "target": "/en/geo-optimierung",
+    "status": "301"
+  },
+  {
+    "source": "/de/geo-optimierung/",
+    "target": "/de/geo-optimierung",
+    "status": "301"
+  },
+  {
+    "source": "/de/geo-optimierung.html",
+    "target": "/de/geo-optimierung",
+    "status": "301"
+  },
+  {
+    "source": "/de/geo-optimierung/index.html",
+    "target": "/de/geo-optimierung",
+    "status": "301"
+  },
+  {
+    "source": "/services",
+    "target": "/en/services",
+    "status": "301"
+  },
+  {
+    "source": "/services/",
+    "target": "/en/services",
+    "status": "301"
+  },
+  {
+    "source": "/services.html",
+    "target": "/en/services",
+    "status": "301"
+  },
+  {
+    "source": "/services/index.html",
+    "target": "/en/services",
+    "status": "301"
+  },
+  {
+    "source": "/en/services/",
+    "target": "/en/services",
+    "status": "301"
+  },
+  {
+    "source": "/en/services.html",
+    "target": "/en/services",
+    "status": "301"
+  },
+  {
+    "source": "/en/services/index.html",
+    "target": "/en/services",
+    "status": "301"
+  },
+  {
+    "source": "/de/services/",
+    "target": "/de/services",
+    "status": "301"
+  },
+  {
+    "source": "/de/services.html",
+    "target": "/de/services",
+    "status": "301"
+  },
+  {
+    "source": "/de/services/index.html",
+    "target": "/de/services",
+    "status": "301"
+  },
+  {
+    "source": "/services/google-maps",
+    "target": "/en/services/google-maps",
+    "status": "301"
+  },
+  {
+    "source": "/services/google-maps/",
+    "target": "/en/services/google-maps",
+    "status": "301"
+  },
+  {
+    "source": "/services/google-maps.html",
+    "target": "/en/services/google-maps",
+    "status": "301"
+  },
+  {
+    "source": "/services/google-maps/index.html",
+    "target": "/en/services/google-maps",
+    "status": "301"
+  },
+  {
+    "source": "/en/services/google-maps/",
+    "target": "/en/services/google-maps",
+    "status": "301"
+  },
+  {
+    "source": "/en/services/google-maps.html",
+    "target": "/en/services/google-maps",
+    "status": "301"
+  },
+  {
+    "source": "/en/services/google-maps/index.html",
+    "target": "/en/services/google-maps",
+    "status": "301"
+  },
+  {
+    "source": "/de/services/google-maps/",
+    "target": "/de/services/google-maps",
+    "status": "301"
+  },
+  {
+    "source": "/de/services/google-maps.html",
+    "target": "/de/services/google-maps",
+    "status": "301"
+  },
+  {
+    "source": "/de/services/google-maps/index.html",
+    "target": "/de/services/google-maps",
+    "status": "301"
+  },
+  {
+    "source": "/services/business-profile",
+    "target": "/en/services/business-profile",
+    "status": "301"
+  },
+  {
+    "source": "/services/business-profile/",
+    "target": "/en/services/business-profile",
+    "status": "301"
+  },
+  {
+    "source": "/services/business-profile.html",
+    "target": "/en/services/business-profile",
+    "status": "301"
+  },
+  {
+    "source": "/services/business-profile/index.html",
+    "target": "/en/services/business-profile",
+    "status": "301"
+  },
+  {
+    "source": "/en/services/business-profile/",
+    "target": "/en/services/business-profile",
+    "status": "301"
+  },
+  {
+    "source": "/en/services/business-profile.html",
+    "target": "/en/services/business-profile",
+    "status": "301"
+  },
+  {
+    "source": "/en/services/business-profile/index.html",
+    "target": "/en/services/business-profile",
+    "status": "301"
+  },
+  {
+    "source": "/de/services/business-profile/",
+    "target": "/de/services/business-profile",
+    "status": "301"
+  },
+  {
+    "source": "/de/services/business-profile.html",
+    "target": "/de/services/business-profile",
+    "status": "301"
+  },
+  {
+    "source": "/de/services/business-profile/index.html",
+    "target": "/de/services/business-profile",
+    "status": "301"
+  },
+  {
+    "source": "/services/website",
+    "target": "/en/services/website",
+    "status": "301"
+  },
+  {
+    "source": "/services/website/",
+    "target": "/en/services/website",
+    "status": "301"
+  },
+  {
+    "source": "/services/website.html",
+    "target": "/en/services/website",
+    "status": "301"
+  },
+  {
+    "source": "/services/website/index.html",
+    "target": "/en/services/website",
+    "status": "301"
+  },
+  {
+    "source": "/en/services/website/",
+    "target": "/en/services/website",
+    "status": "301"
+  },
+  {
+    "source": "/en/services/website.html",
+    "target": "/en/services/website",
+    "status": "301"
+  },
+  {
+    "source": "/en/services/website/index.html",
+    "target": "/en/services/website",
+    "status": "301"
+  },
+  {
+    "source": "/de/services/website/",
+    "target": "/de/services/website",
+    "status": "301"
+  },
+  {
+    "source": "/de/services/website.html",
+    "target": "/de/services/website",
+    "status": "301"
+  },
+  {
+    "source": "/de/services/website/index.html",
+    "target": "/de/services/website",
+    "status": "301"
+  },
+  {
+    "source": "/services/ablauf-audit",
+    "target": "/en/services/ablauf-audit",
+    "status": "301"
+  },
+  {
+    "source": "/services/ablauf-audit/",
+    "target": "/en/services/ablauf-audit",
+    "status": "301"
+  },
+  {
+    "source": "/services/ablauf-audit.html",
+    "target": "/en/services/ablauf-audit",
+    "status": "301"
+  },
+  {
+    "source": "/services/ablauf-audit/index.html",
+    "target": "/en/services/ablauf-audit",
+    "status": "301"
+  },
+  {
+    "source": "/en/services/ablauf-audit/",
+    "target": "/en/services/ablauf-audit",
+    "status": "301"
+  },
+  {
+    "source": "/en/services/ablauf-audit.html",
+    "target": "/en/services/ablauf-audit",
+    "status": "301"
+  },
+  {
+    "source": "/en/services/ablauf-audit/index.html",
+    "target": "/en/services/ablauf-audit",
+    "status": "301"
+  },
+  {
+    "source": "/de/services/ablauf-audit/",
+    "target": "/de/services/ablauf-audit",
+    "status": "301"
+  },
+  {
+    "source": "/de/services/ablauf-audit.html",
+    "target": "/de/services/ablauf-audit",
+    "status": "301"
+  },
+  {
+    "source": "/de/services/ablauf-audit/index.html",
+    "target": "/de/services/ablauf-audit",
+    "status": "301"
+  },
+  {
+    "source": "/blog",
+    "target": "/en/blog",
+    "status": "301"
+  },
+  {
+    "source": "/blog/",
+    "target": "/en/blog",
+    "status": "301"
+  },
+  {
+    "source": "/blog.html",
+    "target": "/en/blog",
+    "status": "301"
+  },
+  {
+    "source": "/blog/index.html",
+    "target": "/en/blog",
+    "status": "301"
+  },
+  {
+    "source": "/en/blog/",
+    "target": "/en/blog",
+    "status": "301"
+  },
+  {
+    "source": "/en/blog.html",
+    "target": "/en/blog",
+    "status": "301"
+  },
+  {
+    "source": "/en/blog/index.html",
+    "target": "/en/blog",
+    "status": "301"
+  },
+  {
+    "source": "/de/blog/",
+    "target": "/de/blog",
+    "status": "301"
+  },
+  {
+    "source": "/de/blog.html",
+    "target": "/de/blog",
+    "status": "301"
+  },
+  {
+    "source": "/de/blog/index.html",
+    "target": "/de/blog",
+    "status": "301"
+  },
+  {
+    "source": "/blog/wie-findet-man-gute-firmen-in-der-naehe",
+    "target": "/en/blog/wie-findet-man-gute-firmen-in-der-naehe",
+    "status": "301"
+  },
+  {
+    "source": "/blog/wie-findet-man-gute-firmen-in-der-naehe/",
+    "target": "/en/blog/wie-findet-man-gute-firmen-in-der-naehe",
+    "status": "301"
+  },
+  {
+    "source": "/blog/wie-findet-man-gute-firmen-in-der-naehe.html",
+    "target": "/en/blog/wie-findet-man-gute-firmen-in-der-naehe",
+    "status": "301"
+  },
+  {
+    "source": "/blog/wie-findet-man-gute-firmen-in-der-naehe/index.html",
+    "target": "/en/blog/wie-findet-man-gute-firmen-in-der-naehe",
+    "status": "301"
+  },
+  {
+    "source": "/en/blog/wie-findet-man-gute-firmen-in-der-naehe/",
+    "target": "/en/blog/wie-findet-man-gute-firmen-in-der-naehe",
+    "status": "301"
+  },
+  {
+    "source": "/en/blog/wie-findet-man-gute-firmen-in-der-naehe.html",
+    "target": "/en/blog/wie-findet-man-gute-firmen-in-der-naehe",
+    "status": "301"
+  },
+  {
+    "source": "/en/blog/wie-findet-man-gute-firmen-in-der-naehe/index.html",
+    "target": "/en/blog/wie-findet-man-gute-firmen-in-der-naehe",
+    "status": "301"
+  },
+  {
+    "source": "/de/blog/wie-findet-man-gute-firmen-in-der-naehe/",
+    "target": "/de/blog/wie-findet-man-gute-firmen-in-der-naehe",
+    "status": "301"
+  },
+  {
+    "source": "/de/blog/wie-findet-man-gute-firmen-in-der-naehe.html",
+    "target": "/de/blog/wie-findet-man-gute-firmen-in-der-naehe",
+    "status": "301"
+  },
+  {
+    "source": "/de/blog/wie-findet-man-gute-firmen-in-der-naehe/index.html",
+    "target": "/de/blog/wie-findet-man-gute-firmen-in-der-naehe",
+    "status": "301"
+  },
+  {
+    "source": "/blog/warum-ist-ein-google-eintrag-wichtig",
+    "target": "/en/blog/warum-ist-ein-google-eintrag-wichtig",
+    "status": "301"
+  },
+  {
+    "source": "/blog/warum-ist-ein-google-eintrag-wichtig/",
+    "target": "/en/blog/warum-ist-ein-google-eintrag-wichtig",
+    "status": "301"
+  },
+  {
+    "source": "/blog/warum-ist-ein-google-eintrag-wichtig.html",
+    "target": "/en/blog/warum-ist-ein-google-eintrag-wichtig",
+    "status": "301"
+  },
+  {
+    "source": "/blog/warum-ist-ein-google-eintrag-wichtig/index.html",
+    "target": "/en/blog/warum-ist-ein-google-eintrag-wichtig",
+    "status": "301"
+  },
+  {
+    "source": "/en/blog/warum-ist-ein-google-eintrag-wichtig/",
+    "target": "/en/blog/warum-ist-ein-google-eintrag-wichtig",
+    "status": "301"
+  },
+  {
+    "source": "/en/blog/warum-ist-ein-google-eintrag-wichtig.html",
+    "target": "/en/blog/warum-ist-ein-google-eintrag-wichtig",
+    "status": "301"
+  },
+  {
+    "source": "/en/blog/warum-ist-ein-google-eintrag-wichtig/index.html",
+    "target": "/en/blog/warum-ist-ein-google-eintrag-wichtig",
+    "status": "301"
+  },
+  {
+    "source": "/de/blog/warum-ist-ein-google-eintrag-wichtig/",
+    "target": "/de/blog/warum-ist-ein-google-eintrag-wichtig",
+    "status": "301"
+  },
+  {
+    "source": "/de/blog/warum-ist-ein-google-eintrag-wichtig.html",
+    "target": "/de/blog/warum-ist-ein-google-eintrag-wichtig",
+    "status": "301"
+  },
+  {
+    "source": "/de/blog/warum-ist-ein-google-eintrag-wichtig/index.html",
+    "target": "/de/blog/warum-ist-ein-google-eintrag-wichtig",
+    "status": "301"
+  },
+  {
+    "source": "/blog/top-5-restaurants-lutherstadt-wittenberg",
+    "target": "/en/blog/top-5-restaurants-lutherstadt-wittenberg",
+    "status": "301"
+  },
+  {
+    "source": "/blog/top-5-restaurants-lutherstadt-wittenberg/",
+    "target": "/en/blog/top-5-restaurants-lutherstadt-wittenberg",
+    "status": "301"
+  },
+  {
+    "source": "/blog/top-5-restaurants-lutherstadt-wittenberg.html",
+    "target": "/en/blog/top-5-restaurants-lutherstadt-wittenberg",
+    "status": "301"
+  },
+  {
+    "source": "/blog/top-5-restaurants-lutherstadt-wittenberg/index.html",
+    "target": "/en/blog/top-5-restaurants-lutherstadt-wittenberg",
+    "status": "301"
+  },
+  {
+    "source": "/en/blog/top-5-restaurants-lutherstadt-wittenberg/",
+    "target": "/en/blog/top-5-restaurants-lutherstadt-wittenberg",
+    "status": "301"
+  },
+  {
+    "source": "/en/blog/top-5-restaurants-lutherstadt-wittenberg.html",
+    "target": "/en/blog/top-5-restaurants-lutherstadt-wittenberg",
+    "status": "301"
+  },
+  {
+    "source": "/en/blog/top-5-restaurants-lutherstadt-wittenberg/index.html",
+    "target": "/en/blog/top-5-restaurants-lutherstadt-wittenberg",
+    "status": "301"
+  },
+  {
+    "source": "/de/blog/top-5-restaurants-lutherstadt-wittenberg/",
+    "target": "/de/blog/top-5-restaurants-lutherstadt-wittenberg",
+    "status": "301"
+  },
+  {
+    "source": "/de/blog/top-5-restaurants-lutherstadt-wittenberg.html",
+    "target": "/de/blog/top-5-restaurants-lutherstadt-wittenberg",
+    "status": "301"
+  },
+  {
+    "source": "/de/blog/top-5-restaurants-lutherstadt-wittenberg/index.html",
+    "target": "/de/blog/top-5-restaurants-lutherstadt-wittenberg",
+    "status": "301"
+  },
+  {
+    "source": "/blog/haeufigste-fehler-unternehmen-internet",
+    "target": "/en/blog/haeufigste-fehler-unternehmen-internet",
+    "status": "301"
+  },
+  {
+    "source": "/blog/haeufigste-fehler-unternehmen-internet/",
+    "target": "/en/blog/haeufigste-fehler-unternehmen-internet",
+    "status": "301"
+  },
+  {
+    "source": "/blog/haeufigste-fehler-unternehmen-internet.html",
+    "target": "/en/blog/haeufigste-fehler-unternehmen-internet",
+    "status": "301"
+  },
+  {
+    "source": "/blog/haeufigste-fehler-unternehmen-internet/index.html",
+    "target": "/en/blog/haeufigste-fehler-unternehmen-internet",
+    "status": "301"
+  },
+  {
+    "source": "/en/blog/haeufigste-fehler-unternehmen-internet/",
+    "target": "/en/blog/haeufigste-fehler-unternehmen-internet",
+    "status": "301"
+  },
+  {
+    "source": "/en/blog/haeufigste-fehler-unternehmen-internet.html",
+    "target": "/en/blog/haeufigste-fehler-unternehmen-internet",
+    "status": "301"
+  },
+  {
+    "source": "/en/blog/haeufigste-fehler-unternehmen-internet/index.html",
+    "target": "/en/blog/haeufigste-fehler-unternehmen-internet",
+    "status": "301"
+  },
+  {
+    "source": "/de/blog/haeufigste-fehler-unternehmen-internet/",
+    "target": "/de/blog/haeufigste-fehler-unternehmen-internet",
+    "status": "301"
+  },
+  {
+    "source": "/de/blog/haeufigste-fehler-unternehmen-internet.html",
+    "target": "/de/blog/haeufigste-fehler-unternehmen-internet",
+    "status": "301"
+  },
+  {
+    "source": "/de/blog/haeufigste-fehler-unternehmen-internet/index.html",
+    "target": "/de/blog/haeufigste-fehler-unternehmen-internet",
+    "status": "301"
+  },
+  {
+    "source": "/blog/online-sichtbarkeit-tipps-lokale-unternehmen",
+    "target": "/en/blog/online-sichtbarkeit-tipps-lokale-unternehmen",
+    "status": "301"
+  },
+  {
+    "source": "/blog/online-sichtbarkeit-tipps-lokale-unternehmen/",
+    "target": "/en/blog/online-sichtbarkeit-tipps-lokale-unternehmen",
+    "status": "301"
+  },
+  {
+    "source": "/blog/online-sichtbarkeit-tipps-lokale-unternehmen.html",
+    "target": "/en/blog/online-sichtbarkeit-tipps-lokale-unternehmen",
+    "status": "301"
+  },
+  {
+    "source": "/blog/online-sichtbarkeit-tipps-lokale-unternehmen/index.html",
+    "target": "/en/blog/online-sichtbarkeit-tipps-lokale-unternehmen",
+    "status": "301"
+  },
+  {
+    "source": "/en/blog/online-sichtbarkeit-tipps-lokale-unternehmen/",
+    "target": "/en/blog/online-sichtbarkeit-tipps-lokale-unternehmen",
+    "status": "301"
+  },
+  {
+    "source": "/en/blog/online-sichtbarkeit-tipps-lokale-unternehmen.html",
+    "target": "/en/blog/online-sichtbarkeit-tipps-lokale-unternehmen",
+    "status": "301"
+  },
+  {
+    "source": "/en/blog/online-sichtbarkeit-tipps-lokale-unternehmen/index.html",
+    "target": "/en/blog/online-sichtbarkeit-tipps-lokale-unternehmen",
+    "status": "301"
+  },
+  {
+    "source": "/de/blog/online-sichtbarkeit-tipps-lokale-unternehmen/",
+    "target": "/de/blog/online-sichtbarkeit-tipps-lokale-unternehmen",
+    "status": "301"
+  },
+  {
+    "source": "/de/blog/online-sichtbarkeit-tipps-lokale-unternehmen.html",
+    "target": "/de/blog/online-sichtbarkeit-tipps-lokale-unternehmen",
+    "status": "301"
+  },
+  {
+    "source": "/de/blog/online-sichtbarkeit-tipps-lokale-unternehmen/index.html",
+    "target": "/de/blog/online-sichtbarkeit-tipps-lokale-unternehmen",
+    "status": "301"
+  },
+  {
+    "source": "/blog/mobile-first-lokale-unternehmen",
+    "target": "/en/blog/mobile-first-lokale-unternehmen",
+    "status": "301"
+  },
+  {
+    "source": "/blog/mobile-first-lokale-unternehmen/",
+    "target": "/en/blog/mobile-first-lokale-unternehmen",
+    "status": "301"
+  },
+  {
+    "source": "/blog/mobile-first-lokale-unternehmen.html",
+    "target": "/en/blog/mobile-first-lokale-unternehmen",
+    "status": "301"
+  },
+  {
+    "source": "/blog/mobile-first-lokale-unternehmen/index.html",
+    "target": "/en/blog/mobile-first-lokale-unternehmen",
+    "status": "301"
+  },
+  {
+    "source": "/en/blog/mobile-first-lokale-unternehmen/",
+    "target": "/en/blog/mobile-first-lokale-unternehmen",
+    "status": "301"
+  },
+  {
+    "source": "/en/blog/mobile-first-lokale-unternehmen.html",
+    "target": "/en/blog/mobile-first-lokale-unternehmen",
+    "status": "301"
+  },
+  {
+    "source": "/en/blog/mobile-first-lokale-unternehmen/index.html",
+    "target": "/en/blog/mobile-first-lokale-unternehmen",
+    "status": "301"
+  },
+  {
+    "source": "/de/blog/mobile-first-lokale-unternehmen/",
+    "target": "/de/blog/mobile-first-lokale-unternehmen",
+    "status": "301"
+  },
+  {
+    "source": "/de/blog/mobile-first-lokale-unternehmen.html",
+    "target": "/de/blog/mobile-first-lokale-unternehmen",
+    "status": "301"
+  },
+  {
+    "source": "/de/blog/mobile-first-lokale-unternehmen/index.html",
+    "target": "/de/blog/mobile-first-lokale-unternehmen",
+    "status": "301"
+  },
+  {
+    "source": "/blog/google-bewertungen-richtig-managen",
+    "target": "/en/blog/google-bewertungen-richtig-managen",
+    "status": "301"
+  },
+  {
+    "source": "/blog/google-bewertungen-richtig-managen/",
+    "target": "/en/blog/google-bewertungen-richtig-managen",
+    "status": "301"
+  },
+  {
+    "source": "/blog/google-bewertungen-richtig-managen.html",
+    "target": "/en/blog/google-bewertungen-richtig-managen",
+    "status": "301"
+  },
+  {
+    "source": "/blog/google-bewertungen-richtig-managen/index.html",
+    "target": "/en/blog/google-bewertungen-richtig-managen",
+    "status": "301"
+  },
+  {
+    "source": "/en/blog/google-bewertungen-richtig-managen/",
+    "target": "/en/blog/google-bewertungen-richtig-managen",
+    "status": "301"
+  },
+  {
+    "source": "/en/blog/google-bewertungen-richtig-managen.html",
+    "target": "/en/blog/google-bewertungen-richtig-managen",
+    "status": "301"
+  },
+  {
+    "source": "/en/blog/google-bewertungen-richtig-managen/index.html",
+    "target": "/en/blog/google-bewertungen-richtig-managen",
+    "status": "301"
+  },
+  {
+    "source": "/de/blog/google-bewertungen-richtig-managen/",
+    "target": "/de/blog/google-bewertungen-richtig-managen",
+    "status": "301"
+  },
+  {
+    "source": "/de/blog/google-bewertungen-richtig-managen.html",
+    "target": "/de/blog/google-bewertungen-richtig-managen",
+    "status": "301"
+  },
+  {
+    "source": "/de/blog/google-bewertungen-richtig-managen/index.html",
+    "target": "/de/blog/google-bewertungen-richtig-managen",
+    "status": "301"
+  },
+  {
+    "source": "/blog/local-seo-grundlagen-kleine-unternehmen",
+    "target": "/en/blog/local-seo-grundlagen-kleine-unternehmen",
+    "status": "301"
+  },
+  {
+    "source": "/blog/local-seo-grundlagen-kleine-unternehmen/",
+    "target": "/en/blog/local-seo-grundlagen-kleine-unternehmen",
+    "status": "301"
+  },
+  {
+    "source": "/blog/local-seo-grundlagen-kleine-unternehmen.html",
+    "target": "/en/blog/local-seo-grundlagen-kleine-unternehmen",
+    "status": "301"
+  },
+  {
+    "source": "/blog/local-seo-grundlagen-kleine-unternehmen/index.html",
+    "target": "/en/blog/local-seo-grundlagen-kleine-unternehmen",
+    "status": "301"
+  },
+  {
+    "source": "/en/blog/local-seo-grundlagen-kleine-unternehmen/",
+    "target": "/en/blog/local-seo-grundlagen-kleine-unternehmen",
+    "status": "301"
+  },
+  {
+    "source": "/en/blog/local-seo-grundlagen-kleine-unternehmen.html",
+    "target": "/en/blog/local-seo-grundlagen-kleine-unternehmen",
+    "status": "301"
+  },
+  {
+    "source": "/en/blog/local-seo-grundlagen-kleine-unternehmen/index.html",
+    "target": "/en/blog/local-seo-grundlagen-kleine-unternehmen",
+    "status": "301"
+  },
+  {
+    "source": "/de/blog/local-seo-grundlagen-kleine-unternehmen/",
+    "target": "/de/blog/local-seo-grundlagen-kleine-unternehmen",
+    "status": "301"
+  },
+  {
+    "source": "/de/blog/local-seo-grundlagen-kleine-unternehmen.html",
+    "target": "/de/blog/local-seo-grundlagen-kleine-unternehmen",
+    "status": "301"
+  },
+  {
+    "source": "/de/blog/local-seo-grundlagen-kleine-unternehmen/index.html",
+    "target": "/de/blog/local-seo-grundlagen-kleine-unternehmen",
+    "status": "301"
+  },
+  {
+    "source": "/contact",
+    "target": "/en/contact",
+    "status": "301"
+  },
+  {
+    "source": "/contact/",
+    "target": "/en/contact",
+    "status": "301"
+  },
+  {
+    "source": "/contact.html",
+    "target": "/en/contact",
+    "status": "301"
+  },
+  {
+    "source": "/contact/index.html",
+    "target": "/en/contact",
+    "status": "301"
+  },
+  {
+    "source": "/en/contact/",
+    "target": "/en/contact",
+    "status": "301"
+  },
+  {
+    "source": "/en/contact.html",
+    "target": "/en/contact",
+    "status": "301"
+  },
+  {
+    "source": "/en/contact/index.html",
+    "target": "/en/contact",
+    "status": "301"
+  },
+  {
+    "source": "/de/contact/",
+    "target": "/de/contact",
+    "status": "301"
+  },
+  {
+    "source": "/de/contact.html",
+    "target": "/de/contact",
+    "status": "301"
+  },
+  {
+    "source": "/de/contact/index.html",
+    "target": "/de/contact",
+    "status": "301"
+  },
+  {
+    "source": "/faq",
+    "target": "/en/faq",
+    "status": "301"
+  },
+  {
+    "source": "/faq/",
+    "target": "/en/faq",
+    "status": "301"
+  },
+  {
+    "source": "/faq.html",
+    "target": "/en/faq",
+    "status": "301"
+  },
+  {
+    "source": "/faq/index.html",
+    "target": "/en/faq",
+    "status": "301"
+  },
+  {
+    "source": "/en/faq/",
+    "target": "/en/faq",
+    "status": "301"
+  },
+  {
+    "source": "/en/faq.html",
+    "target": "/en/faq",
+    "status": "301"
+  },
+  {
+    "source": "/en/faq/index.html",
+    "target": "/en/faq",
+    "status": "301"
+  },
+  {
+    "source": "/de/faq/",
+    "target": "/de/faq",
+    "status": "301"
+  },
+  {
+    "source": "/de/faq.html",
+    "target": "/de/faq",
+    "status": "301"
+  },
+  {
+    "source": "/de/faq/index.html",
+    "target": "/de/faq",
+    "status": "301"
+  },
+  {
+    "source": "/privacy",
+    "target": "/en/privacy",
+    "status": "301"
+  },
+  {
+    "source": "/privacy/",
+    "target": "/en/privacy",
+    "status": "301"
+  },
+  {
+    "source": "/privacy.html",
+    "target": "/en/privacy",
+    "status": "301"
+  },
+  {
+    "source": "/privacy/index.html",
+    "target": "/en/privacy",
+    "status": "301"
+  },
+  {
+    "source": "/en/privacy/",
+    "target": "/en/privacy",
+    "status": "301"
+  },
+  {
+    "source": "/en/privacy.html",
+    "target": "/en/privacy",
+    "status": "301"
+  },
+  {
+    "source": "/en/privacy/index.html",
+    "target": "/en/privacy",
+    "status": "301"
+  },
+  {
+    "source": "/de/privacy/",
+    "target": "/de/privacy",
+    "status": "301"
+  },
+  {
+    "source": "/de/privacy.html",
+    "target": "/de/privacy",
+    "status": "301"
+  },
+  {
+    "source": "/de/privacy/index.html",
+    "target": "/de/privacy",
+    "status": "301"
+  },
+  {
+    "source": "/terms",
+    "target": "/en/terms",
+    "status": "301"
+  },
+  {
+    "source": "/terms/",
+    "target": "/en/terms",
+    "status": "301"
+  },
+  {
+    "source": "/terms.html",
+    "target": "/en/terms",
+    "status": "301"
+  },
+  {
+    "source": "/terms/index.html",
+    "target": "/en/terms",
+    "status": "301"
+  },
+  {
+    "source": "/en/terms/",
+    "target": "/en/terms",
+    "status": "301"
+  },
+  {
+    "source": "/en/terms.html",
+    "target": "/en/terms",
+    "status": "301"
+  },
+  {
+    "source": "/en/terms/index.html",
+    "target": "/en/terms",
+    "status": "301"
+  },
+  {
+    "source": "/de/terms/",
+    "target": "/de/terms",
+    "status": "301"
+  },
+  {
+    "source": "/de/terms.html",
+    "target": "/de/terms",
+    "status": "301"
+  },
+  {
+    "source": "/de/terms/index.html",
+    "target": "/de/terms",
+    "status": "301"
+  },
+  {
+    "source": "/impressum",
+    "target": "/en/impressum",
+    "status": "301"
+  },
+  {
+    "source": "/impressum/",
+    "target": "/en/impressum",
+    "status": "301"
+  },
+  {
+    "source": "/impressum.html",
+    "target": "/en/impressum",
+    "status": "301"
+  },
+  {
+    "source": "/impressum/index.html",
+    "target": "/en/impressum",
+    "status": "301"
+  },
+  {
+    "source": "/en/impressum/",
+    "target": "/en/impressum",
+    "status": "301"
+  },
+  {
+    "source": "/en/impressum.html",
+    "target": "/en/impressum",
+    "status": "301"
+  },
+  {
+    "source": "/en/impressum/index.html",
+    "target": "/en/impressum",
+    "status": "301"
+  },
+  {
+    "source": "/de/impressum/",
+    "target": "/de/impressum",
+    "status": "301"
+  },
+  {
+    "source": "/de/impressum.html",
+    "target": "/de/impressum",
+    "status": "301"
+  },
+  {
+    "source": "/de/impressum/index.html",
+    "target": "/de/impressum",
+    "status": "301"
+  },
+  {
+    "source": "/maps",
+    "target": "/en/services/google-maps",
+    "status": "301"
+  },
+  {
+    "source": "/maps/",
+    "target": "/en/services/google-maps",
+    "status": "301"
+  },
+  {
+    "source": "/maps.html",
+    "target": "/en/services/google-maps",
+    "status": "301"
+  },
+  {
+    "source": "/maps/index.html",
+    "target": "/en/services/google-maps",
+    "status": "301"
+  },
+  {
+    "source": "/en/maps",
+    "target": "/en/services/google-maps",
+    "status": "301"
+  },
+  {
+    "source": "/en/maps/",
+    "target": "/en/services/google-maps",
+    "status": "301"
+  },
+  {
+    "source": "/en/maps.html",
+    "target": "/en/services/google-maps",
+    "status": "301"
+  },
+  {
+    "source": "/en/maps/index.html",
+    "target": "/en/services/google-maps",
+    "status": "301"
+  },
+  {
+    "source": "/de/maps",
+    "target": "/de/services/google-maps",
+    "status": "301"
+  },
+  {
+    "source": "/de/maps/",
+    "target": "/de/services/google-maps",
+    "status": "301"
+  },
+  {
+    "source": "/de/maps.html",
+    "target": "/de/services/google-maps",
+    "status": "301"
+  },
+  {
+    "source": "/de/maps/index.html",
+    "target": "/de/services/google-maps",
+    "status": "301"
+  },
+  {
+    "source": "/website",
+    "target": "/en/services/website",
+    "status": "301"
+  },
+  {
+    "source": "/website/",
+    "target": "/en/services/website",
+    "status": "301"
+  },
+  {
+    "source": "/website.html",
+    "target": "/en/services/website",
+    "status": "301"
+  },
+  {
+    "source": "/website/index.html",
+    "target": "/en/services/website",
+    "status": "301"
+  },
+  {
+    "source": "/en/website",
+    "target": "/en/services/website",
+    "status": "301"
+  },
+  {
+    "source": "/en/website/",
+    "target": "/en/services/website",
+    "status": "301"
+  },
+  {
+    "source": "/en/website.html",
+    "target": "/en/services/website",
+    "status": "301"
+  },
+  {
+    "source": "/en/website/index.html",
+    "target": "/en/services/website",
+    "status": "301"
+  },
+  {
+    "source": "/de/website",
+    "target": "/de/services/website",
+    "status": "301"
+  },
+  {
+    "source": "/de/website/",
+    "target": "/de/services/website",
+    "status": "301"
+  },
+  {
+    "source": "/de/website.html",
+    "target": "/de/services/website",
+    "status": "301"
+  },
+  {
+    "source": "/de/website/index.html",
+    "target": "/de/services/website",
+    "status": "301"
+  },
+  {
+    "source": "/business-profile",
+    "target": "/en/services/business-profile",
+    "status": "301"
+  },
+  {
+    "source": "/business-profile/",
+    "target": "/en/services/business-profile",
+    "status": "301"
+  },
+  {
+    "source": "/business-profile.html",
+    "target": "/en/services/business-profile",
+    "status": "301"
+  },
+  {
+    "source": "/business-profile/index.html",
+    "target": "/en/services/business-profile",
+    "status": "301"
+  },
+  {
+    "source": "/en/business-profile",
+    "target": "/en/services/business-profile",
+    "status": "301"
+  },
+  {
+    "source": "/en/business-profile/",
+    "target": "/en/services/business-profile",
+    "status": "301"
+  },
+  {
+    "source": "/en/business-profile.html",
+    "target": "/en/services/business-profile",
+    "status": "301"
+  },
+  {
+    "source": "/en/business-profile/index.html",
+    "target": "/en/services/business-profile",
+    "status": "301"
+  },
+  {
+    "source": "/de/business-profile",
+    "target": "/de/services/business-profile",
+    "status": "301"
+  },
+  {
+    "source": "/de/business-profile/",
+    "target": "/de/services/business-profile",
+    "status": "301"
+  },
+  {
+    "source": "/de/business-profile.html",
+    "target": "/de/services/business-profile",
+    "status": "301"
+  },
+  {
+    "source": "/de/business-profile/index.html",
+    "target": "/de/services/business-profile",
+    "status": "301"
+  },
+  {
+    "source": "/blog/mobile-first-lokale-unternehmen-optimierung",
+    "target": "/en/blog/mobile-first-lokale-unternehmen",
+    "status": "301"
+  },
+  {
+    "source": "/blog/mobile-first-lokale-unternehmen-optimierung/",
+    "target": "/en/blog/mobile-first-lokale-unternehmen",
+    "status": "301"
+  },
+  {
+    "source": "/blog/mobile-first-lokale-unternehmen-optimierung.html",
+    "target": "/en/blog/mobile-first-lokale-unternehmen",
+    "status": "301"
+  },
+  {
+    "source": "/blog/mobile-first-lokale-unternehmen-optimierung/index.html",
+    "target": "/en/blog/mobile-first-lokale-unternehmen",
+    "status": "301"
+  },
+  {
+    "source": "/en/blog/mobile-first-lokale-unternehmen-optimierung",
+    "target": "/en/blog/mobile-first-lokale-unternehmen",
+    "status": "301"
+  },
+  {
+    "source": "/en/blog/mobile-first-lokale-unternehmen-optimierung/",
+    "target": "/en/blog/mobile-first-lokale-unternehmen",
+    "status": "301"
+  },
+  {
+    "source": "/en/blog/mobile-first-lokale-unternehmen-optimierung.html",
+    "target": "/en/blog/mobile-first-lokale-unternehmen",
+    "status": "301"
+  },
+  {
+    "source": "/en/blog/mobile-first-lokale-unternehmen-optimierung/index.html",
+    "target": "/en/blog/mobile-first-lokale-unternehmen",
+    "status": "301"
+  },
+  {
+    "source": "/de/blog/mobile-first-lokale-unternehmen-optimierung",
+    "target": "/de/blog/mobile-first-lokale-unternehmen",
+    "status": "301"
+  },
+  {
+    "source": "/de/blog/mobile-first-lokale-unternehmen-optimierung/",
+    "target": "/de/blog/mobile-first-lokale-unternehmen",
+    "status": "301"
+  },
+  {
+    "source": "/de/blog/mobile-first-lokale-unternehmen-optimierung.html",
+    "target": "/de/blog/mobile-first-lokale-unternehmen",
+    "status": "301"
+  },
+  {
+    "source": "/de/blog/mobile-first-lokale-unternehmen-optimierung/index.html",
+    "target": "/de/blog/mobile-first-lokale-unternehmen",
+    "status": "301"
+  },
+  {
+    "source": "/en/",
+    "target": "/en/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/de/",
+    "target": "/de/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/en/geo-check/results",
+    "target": "/en/geo-check/results/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/de/geo-check/results",
+    "target": "/de/geo-check/results/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/en/geo-check",
+    "target": "/en/geo-check/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/de/geo-check",
+    "target": "/de/geo-check/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/en/geo/dashboard",
+    "target": "/en/geo/dashboard/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/de/geo/dashboard",
+    "target": "/de/geo/dashboard/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/en/geo-optimierung",
+    "target": "/en/geo-optimierung/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/de/geo-optimierung",
+    "target": "/de/geo-optimierung/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/en/services",
+    "target": "/en/services/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/de/services",
+    "target": "/de/services/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/en/services/google-maps",
+    "target": "/en/services/google-maps/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/de/services/google-maps",
+    "target": "/de/services/google-maps/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/en/services/business-profile",
+    "target": "/en/services/business-profile/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/de/services/business-profile",
+    "target": "/de/services/business-profile/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/en/services/website",
+    "target": "/en/services/website/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/de/services/website",
+    "target": "/de/services/website/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/en/services/ablauf-audit",
+    "target": "/en/services/ablauf-audit/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/de/services/ablauf-audit",
+    "target": "/de/services/ablauf-audit/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/en/blog",
+    "target": "/en/blog/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/de/blog",
+    "target": "/de/blog/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/en/blog/wie-findet-man-gute-firmen-in-der-naehe",
+    "target": "/en/blog/wie-findet-man-gute-firmen-in-der-naehe/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/de/blog/wie-findet-man-gute-firmen-in-der-naehe",
+    "target": "/de/blog/wie-findet-man-gute-firmen-in-der-naehe/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/en/blog/warum-ist-ein-google-eintrag-wichtig",
+    "target": "/en/blog/warum-ist-ein-google-eintrag-wichtig/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/de/blog/warum-ist-ein-google-eintrag-wichtig",
+    "target": "/de/blog/warum-ist-ein-google-eintrag-wichtig/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/en/blog/top-5-restaurants-lutherstadt-wittenberg",
+    "target": "/en/blog/top-5-restaurants-lutherstadt-wittenberg/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/de/blog/top-5-restaurants-lutherstadt-wittenberg",
+    "target": "/de/blog/top-5-restaurants-lutherstadt-wittenberg/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/en/blog/haeufigste-fehler-unternehmen-internet",
+    "target": "/en/blog/haeufigste-fehler-unternehmen-internet/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/de/blog/haeufigste-fehler-unternehmen-internet",
+    "target": "/de/blog/haeufigste-fehler-unternehmen-internet/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/en/blog/online-sichtbarkeit-tipps-lokale-unternehmen",
+    "target": "/en/blog/online-sichtbarkeit-tipps-lokale-unternehmen/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/de/blog/online-sichtbarkeit-tipps-lokale-unternehmen",
+    "target": "/de/blog/online-sichtbarkeit-tipps-lokale-unternehmen/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/en/blog/mobile-first-lokale-unternehmen",
+    "target": "/en/blog/mobile-first-lokale-unternehmen/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/de/blog/mobile-first-lokale-unternehmen",
+    "target": "/de/blog/mobile-first-lokale-unternehmen/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/en/blog/google-bewertungen-richtig-managen",
+    "target": "/en/blog/google-bewertungen-richtig-managen/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/de/blog/google-bewertungen-richtig-managen",
+    "target": "/de/blog/google-bewertungen-richtig-managen/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/en/blog/local-seo-grundlagen-kleine-unternehmen",
+    "target": "/en/blog/local-seo-grundlagen-kleine-unternehmen/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/de/blog/local-seo-grundlagen-kleine-unternehmen",
+    "target": "/de/blog/local-seo-grundlagen-kleine-unternehmen/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/en/contact",
+    "target": "/en/contact/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/de/contact",
+    "target": "/de/contact/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/en/faq",
+    "target": "/en/faq/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/de/faq",
+    "target": "/de/faq/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/en/privacy",
+    "target": "/en/privacy/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/de/privacy",
+    "target": "/de/privacy/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/en/terms",
+    "target": "/en/terms/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/de/terms",
+    "target": "/de/terms/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/en/impressum",
+    "target": "/en/impressum/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/de/impressum",
+    "target": "/de/impressum/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/de/<*>",
+    "target": "/de/404.html",
+    "status": "404"
+  },
+  {
+    "source": "/<*>",
+    "target": "/404.html",
+    "status": "404"
+  }
+]

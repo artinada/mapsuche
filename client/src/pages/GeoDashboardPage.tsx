@@ -1,28 +1,47 @@
+import { useGeoLanguage } from '@/hooks/useGeoLanguage';
 import { useState } from 'react';
 import { Link } from 'wouter';
-import { BarChart3, ExternalLink, FileText, Lightbulb, MessageSquare, Search, Users } from 'lucide-react';
+import { useQueries } from '@tanstack/react-query';
+import { ArrowRight, Loader2, Trash2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-
-const periods = [{value:'7',label:'7 Tage',mentions:37,citations:16},{value:'30',label:'30 Tage',mentions:32,citations:14},{value:'90',label:'90 Tage',mentions:28,citations:11}];
-const questions = [{text:'Welche Anbieter gibt es in Wittenberg?',mention:true},{text:'Wo finde ich diesen Service in Piesteritz?',mention:false},{text:'Welche lokalen Dienstleister werden empfohlen?',mention:true}];
+import { deleteReport, forgetTicket, getReport, reportUrl, savedTickets } from '@/lib/geo';
+import type { GeoTicket } from '@/lib/geo';
 
 export default function GeoDashboardPage() {
+  const { g, locale } = useGeoLanguage();
+  const [tickets, setTickets] = useState(savedTickets);
   const [period, setPeriod] = useState('30');
-  const selected = periods.find(p=>p.value===period) || periods[1];
-  return <div className="min-h-screen bg-gray-50 py-10"><div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div className="flex flex-wrap justify-between gap-5 items-start mb-8"><div><p className="uppercase tracking-wide text-primary font-semibold text-xs mb-2">GEO Analytics · Demo</p><h1 className="text-3xl font-bold">KI-Sichtbarkeit im Überblick</h1><p className="text-gray-600 mt-2">Musterunternehmen · Lutherstadt Wittenberg</p></div><select aria-label="Zeitraum" value={period} onChange={e=>setPeriod(e.target.value)} className="border bg-white rounded-lg px-4 py-3">{periods.map(p=><option key={p.value} value={p.value}>{p.label}</option>)}</select></div>
-    <div className="p-4 rounded-lg bg-accent/20 text-gray-800 text-sm mb-6"><strong>Demo-Dashboard:</strong> Alle Kennzahlen und Antworten sind illustrativ. Keine echte KI-Abfrage, kein Nutzerkonto und kein Live-Monitoring.</div>
-    <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-      {[{label:'Mention Rate',value:selected.mentions+' %',icon:MessageSquare},{label:'Citation Rate',value:selected.citations+' %',icon:FileText},{label:'Getestete Anfragen',value:'100',icon:Search},{label:'Wettbewerber',value:'3',icon:Users}].map(k=><Card key={k.label}><CardContent className="p-6"><k.icon className="text-primary mb-3" size={24}/><p className="text-gray-500 text-sm">{k.label}</p><p className="text-3xl font-bold mt-2">{k.value}</p></CardContent></Card>)}
-    </div>
-    <div className="grid lg:grid-cols-2 gap-6 mb-8">
-      <Card><CardContent className="p-7"><h2 className="text-xl font-semibold mb-6 flex gap-2 items-center"><BarChart3 className="text-primary"/> Wettbewerber-Vergleich</h2>
-        {[{name:'Ihr Unternehmen',val:selected.mentions},{name:'Wettbewerber A',val:57},{name:'Wettbewerber B',val:46},{name:'Wettbewerber C',val:23}].map((v,i)=><div key={v.name} className="mb-5"><div className="flex justify-between text-sm mb-2"><span>{v.name}</span><span>{v.val}%</span></div><div className="bg-gray-100 rounded-full h-3 overflow-hidden"><div className={'h-full rounded-full '+(i===0?'bg-secondary':'bg-primary')} style={{width:v.val+'%'}}/></div></div>)}
-      </CardContent></Card>
-      <Card><CardContent className="p-7"><h2 className="text-xl font-semibold mb-6">Beispielhafte KI-Antworten</h2><div className="space-y-4">{questions.map(q=><div key={q.text} className="pb-3 border-b last:border-0"><p className="font-medium text-sm">{q.text}</p><p className={'text-xs mt-2 '+(q.mention?'text-green-700':'text-gray-500')}>{q.mention?'Marke erwähnt':'Nicht erwähnt'} · Demo</p></div>)}</div></CardContent></Card>
-    </div>
-    <Card><CardContent className="p-7 flex flex-col md:flex-row gap-6 md:items-center justify-between"><div><h2 className="text-xl font-semibold flex gap-2 items-center mb-2"><Lightbulb className="text-secondary"/> Empfohlene nächste Schritte</h2><p className="text-gray-600">Lokale Inhalte erweitern, Leistungsinformationen prüfen und Unternehmensprofile konsistent halten.</p></div><Link href="/geo-optimierung"><Button className="bg-secondary text-white shrink-0">Optimierung anfragen <ExternalLink className="ml-2 h-4 w-4"/></Button></Link></CardContent></Card>
-    <div className="mt-8 text-center"><Link href="/geo-check" className="text-primary hover:underline">← Zurück zum GEO Check</Link></div>
+  const [error, setError] = useState('');
+  const [deleting, setDeleting] = useState('');
+  const queries = useQueries({ queries: tickets.map(ticket => ({ queryKey: ['geo-report', ticket.id, ticket.token], queryFn: () => getReport(ticket), retry: 1,
+    refetchInterval: (state: { state: { data?: { status: string } } }) => ['queued', 'running'].includes(state.state.data?.status || '') ? 5000 : false,
+  })) });
+  async function remove(ticket: GeoTicket) {
+    setDeleting(ticket.id); setError('');
+    try { await deleteReport(ticket); forgetTicket(ticket.id); setTickets(savedTickets()); }
+    catch (err) { setError(err instanceof Error ? err.message : g("Bericht konnte nicht gelöscht werden.")); }
+    finally { setDeleting(''); }
+  }
+  const visible = tickets.map((ticket, i) => ({ ticket, query: queries[i] })).filter(({ ticket }) => Date.now() - Date.parse(ticket.createdAt) <= Number(period) * 86400_000);
+  return <div className="min-h-screen bg-gray-50 py-12"><div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="flex flex-wrap justify-between gap-5 items-start mb-8"><div><p className="uppercase tracking-wide text-primary font-semibold text-xs mb-2">GEO Analytics</p><h1 className="text-3xl font-bold">{g("Ihre gespeicherten GEO Checks")}</h1><p className="text-gray-600 mt-3">{g("Echte Ergebnisse Ihrer bisherigen Prüfungen. Zugriffsschlüssel werden in diesem Browser gespeichert; Berichte bleiben 30 Tage abrufbar.")}</p></div><select aria-label={g("Zeitraum")} value={period} onChange={e=>setPeriod(e.target.value)} className="border bg-white rounded-lg px-4 py-3"><option value="7">{g("Letzte 7 Tage")}</option><option value="30">{g("Letzte 30 Tage")}</option></select></div>
+    <Link href="/geo-check"><Button className="bg-primary text-white mb-8">{g("Kostenlosen Check starten")} <ArrowRight className="ml-2 h-4 w-4"/></Button></Link>
+    {error && <p role="alert" className="text-red-700 mb-6">{g(error)}</p>}
+    {!visible.length && <Card><CardContent className="p-8"><h2 className="text-xl font-semibold mb-3">{g("Noch keine Berichte in diesem Zeitraum")}</h2><p className="text-gray-600">{g("Starten Sie Ihren ersten GEO Check. Es werden drei lokale Suchfragen mit OpenAI-Websuche geprüft und ausgewertet.")}</p></CardContent></Card>}
+    <div className="grid md:grid-cols-2 gap-6">{visible.map(({ ticket, query }) => {
+      const report = query.data;
+      const running = report && ['queued', 'running'].includes(report.status);
+      return <Card key={ticket.id}><CardContent className="p-6">
+        {query.isPending && <p role="status" className="flex gap-2 items-center"><Loader2 className="animate-spin h-4 w-4"/> {g("Bericht wird geladen…")}</p>}
+        {query.isError && <div><p role="alert" className="text-red-700 text-sm">{g(query.error.message)}</p><div className="flex gap-4 mt-4"><button onClick={() => void query.refetch()} className="text-primary underline text-sm">{g("Erneut laden")}</button><button className="text-gray-600 underline text-sm" onClick={() => { forgetTicket(ticket.id); setTickets(savedTickets()); }}>{g("Aus Browserliste entfernen")}</button></div><p className="text-xs text-gray-500 mt-2">{g("Das Entfernen aus der Liste löscht keinen Bericht auf dem Server.")}</p></div>}
+        {report && <><h2 className="text-xl font-semibold break-words">{report.input.business}</h2><p className="text-sm text-gray-600 mt-1">{report.input.city} · {report.input.service}</p><p className="text-xs text-gray-500 mt-2">{new Date(report.createdAt).toLocaleString(locale)}</p>
+          <p className="my-4 text-sm font-medium">{running ? g("Prüfung läuft · {count}/3 bearbeitet", { count: report.answers.length }) : report.status === 'completed' ? g("Abgeschlossen") : report.status === 'partial' ? g("Teilweise abgeschlossen") : g("Fehlgeschlagen")}</p>
+          <div className="grid grid-cols-2 gap-4 mb-5"><div><p className="text-2xl font-bold">{report.metrics.mentionRate === null ? '—' : `${report.metrics.mentionRate} %`}</p><p className="text-xs text-gray-500">{g("Namensnennung")}</p></div><div><p className="text-2xl font-bold">{report.metrics.citationRate === null ? '—' : `${report.metrics.citationRate} %`}</p><p className="text-xs text-gray-500">{g("Website zitiert")}</p></div></div>
+          <div className="flex flex-wrap items-center justify-between gap-3"><Link href={reportUrl(ticket)} className="text-primary font-semibold hover:underline">{g("Bericht öffnen →")}</Link>{!running && <Button aria-label={g("Bericht von {business} löschen", { business: report.input.business })} variant="ghost" disabled={Boolean(deleting)} onClick={() => void remove(ticket)}><Trash2 className="h-4 w-4 mr-2"/>{deleting === ticket.id ? g("Wird gelöscht…") : g("Löschen")}</Button>}</div>
+        </>}
+      </CardContent></Card>;
+    })}</div>
+    <p className="text-sm text-gray-500 mt-8">{g("Jeder Check ist eine einzelne Momentaufnahme. Dieses Dashboard führt keine automatischen Folgeprüfungen aus.")}</p>
   </div></div>;
 }

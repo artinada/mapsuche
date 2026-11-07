@@ -1,7 +1,6 @@
 import { Link } from 'wouter';
 import { ArrowLeft, MapPin, Star, CheckCircle, Globe, ExternalLink } from 'lucide-react';
 import { useLanguage } from '@/hooks/useLanguage';
-import { useSEO } from '@/hooks/useSEO';
 import { getPostBySlug } from '@/lib/blogConfig';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -12,24 +11,6 @@ export default function GoogleEintragWichtigkeit() {
 
   // Get the blog post configuration
   const blogPost = getPostBySlug('warum-ist-ein-google-eintrag-wichtig');
-
-  // SEO optimization for this specific article
-  useSEO({ 
-    page: 'blog' as any,
-    customTitle: language === 'de' 
-      ? 'Warum ist ein Google-Eintrag wichtig? | Google Business Profile - MapSuche' 
-      : 'Why is a Google Business Entry Important? | Google Business Profile - MapSuche',
-    customDescription: language === 'de'
-      ? 'Erfahren Sie, warum ein Google Business Profile für lokale Unternehmen unverzichtbar ist. Sichtbarkeit, Kundenvertrauen und lokale SEO-Vorteile erklärt.'
-      : 'Learn why a Google Business Profile is essential for local businesses. Visibility, customer trust, and local SEO benefits explained.',
-    customKeywords: [
-      'google business profile wichtigkeit',
-      'google eintrag bedeutung',
-      'lokale sichtbarkeit',
-      'google maps eintrag',
-      'unternehmensprofil google'
-    ]
-  });
 
   const content = {
     de: {

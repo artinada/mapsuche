@@ -3,7 +3,6 @@ import { Link } from 'wouter';
 import { Card, CardContent } from '../../components/ui/card';
 import { Button } from '../../components/ui/button';
 import { useLanguage } from '../../hooks/useLanguage';
-import { useSEO } from '../../hooks/useSEO';
 import { getPostBySlug } from '../../lib/blogConfig';
 import { TrendingUp, Users, AlertTriangle, CheckCircle, Lightbulb, Zap, Target, ArrowLeft, ExternalLink } from 'lucide-react';
 import LazyImage from '../../components/LazyImage';
@@ -117,18 +116,6 @@ const MobileFirstLokaleUnternehmen: React.FC = () => {
 
   const currentContent = content[language];
 
-  useSEO({
-    page: 'blog' as any,
-    customTitle: language === 'de' 
-      ? 'Mobile-First: Warum lokale Unternehmen mobile Optimierung brauchen | MapSuche'
-      : 'Mobile-First: Why Local Businesses Need Mobile Optimization | MapSuche',
-    customDescription: language === 'de' 
-      ? 'Entdecken Sie, warum mobile Optimierung für lokale Unternehmen entscheidend ist. 70% der lokalen Suchen kommen von mobilen Geräten. Praktische Tipps für bessere mobile Sichtbarkeit.'
-      : 'Discover why mobile optimization is crucial for local businesses. 70% of local searches come from mobile devices. Practical tips for better mobile visibility.',
-    customKeywords: language === 'de'
-      ? ['mobile optimierung', 'lokale unternehmen mobile', 'smartphone suche lokal', 'mobile first strategie', 'google maps mobile', 'responsive design kleine unternehmen', 'mobile seo tipps', 'lokale suche smartphone', 'mobile website optimierung', 'mapsuche mobile']
-      : ['mobile optimization', 'local business mobile', 'smartphone local search', 'mobile first strategy', 'google maps mobile', 'responsive design small business', 'mobile seo tips', 'local search smartphone', 'mobile website optimization', 'mapsuche mobile']
-  });
 
   return (
     <div className="min-h-screen py-20">

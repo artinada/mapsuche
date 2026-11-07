@@ -15,6 +15,9 @@ export interface SEOConfig {
   ogImage?: string;
   canonicalUrl?: string;
   structuredData?: object;
+  robots?: string;
+  language?: 'en' | 'de';
+  alternates?: { language: string; href: string }[];
 }
 
 export const updatePageSEO = (config: SEOConfig) => {
@@ -32,6 +35,21 @@ export const updatePageSEO = (config: SEOConfig) => {
   // Update Open Graph tags
   updateMetaProperty('og:title', config.ogTitle || config.title);
   updateMetaProperty('og:description', config.ogDescription || config.description);
+  updateMetaTag('twitter:title', config.title);
+  updateMetaTag('twitter:description', config.description);
+  updateMetaTag('robots', config.robots || 'index, follow');
+  updateMetaTag('googlebot', config.robots || 'index, follow');
+  if (config.language) {
+    document.documentElement.lang = config.language;
+    updateMetaProperty('og:locale', config.language === 'de' ? 'de_DE' : 'en_GB');
+    updateMetaProperty('og:locale:alternate', config.language === 'de' ? 'en_GB' : 'de_DE');
+  }
+  document.querySelectorAll('link[hreflang]').forEach(link => link.remove());
+  for (const alternate of config.alternates || []) {
+    const link = document.createElement('link');
+    link.rel = 'alternate'; link.hreflang = alternate.language; link.href = alternate.href;
+    document.head.appendChild(link);
+  }
   
   if (config.ogImage) {
     updateMetaProperty('og:image', config.ogImage);
@@ -40,11 +58,17 @@ export const updatePageSEO = (config: SEOConfig) => {
   // Update canonical URL
   if (config.canonicalUrl) {
     updateCanonicalUrl(config.canonicalUrl);
+    updateMetaProperty('og:url', config.canonicalUrl);
+  } else {
+    document.querySelector('link[rel="canonical"]')?.remove();
+    document.querySelector('meta[property="og:url"]')?.remove();
   }
   
   // Add structured data
   if (config.structuredData) {
     updateStructuredData(config.structuredData);
+  } else {
+    document.querySelector('script[data-page-schema]')?.remove();
   }
 };
 

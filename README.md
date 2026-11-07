@@ -1,5 +1,11 @@
 # MapSuche - Professional Business Directory Platform
 
+The Free GEO Check now has an OpenAI-backed implementation with saved reports. See [GEO Check setup and deployment](docs/GEO_CHECK.md). Configure a server-side `OPENAI_API_KEY` to enable live checks.
+
+Public DE and EN pages are prerendered during `npm run build`, with localized text and metadata, self-canonicals and reciprocal hreflang links in the initial HTML. Use `/de/` or `/en/`; legacy unprefixed URLs redirect to English. Private GEO views are noindex. See [indexing, production preview and Amplify routing setup](docs/INDEXING.md). After building, run `npm run test:indexing` and `npm run preview` to verify the static output and real HTTP status codes.
+
+The XML sitemap is regenerated from the routes in `client/src/App.tsx` before every `npm run build`. It includes published blog posts and public pages; private GEO results and the browser-specific dashboard are excluded. Run `npm run sitemap` to update it manually and `npm run test:sitemap` to validate it. Optional modification dates are omitted until reliable content-update dates are maintained; blog publication dates and build times are not used as `lastmod`.
+
 A modern business directory and contact platform built with React, TypeScript, and AWS Amplify Gen 2. Fully deployed and operational at [mapsuche.de](https://mapsuche.de).
 
 ## 🚀 Project Overview
@@ -149,4 +155,4 @@ For technical support or questions:
 
 ---
 
-**Note**: This infrastructure is fully managed as code via Amplify Gen 2 and AWS CDK, ensuring consistent, version-controlled, and reproducible deployments in the Frankfurt (`eu-central-1`) region. The migration from manual AWS CLI setup to Infrastructure as Code provides better maintainability and deployment reliability. 
+**Note**: This infrastructure is fully managed as code via Amplify Gen 2 and AWS CDK, ensuring consistent, version-controlled, and reproducible deployments in the Frankfurt (`eu-central-1`) region. The migration from manual AWS CLI setup to Infrastructure as Code provides better maintainability and deployment reliability.

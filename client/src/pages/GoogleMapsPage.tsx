@@ -1,25 +1,11 @@
 import { ArrowRight, Check, MapPin } from 'lucide-react';
 import { Link } from 'wouter';
 import { useLanguage } from '@/hooks/useLanguage';
-import { useSEO } from '@/hooks/useSEO';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 
 export default function GoogleMapsPage() {
   const { t } = useLanguage();
-
-  // SEO optimization for Google Maps page
-  useSEO({ 
-    page: 'googleMaps',
-    customKeywords: [
-      'google maps marketing',
-      'local business visibility',
-      'map listing optimization',
-      'local search results',
-      'google places optimization',
-      'business location services'
-    ]
-  });
 
   return (
     <div className="min-h-screen">

@@ -199,7 +199,7 @@ export const coopUtils = {
       }
 
       // Make a test request to check COOP headers
-      fetch(window.location.origin, { method: 'HEAD' })
+      fetch(window.location.origin + window.location.pathname, { method: 'HEAD' })
         .then(response => {
           const coopHeader = response.headers.get('Cross-Origin-Opener-Policy');
           const coepHeader = response.headers.get('Cross-Origin-Embedder-Policy');
@@ -425,7 +425,7 @@ export const clickjackingUtils = {
       }
 
       // Make a test request to check headers
-      fetch(window.location.origin, { method: 'HEAD' })
+      fetch(window.location.origin + window.location.pathname, { method: 'HEAD' })
         .then(response => {
           const xfoHeader = response.headers.get('X-Frame-Options');
           const cspHeader = response.headers.get('Content-Security-Policy');
@@ -813,7 +813,7 @@ export const hstsUtils = {
       }
 
       // Make a test request to check HSTS headers
-      fetch(window.location.origin, { method: 'HEAD' })
+      fetch(window.location.origin + window.location.pathname, { method: 'HEAD' })
         .then(response => {
           const hstsHeader = response.headers.get('Strict-Transport-Security');
           

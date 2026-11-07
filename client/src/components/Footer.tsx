@@ -1,9 +1,11 @@
 import { Link } from 'wouter';
 import { MapPin, Facebook, Twitter, Linkedin, Instagram } from 'lucide-react';
 import { useLanguage } from '@/hooks/useLanguage';
+import { useGeoLanguage } from '@/hooks/useGeoLanguage';
 
 export function Footer() {
   const { t } = useLanguage();
+  const { g } = useGeoLanguage();
 
   return (
     <footer className="bg-gray-900 text-white py-12">
@@ -52,6 +54,21 @@ export function Footer() {
           <div>
             <h4 className="text-lg font-semibold mb-4">{t('services')}</h4>
             <ul className="space-y-2">
+              <li>
+                <Link href="/geo-check" className="text-gray-300 hover:text-white transition-colors">
+                  {g('Kostenloser GEO Check')}
+                </Link>
+              </li>
+              <li>
+                <Link href="/geo/dashboard" className="text-gray-300 hover:text-white transition-colors">
+                  {g('GEO-Dashboard')}
+                </Link>
+              </li>
+              <li>
+                <Link href="/geo-optimierung" className="text-gray-300 hover:text-white transition-colors">
+                  {g('GEO-Optimierung')}
+                </Link>
+              </li>
               <li>
                 <Link href="/services/google-maps" className="text-gray-300 hover:text-white transition-colors">
                   {t('googleMapsListing')}

@@ -5,6 +5,8 @@
     "moduleResolution": "bundler",
     "allowSyntheticDefaultImports": true,
     "strict": true,
+    "noEmit": true,
+    "allowImportingTsExtensions": true,
     "declaration": true,
     "declarationMap": true,
     "esModuleInterop": true,
@@ -16,4 +18,4 @@
   },
   "include": ["**/*"],
   "exclude": ["node_modules", "dist"]
-} 
+}

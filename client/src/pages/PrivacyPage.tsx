@@ -57,6 +57,14 @@ export default function PrivacyPage() {
         <div className="prose prose-lg max-w-none">
           <p className="text-lg text-gray-700 mb-8">{currentContent.intro}</p>
 
+          <section className="mb-8">
+            <h2 className="text-2xl font-semibold text-gray-900 mb-4">Free GEO Check · OpenAI</h2>
+            <p className="text-gray-700">{language === 'de'
+              ? 'Wenn Sie einen GEO Check starten und zustimmen, übermitteln wir Unternehmensname, Website-Domain, Standort und Leistung an OpenAI für Suchanfragen und zur Auswertung. Die API-Anfragen verwenden store: false; dies verhindert keine gesonderten Aufbewahrungsfristen des Anbieters. Ergebnisse einschließlich KI-Antworten und Quellen werden für 30 Tage gespeichert und danach nicht mehr zum Abruf bereitgestellt. Die physische Löschung kann zeitverzögert erfolgen; Sicherungen können länger bestehen. Ein privater Zugriffsschlüssel wird in Ihrem Browser und im Fragment Ihres Berichtslinks gespeichert. Jeder mit diesem Link kann den Bericht lesen oder löschen. Abgeschlossene Berichte können im GEO-Dashboard gelöscht werden. Zur Begrenzung kostenloser Anfragen wird ein Hash Ihrer IP-Adresse mit einem Tageszähler für bis zu zwei Tage gespeichert.'
+              : 'When you consent and start a GEO Check, we send the business name, website domain, location and service to OpenAI for searches and analysis. Requests use store: false; this does not prevent separate provider retention periods. Reports, including AI answers and sources, stop being accessible after 30 days. Physical deletion may be delayed and backups may persist longer. A private token is stored in your browser and the fragment of your report link. Anyone with that link can read or delete the report. Completed reports can be deleted in the GEO dashboard. A hash of your IP address and a daily counter are kept for up to two days to limit free requests.'}</p>
+            <a href="https://platform.openai.com/docs/guides/your-data" target="_blank" rel="noopener noreferrer" className="text-primary underline">OpenAI API · Data controls</a>
+          </section>
+
           <div className="mb-8">
             <h2 className="text-2xl font-semibold text-gray-900 mb-4">
               {currentContent.dataCollection}

@@ -1,25 +1,11 @@
 import { ArrowRight, Check, Globe } from 'lucide-react';
 import { Link } from 'wouter';
 import { useLanguage } from '@/hooks/useLanguage';
-import { useSEO } from '@/hooks/useSEO';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 
 export default function WebsitePage() {
   const { t } = useLanguage();
-
-  // SEO optimization for Website page
-  useSEO({ 
-    page: 'website',
-    customKeywords: [
-      'responsive web design',
-      'seo friendly websites',
-      'mobile first design',
-      'local business websites',
-      'conversion optimization',
-      'professional web development'
-    ]
-  });
 
   return (
     <div className="min-h-screen">

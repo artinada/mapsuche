@@ -1,0 +1,45 @@
+customHeaders:
+  - pattern: '/en/**'
+    headers:
+      - key: 'Content-Language'
+        value: 'en'
+  - pattern: '/de/**'
+    headers:
+      - key: 'Content-Language'
+        value: 'de'
+  - pattern: '/en/geo-check/results*'
+    headers:
+      - key: 'X-Robots-Tag'
+        value: 'noindex, follow'
+      - key: 'Cache-Control'
+        value: 'no-store'
+  - pattern: '/en/geo/dashboard*'
+    headers:
+      - key: 'X-Robots-Tag'
+        value: 'noindex, follow'
+      - key: 'Cache-Control'
+        value: 'no-store'
+  - pattern: '/de/geo-check/results*'
+    headers:
+      - key: 'X-Robots-Tag'
+        value: 'noindex, follow'
+      - key: 'Cache-Control'
+        value: 'no-store'
+  - pattern: '/de/geo/dashboard*'
+    headers:
+      - key: 'X-Robots-Tag'
+        value: 'noindex, follow'
+      - key: 'Cache-Control'
+        value: 'no-store'
+  - pattern: '/404.html'
+    headers:
+      - key: 'X-Robots-Tag'
+        value: 'noindex, nofollow'
+  - pattern: '/en/404.html'
+    headers:
+      - key: 'X-Robots-Tag'
+        value: 'noindex, nofollow'
+  - pattern: '/de/404.html'
+    headers:
+      - key: 'X-Robots-Tag'
+        value: 'noindex, nofollow'

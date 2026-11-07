@@ -1,7 +1,6 @@
 import { Link } from 'wouter';
 import { ArrowLeft, MapPin, Star, Utensils, Clock, Phone, Globe, Award, ExternalLink } from 'lucide-react';
 import { useLanguage } from '@/hooks/useLanguage';
-import { useSEO } from '@/hooks/useSEO';
 import { getPostBySlug } from '@/lib/blogConfig';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -12,32 +11,6 @@ export default function TopRestaurantsWittenberg() {
 
   // Get the blog post configuration
   const blogPost = getPostBySlug('top-5-restaurants-lutherstadt-wittenberg');
-
-  // SEO optimization for this specific article
-  useSEO({ 
-    page: 'blog' as any,
-    customTitle: language === 'de' 
-      ? 'Top 5 Restaurants in Lutherstadt Wittenberg | Beste Restaurants laut mapsuche.de' 
-      : 'Top 5 Restaurants in Lutherstadt Wittenberg | Best Restaurants according to mapsuche.de',
-    customDescription: language === 'de'
-      ? 'Entdecken Sie die 5 besten Restaurants in Lutherstadt Wittenberg mit echten Adressen und Bewertungen. Von traditioneller deutscher Küche bis zu internationalen Spezialitäten.'
-      : 'Discover the 5 best restaurants in Lutherstadt Wittenberg with real addresses and reviews. From traditional German cuisine to international specialties.',
-    customKeywords: [
-      'restaurants wittenberg',
-      'beste restaurants lutherstadt wittenberg',
-      'essen gehen wittenberg',
-      'gastronomie wittenberg',
-      'restaurant empfehlungen',
-      'deutsche küche wittenberg',
-      'top 5 restaurants',
-      'restaurantführer',
-      'dining wittenberg',
-      'food guide',
-      'restaurant reviews',
-      'local dining',
-      'wittenberg gastronomy'
-    ]
-  });
 
   const restaurants = [
     {

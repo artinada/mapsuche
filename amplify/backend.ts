@@ -1,6 +1,8 @@
 import { defineBackend } from '@aws-amplify/backend';
 import { PolicyStatement, Effect } from 'aws-cdk-lib/aws-iam';
-import { Duration } from 'aws-cdk-lib';
+import { Duration, Stack, RemovalPolicy } from 'aws-cdk-lib';
+import * as dynamodb from 'aws-cdk-lib/aws-dynamodb';
+import * as apigateway from 'aws-cdk-lib/aws-apigateway';
 import * as ses from 'aws-cdk-lib/aws-ses';
 import * as s3 from 'aws-cdk-lib/aws-s3';
 import * as sesActions from 'aws-cdk-lib/aws-ses-actions';
@@ -9,12 +11,57 @@ import * as cloudfront from 'aws-cdk-lib/aws-cloudfront';
 import { data } from './data/resource';
 import { contactFunction } from './functions/contact/resource';
 import { emailForwarderFunction } from './functions/email-forwarder/resource';
+import { geoApiFunction } from './functions/geo-api/resource';
+import { geoWorkerFunction } from './functions/geo-worker/resource';
 
 export const backend = defineBackend({
   data,
   contactFunction,
   emailForwarderFunction,
+  geoApiFunction,
+  geoWorkerFunction,
 });
+
+// The original public AppSync key expired and was removed by AppSync, leaving
+// CloudFormation unable to update or roll it back. Replace that missing key;
+// keep the data API and its contact table intact.
+backend.data.resources.cfnResources.cfnApiKey?.overrideLogicalId('MapSuchePublicApiKeyV2');
+
+const geoApiLambda = backend.geoApiFunction.resources.lambda;
+const geoWorkerLambda = backend.geoWorkerFunction.resources.lambda;
+const geoStack = Stack.of(geoApiLambda);
+const reports = new dynamodb.Table(geoStack, 'GeoReports', {
+  partitionKey: { name: 'pk', type: dynamodb.AttributeType.STRING },
+  billingMode: dynamodb.BillingMode.PAY_PER_REQUEST,
+  encryption: dynamodb.TableEncryption.AWS_MANAGED,
+  timeToLiveAttribute: 'expiresAt', removalPolicy: RemovalPolicy.RETAIN,
+  pointInTimeRecovery: true,
+});
+reports.grantReadWriteData(geoApiLambda);
+reports.grantReadWriteData(geoWorkerLambda);
+geoWorkerLambda.grantInvoke(geoApiLambda);
+geoWorkerLambda.configureAsyncInvoke({ retryAttempts: 0, maxEventAge: Duration.minutes(1) });
+for (const fn of [backend.geoApiFunction, backend.geoWorkerFunction]) {
+  fn.addEnvironment('GEO_TABLE_NAME', reports.tableName);
+  fn.addEnvironment('GEO_MODEL', process.env.GEO_MODEL || 'gpt-5.6-terra');
+}
+backend.geoApiFunction.addEnvironment('GEO_WORKER_NAME', geoWorkerLambda.functionName);
+backend.geoApiFunction.addEnvironment('GEO_ENABLED', process.env.GEO_ENABLED || 'true');
+const geoApi = new apigateway.RestApi(geoStack, 'GeoRestApi', {
+  restApiName: 'MapSuche GEO', endpointTypes: [apigateway.EndpointType.REGIONAL],
+  defaultCorsPreflightOptions: {
+    allowOrigins: ['https://mapsuche.de', 'https://www.mapsuche.de', 'http://localhost:3000', 'http://127.0.0.1:3000'],
+    allowMethods: ['GET', 'POST', 'DELETE', 'OPTIONS'], allowHeaders: ['Content-Type', 'X-Geo-Token'],
+  },
+  deployOptions: { throttlingRateLimit: 20, throttlingBurstLimit: 40 },
+});
+const checks = geoApi.root.addResource('geo').addResource('checks');
+const geoIntegration = new apigateway.LambdaIntegration(geoApiLambda);
+checks.addMethod('POST', geoIntegration);
+const report = checks.addResource('{id}');
+report.addMethod('GET', geoIntegration);
+report.addMethod('DELETE', geoIntegration);
+backend.addOutput({ custom: { geoApiUrl: `${geoApi.url}geo` } });
 
 // Add comprehensive permissions to the contact function
 backend.contactFunction.resources.lambda.addToRolePolicy(
@@ -161,4 +208,4 @@ const securityHeadersPolicy = new cloudfront.ResponseHeadersPolicy(securityStack
       },
     ],
   },
-}); 
+});

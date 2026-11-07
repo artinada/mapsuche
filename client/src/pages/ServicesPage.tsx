@@ -1,36 +1,21 @@
+import { useGeoLanguage } from '@/hooks/useGeoLanguage';
 import { Link } from "wouter";
 import { useLanguage } from "@/hooks/useLanguage";
-import { useSEO } from "@/hooks/useSEO";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { MapPin, Building2, Globe, SearchCheck, Check, ArrowRight, Settings } from "lucide-react";
 
 export default function ServicesPage() {
+  const { g } = useGeoLanguage();
   const { t } = useLanguage();
-
-  // SEO optimization for services page
-  useSEO({ 
-    page: 'services',
-    customKeywords: [
-      'comprehensive digital marketing',
-      'local business solutions',
-      'seo service packages',
-      'professional marketing services',
-      'business growth solutions',
-      'ablauf audit',
-      'prozessoptimierung',
-      'büroorganisation',
-      'dokumentenmanagement'
-    ]
-  });
 
   const services = [
     {
       icon: SearchCheck,
-      title: 'GEO Check & KI-Sichtbarkeit',
-      description: 'Prüfen Sie, wie Ihr Unternehmen in KI-gestützten Suchantworten sichtbar werden kann.',
-      features: ['Lokale KI-Suchfragen', 'Erwähnungen und Wettbewerber', 'GEO-Optimierung auf Wunsch'],
+      title: g("GEO Check & KI-Sichtbarkeit"),
+      description: g("Prüfen Sie, wie Ihr Unternehmen in KI-gestützten Suchantworten sichtbar werden kann."),
+      features: [g("Lokale KI-Suchfragen"), g("Erwähnungen und Wettbewerber"), g("GEO-Optimierung auf Wunsch")],
       href: '/geo-check',
       color: 'text-primary',
       buttonColor: 'bg-primary hover:bg-blue-700'

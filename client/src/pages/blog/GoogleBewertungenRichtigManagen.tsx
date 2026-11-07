@@ -3,7 +3,6 @@ import { Link } from 'wouter';
 import { Card, CardContent } from '../../components/ui/card';
 import { Button } from '../../components/ui/button';
 import { useLanguage } from '../../hooks/useLanguage';
-import { useSEO } from '../../hooks/useSEO';
 import { getPostBySlug } from '../../lib/blogConfig';
 import { Star, CheckCircle, AlertTriangle, MessageSquare, Flag, Target, ArrowLeft, TrendingUp, Users, Shield } from 'lucide-react';
 import LazyImage from '../../components/LazyImage';
@@ -195,18 +194,6 @@ const GoogleBewertungenRichtigManagen: React.FC = () => {
 
   const currentContent = content[language];
 
-  useSEO({
-    page: 'blog' as any,
-    customTitle: language === 'de' 
-      ? 'Google-Bewertungen richtig managen: So stärkst du dein lokales Geschäft | MapSuche'
-      : 'Managing Google Reviews Properly: How to Strengthen Your Local Business | MapSuche',
-    customDescription: language === 'de' 
-      ? 'Google-Bewertungen sind oft der erste Eindruck, den Kundinnen von deinem Unternehmen bekommen. Erfahre, wie du richtig mit ihnen umgehst – freundlich, professionell und authentisch.'
-      : 'Google reviews are often the first impression customers get of your business. Learn how to handle them properly – friendly, professional and authentic.',
-    customKeywords: language === 'de'
-      ? ['google bewertungen management', 'bewertungen richtig managen', 'negative bewertungen antworten', 'positive bewertungen sammeln', 'google business profile bewertungen', 'kundenfeedback management', 'bewertungen beantworten', 'online reputation management']
-      : ['google reviews management', 'managing reviews properly', 'responding to negative reviews', 'collecting positive reviews', 'google business profile reviews', 'customer feedback management', 'review responses', 'online reputation management']
-  });
 
   return (
     <div className="min-h-screen py-20">
@@ -278,7 +265,6 @@ const GoogleBewertungenRichtigManagen: React.FC = () => {
           {/* Tips Section */}
           <div className="space-y-8 mb-12">
             {currentContent.tips.map((tip, index) => {
-              const IconComponent = tip.icon;
               return (
                 <Card key={index} className="bg-white hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-gray-200">
                   <CardContent className="p-8">

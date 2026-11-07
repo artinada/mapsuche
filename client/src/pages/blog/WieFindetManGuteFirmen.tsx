@@ -1,7 +1,6 @@
 import { Link } from 'wouter';
-import { ArrowLeft, MapPin, Star, Search, Shield, Clock, CheckCircle, AlertTriangle, X, Lightbulb, TrendingUp, Target, ExternalLink } from 'lucide-react';
+import { ArrowLeft, Search, CheckCircle, AlertTriangle, X, Lightbulb, TrendingUp, Target, ExternalLink } from 'lucide-react';
 import { useLanguage } from '@/hooks/useLanguage';
-import { useSEO } from '@/hooks/useSEO';
 import { getPostBySlug } from '@/lib/blogConfig';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -12,29 +11,6 @@ export default function WieFindetManGuteFirmen() {
 
   // Get the blog post configuration
   const blogPost = getPostBySlug('wie-findet-man-gute-firmen-in-der-naehe');
-
-  // SEO optimization for this specific article
-  useSEO({ 
-    page: 'blog' as any,
-    customTitle: language === 'de' 
-      ? 'Wie findet man gute Firmen in der Nähe? | Lokale Unternehmen finden - MapSuche' 
-      : 'How to Find Good Local Businesses Near You? | Local Business Guide - MapSuche',
-    customDescription: language === 'de'
-      ? 'Entdecken Sie die besten Strategien und Tools, um vertrauenswürdige lokale Unternehmen in Ihrer Nähe zu finden. Google Maps, Bewertungen, Empfehlungen und mehr.'
-      : 'Discover the best strategies and tools to find trustworthy local businesses near you. Google Maps, reviews, recommendations and more.',
-    customKeywords: [
-      'gute firmen finden',
-      'lokale unternehmen suchen',
-      'vertrauenswürdige geschäfte',
-      'google maps suche',
-      'unternehmen bewertungen',
-      'lokale empfehlungen',
-      'firmen in der nähe',
-      'local business search',
-      'find good companies',
-      'trustworthy businesses'
-    ]
-  });
 
   const content = {
     de: {

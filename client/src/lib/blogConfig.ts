@@ -5,6 +5,7 @@ export interface BlogPost {
     de: string;
     en: string;
   };
+  seoTitle?: { de: string; en: string };
   excerpt: {
     de: string;
     en: string;
@@ -30,8 +31,8 @@ export const blogPosts: BlogPost[] = [
       en: 'How to Find Good Companies Nearby?'
     },
     excerpt: {
-      de: 'Online-Sichtbarkeit ist für kleine Unternehmen heute eine Notwendigkeit. Erfahren Sie, wie moderne Kunden suchen und warum digitale Präsenz entscheidend für den Geschäftserfolg ist.',
-      en: 'Online visibility is a necessity for small businesses today. Learn how modern customers search and why digital presence is crucial for business success.'
+      de: 'Lokale Unternehmen finden: Google Maps, Bewertungen und Empfehlungen vergleichen und Kontaktdaten vor einer Anfrage prüfen.',
+      en: 'Find local businesses using Google Maps, reviews and recommendations, and check their contact details before making an inquiry.'
     },
     image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=400&fit=crop&auto=format&q=80',
     date: '2024-03-15',
@@ -70,8 +71,8 @@ export const blogPosts: BlogPost[] = [
       en: 'Why is a Google Entry Important?'
     },
     excerpt: {
-      de: 'Ein Google Business Profile ist heute unverzichtbar für lokale Unternehmen. Erfahren Sie, warum Sichtbarkeit bei Google über Erfolg oder Misserfolg entscheidet.',
-      en: 'A Google Business Profile is essential for local businesses today. Learn why visibility on Google determines success or failure.'
+      de: 'Erfahren Sie, wie ein Google Unternehmensprofil lokale Einträge, Öffnungszeiten, Fotos und Kundenbewertungen an einem Ort bündelt.',
+      en: 'Learn how a Google Business Profile brings together local listings, opening hours, photos and customer reviews.'
     },
     image: 'https://images.unsplash.com/photo-1573804633927-bfcbcd909acd?w=400&h=250&fit=crop',
     date: '2024-02-20',
@@ -92,13 +93,14 @@ export const blogPosts: BlogPost[] = [
   {
     id: 3,
     slug: 'top-5-restaurants-lutherstadt-wittenberg',
+    seoTitle: { de: 'Restaurants in Lutherstadt Wittenberg', en: 'Restaurants in Lutherstadt Wittenberg' },
     title: {
       de: 'Top 5 Restaurants in Lutherstadt Wittenberg laut mapsuche.de',
       en: 'Top 5 Restaurants in Lutherstadt Wittenberg according to mapsuche.de'
     },
     excerpt: {
-      de: 'Entdecken Sie die besten Restaurants in der Lutherstadt mit echten Adressen, Kontaktdaten und authentischen Bewertungen unserer Experten.',
-      en: 'Discover the best restaurants in Luther\'s city with real addresses, contact details and authentic reviews from our experts.'
+      de: 'Restaurantübersicht für Lutherstadt Wittenberg. Prüfen Sie aktuelle Öffnungszeiten, Speisekarten und Kontaktdaten direkt beim jeweiligen Anbieter.',
+      en: 'A restaurant overview for Lutherstadt Wittenberg. Check current opening hours, menus and contact details directly with each business.'
     },
     image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&h=400&fit=crop&auto=format&q=80',
     date: '2024-06-12',
@@ -128,13 +130,14 @@ export const blogPosts: BlogPost[] = [
   {
     id: 4,
     slug: 'haeufigste-fehler-unternehmen-internet',
+    seoTitle: { de: 'Häufige Online-Fehler von Unternehmen', en: 'Common Business Mistakes Online' },
     title: {
       de: 'Die häufigsten Fehler von Unternehmen im Internet (und wie du sie vermeidest)',
       en: 'The Most Common Business Mistakes Online (And How to Avoid Them)'
     },
     excerpt: {
-      de: 'Diese 5 Online-Fehler kosten täglich potenzielle Kunden. Entdecken Sie die häufigsten Probleme von Unternehmen im Internet und wie Sie diese einfach vermeiden können.',
-      en: 'These 5 online mistakes cost potential customers daily. Discover the most common problems businesses face online and how to easily avoid them.'
+      de: 'Fünf mögliche Schwachstellen im Online-Auftritt: Unternehmensprofil, Kontaktdaten, Öffnungszeiten, Fotos und der Umgang mit Bewertungen.',
+      en: 'Review five common website and business-profile issues, including contact details, opening hours, photos and responses to customer reviews.'
     },
     image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=400&fit=crop&auto=format&q=80',
     date: '2024-08-05',
@@ -175,8 +178,8 @@ export const blogPosts: BlogPost[] = [
       en: 'Local SEO: Basics for Small Businesses'
     },
     excerpt: {
-      de: 'Für kleine, lokale Unternehmen ist es wichtiger denn je, online sichtbar zu sein – genau dort, wo potenzielle Kund*innen suchen: in ihrer Nähe. Erfahre die wichtigsten Local SEO Grundlagen.',
-      en: 'For small, local businesses, it\'s more important than ever to be visible online – exactly where potential customers are searching: nearby. Learn the essential Local SEO basics.'
+      de: 'Grundlagen lokaler Suchoptimierung für kleine Unternehmen: Unternehmensprofil, Standortangaben, Website-Inhalte und lokale Verzeichnisse.',
+      en: 'Local SEO basics for small businesses: business profiles, location details, website content and local directories.'
     },
     image: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&h=400&fit=crop&auto=format&q=80',
     date: '2024-10-15',
@@ -210,13 +213,14 @@ export const blogPosts: BlogPost[] = [
   {
     id: 6,
     slug: 'google-bewertungen-richtig-managen',
+    seoTitle: { de: 'Google-Bewertungen richtig managen', en: 'Managing Google Reviews' },
     title: {
       de: 'Google-Bewertungen richtig managen: So stärkst du dein lokales Geschäft',
       en: 'Managing Google Reviews Properly: How to Strengthen Your Local Business'
     },
     excerpt: {
-      de: 'Google-Bewertungen sind oft der erste Eindruck, den Kundinnen von deinem Unternehmen bekommen. Erfahre, wie du richtig mit ihnen umgehst – freundlich, professionell und authentisch.',
-      en: 'Google reviews are often the first impression customers get of your business. Learn how to handle them properly – friendly, professional and authentic.'
+      de: 'Google-Bewertungen sachlich beantworten, Rückmeldungen einordnen und Kundinnen und Kunden auf eine faire Möglichkeit zur Bewertung hinweisen.',
+      en: 'Respond to Google reviews, assess customer feedback and invite customers to share their experience fairly.'
     },
     image: 'https://images.unsplash.com/photo-1556745757-8d76bdb6984b?w=800&h=400&fit=crop&auto=format&q=80',
     date: '2024-12-19',
@@ -252,13 +256,14 @@ export const blogPosts: BlogPost[] = [
   {
     id: 7,
     slug: 'mobile-first-lokale-unternehmen',
+    seoTitle: { de: 'Mobile Websites für lokale Unternehmen', en: 'Mobile Websites for Local Businesses' },
     title: {
       de: 'Mobile-First: Warum lokale Unternehmen mobile Optimierung brauchen',
       en: 'Mobile-First: Why Local Businesses Need Mobile Optimization'
     },
     excerpt: {
-      de: 'Über 60% der lokalen Suchanfragen kommen von mobilen Geräten. Erfahren Sie, wie Sie Ihr Unternehmen für mobile Nutzer optimieren.',
-      en: 'Over 60% of local searches come from mobile devices. Learn how to optimize your business for mobile users.'
+      de: 'Mobile Websites für lokale Unternehmen: lesbare Inhalte, passende Navigation, schnelle Seiten und einfach erreichbare Kontaktmöglichkeiten.',
+      en: 'Mobile website basics for local businesses: readable content, usable navigation, page speed and easy access to contact details.'
     },
     image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=400&h=250&fit=crop',
     date: '2024-09-14',
@@ -278,13 +283,14 @@ export const blogPosts: BlogPost[] = [
   {
     id: 8,
     slug: 'online-sichtbarkeit-tipps-lokale-unternehmen',
+    seoTitle: { de: '5 Tipps für lokale Online-Sichtbarkeit', en: '5 Tips for Local Online Visibility' },
     title: {
       de: '5 Tipps für mehr Online-Sichtbarkeit deines lokalen Unternehmens',
       en: '5 Tips for Better Online Visibility of Your Local Business'
     },
     excerpt: {
-      de: 'Entdecken Sie 5 einfache, aber effektive Strategien für bessere Online-Sichtbarkeit Ihres lokalen Unternehmens. Praktische Tipps ohne großes Budget oder Technik-Know-how.',
-      en: 'Discover 5 simple but effective strategies for better online visibility of your local business. Practical tips without large budget or technical know-how.'
+      de: 'Fünf Ansätze für Ihren lokalen Online-Auftritt: Unternehmensprofil, Bewertungen, Verzeichnisse, soziale Medien und Website-Inhalte.',
+      en: 'Five ways to review your local online presence: business profiles, reviews, directories, social media and website content.'
     },
     image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=400&fit=crop&auto=format&q=80',
     date: '2024-11-08',
@@ -340,15 +346,4 @@ export const getPostBySlug = (slug: string): BlogPost | undefined => {
 
 export const getPostById = (id: number): BlogPost | undefined => {
   return blogPosts.find(post => post.id === id);
-};
-
-export const generateSitemapEntries = (): string => {
-  const publishedPosts = getPublishedPosts();
-  return publishedPosts.map(post => `
-  <url>
-    <loc>https://mapsuche.de/blog/${post.slug}</loc>
-    <lastmod>${post.date}</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>`).join('');
 };

@@ -1,7 +1,6 @@
 import { Link } from 'wouter';
 import { ArrowLeft, AlertTriangle, CheckCircle, Clock, Phone, Camera, MessageCircle, Target, ExternalLink, Shield, Eye, Users } from 'lucide-react';
 import { useLanguage } from '@/hooks/useLanguage';
-import { useSEO } from '@/hooks/useSEO';
 import { getPostBySlug } from '@/lib/blogConfig';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -12,33 +11,6 @@ export default function HaeufigsteFehlerUnternehmenInternet() {
 
   // Get the blog post configuration
   const blogPost = getPostBySlug('haeufigste-fehler-unternehmen-internet');
-
-  // SEO optimization for this specific article
-  useSEO({ 
-    page: 'blog' as any,
-    customTitle: language === 'de' 
-      ? 'Die häufigsten Fehler von Unternehmen im Internet | Online-Marketing Tipps - MapSuche' 
-      : 'Most Common Business Mistakes Online | Digital Marketing Tips - MapSuche',
-    customDescription: language === 'de'
-      ? 'Entdecken Sie die 5 häufigsten Online-Fehler von Unternehmen und wie Sie diese vermeiden. Professionelle Tipps für bessere Online-Sichtbarkeit und mehr Kunden.'
-      : 'Discover the 5 most common online mistakes businesses make and how to avoid them. Professional tips for better online visibility and more customers.',
-    customKeywords: [
-      'unternehmen fehler online',
-      'online marketing fehler',
-      'digitale präsenz fehler',
-      'google business profile fehler',
-      'online sichtbarkeit probleme',
-      'internet auftritt fehler',
-      'geschäft online fehler',
-      'business mistakes online',
-      'digital marketing errors',
-      'online presence mistakes',
-      'google profile errors',
-      'internet visibility problems',
-      'business profile optimization',
-      'online reputation management'
-    ]
-  });
 
   const mistakes = [
     {
@@ -164,28 +136,6 @@ export default function HaeufigsteFehlerUnternehmenInternet() {
   };
 
   const currentContent = content[language];
-
-  const getColorClasses = (color: string) => {
-    const colors = {
-      red: 'border-red-200 bg-red-50',
-      orange: 'border-orange-200 bg-orange-50',
-      blue: 'border-blue-200 bg-blue-50',
-      green: 'border-green-200 bg-green-50',
-      purple: 'border-purple-200 bg-purple-50'
-    };
-    return colors[color as keyof typeof colors] || 'border-gray-200 bg-gray-50';
-  };
-
-  const getIconColor = (color: string) => {
-    const colors = {
-      red: 'text-red-500',
-      orange: 'text-orange-500',
-      blue: 'text-blue-500',
-      green: 'text-green-500',
-      purple: 'text-purple-500'
-    };
-    return colors[color as keyof typeof colors] || 'text-gray-500';
-  };
 
   return (
     <div className="min-h-screen py-20">
@@ -376,4 +326,4 @@ export default function HaeufigsteFehlerUnternehmenInternet() {
       </div>
     </div>
   );
-} 
+}

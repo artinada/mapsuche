@@ -1,128 +1,135 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  
-  <!-- Homepage -->
   <url>
-    <loc>https://mapsuche.de/</loc>
-    <lastmod>2025-06-21</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>1.0</priority>
-  </url>
-  
-  <!-- Services Page -->
-  <url>
-    <loc>https://mapsuche.de/services</loc>
-    <lastmod>2025-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  
-  <!-- Business Profile Page -->
-  <url>
-    <loc>https://mapsuche.de/business-profile</loc>
-    <lastmod>2025-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  
-  <!-- Google Maps Integration -->
-  <url>
-    <loc>https://mapsuche.de/maps</loc>
-    <lastmod>2025-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  
-  <!-- Contact Page -->
-  <url>
-    <loc>https://mapsuche.de/contact</loc>
-    <lastmod>2025-06-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  
-  <!-- FAQ Page -->
-  <url>
-    <loc>https://mapsuche.de/faq</loc>
-    <lastmod>2025-06-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <!-- Website Page -->
-  <url>
-    <loc>https://mapsuche.de/website</loc>
-    <lastmod>2025-06-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <!-- Blog Pages -->
-  <url>
-    <loc>https://mapsuche.de/blog</loc>
-    <lastmod>2025-01-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  
-  <!-- Blog Articles -->
-  <url>
-    <loc>https://mapsuche.de/blog/wie-findet-man-gute-firmen-in-der-naehe</loc>
-    <lastmod>2024-01-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <loc>https://mapsuche.de/en/</loc>
   </url>
   <url>
-    <loc>https://mapsuche.de/blog/warum-ist-ein-google-eintrag-wichtig</loc>
-    <lastmod>2024-01-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <loc>https://mapsuche.de/de/</loc>
   </url>
   <url>
-    <loc>https://mapsuche.de/blog/top-5-restaurants-lutherstadt-wittenberg</loc>
-    <lastmod>2024-01-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <loc>https://mapsuche.de/en/geo-check</loc>
   </url>
   <url>
-    <loc>https://mapsuche.de/blog/haeufigste-fehler-unternehmen-internet</loc>
-    <lastmod>2024-01-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <loc>https://mapsuche.de/de/geo-check</loc>
   </url>
   <url>
-    <loc>https://mapsuche.de/blog/online-sichtbarkeit-tipps-lokale-unternehmen</loc>
-    <lastmod>2024-01-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <loc>https://mapsuche.de/en/geo-optimierung</loc>
   </url>
   <url>
-    <loc>https://mapsuche.de/blog/mobile-first-lokale-unternehmen-optimierung</loc>
-    <lastmod>2024-01-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <loc>https://mapsuche.de/de/geo-optimierung</loc>
   </url>
-
-  <!-- Legal Pages -->
   <url>
-    <loc>https://mapsuche.de/privacy</loc>
-    <lastmod>2025-06-21</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
+    <loc>https://mapsuche.de/en/services</loc>
   </url>
-  
   <url>
-    <loc>https://mapsuche.de/terms</loc>
-    <lastmod>2025-06-21</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
+    <loc>https://mapsuche.de/de/services</loc>
   </url>
-  
   <url>
-    <loc>https://mapsuche.de/impressum</loc>
-    <lastmod>2025-06-21</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
+    <loc>https://mapsuche.de/en/services/google-maps</loc>
   </url>
-  
-</urlset> 
+  <url>
+    <loc>https://mapsuche.de/de/services/google-maps</loc>
+  </url>
+  <url>
+    <loc>https://mapsuche.de/en/services/business-profile</loc>
+  </url>
+  <url>
+    <loc>https://mapsuche.de/de/services/business-profile</loc>
+  </url>
+  <url>
+    <loc>https://mapsuche.de/en/services/website</loc>
+  </url>
+  <url>
+    <loc>https://mapsuche.de/de/services/website</loc>
+  </url>
+  <url>
+    <loc>https://mapsuche.de/en/services/ablauf-audit</loc>
+  </url>
+  <url>
+    <loc>https://mapsuche.de/de/services/ablauf-audit</loc>
+  </url>
+  <url>
+    <loc>https://mapsuche.de/en/blog</loc>
+  </url>
+  <url>
+    <loc>https://mapsuche.de/de/blog</loc>
+  </url>
+  <url>
+    <loc>https://mapsuche.de/en/blog/wie-findet-man-gute-firmen-in-der-naehe</loc>
+  </url>
+  <url>
+    <loc>https://mapsuche.de/de/blog/wie-findet-man-gute-firmen-in-der-naehe</loc>
+  </url>
+  <url>
+    <loc>https://mapsuche.de/en/blog/warum-ist-ein-google-eintrag-wichtig</loc>
+  </url>
+  <url>
+    <loc>https://mapsuche.de/de/blog/warum-ist-ein-google-eintrag-wichtig</loc>
+  </url>
+  <url>
+    <loc>https://mapsuche.de/en/blog/top-5-restaurants-lutherstadt-wittenberg</loc>
+  </url>
+  <url>
+    <loc>https://mapsuche.de/de/blog/top-5-restaurants-lutherstadt-wittenberg</loc>
+  </url>
+  <url>
+    <loc>https://mapsuche.de/en/blog/haeufigste-fehler-unternehmen-internet</loc>
+  </url>
+  <url>
+    <loc>https://mapsuche.de/de/blog/haeufigste-fehler-unternehmen-internet</loc>
+  </url>
+  <url>
+    <loc>https://mapsuche.de/en/blog/online-sichtbarkeit-tipps-lokale-unternehmen</loc>
+  </url>
+  <url>
+    <loc>https://mapsuche.de/de/blog/online-sichtbarkeit-tipps-lokale-unternehmen</loc>
+  </url>
+  <url>
+    <loc>https://mapsuche.de/en/blog/mobile-first-lokale-unternehmen</loc>
+  </url>
+  <url>
+    <loc>https://mapsuche.de/de/blog/mobile-first-lokale-unternehmen</loc>
+  </url>
+  <url>
+    <loc>https://mapsuche.de/en/blog/google-bewertungen-richtig-managen</loc>
+  </url>
+  <url>
+    <loc>https://mapsuche.de/de/blog/google-bewertungen-richtig-managen</loc>
+  </url>
+  <url>
+    <loc>https://mapsuche.de/en/blog/local-seo-grundlagen-kleine-unternehmen</loc>
+  </url>
+  <url>
+    <loc>https://mapsuche.de/de/blog/local-seo-grundlagen-kleine-unternehmen</loc>
+  </url>
+  <url>
+    <loc>https://mapsuche.de/en/contact</loc>
+  </url>
+  <url>
+    <loc>https://mapsuche.de/de/contact</loc>
+  </url>
+  <url>
+    <loc>https://mapsuche.de/en/faq</loc>
+  </url>
+  <url>
+    <loc>https://mapsuche.de/de/faq</loc>
+  </url>
+  <url>
+    <loc>https://mapsuche.de/en/privacy</loc>
+  </url>
+  <url>
+    <loc>https://mapsuche.de/de/privacy</loc>
+  </url>
+  <url>
+    <loc>https://mapsuche.de/en/terms</loc>
+  </url>
+  <url>
+    <loc>https://mapsuche.de/de/terms</loc>
+  </url>
+  <url>
+    <loc>https://mapsuche.de/en/impressum</loc>
+  </url>
+  <url>
+    <loc>https://mapsuche.de/de/impressum</loc>
+  </url>
+</urlset>

@@ -1,26 +1,11 @@
 import { Link } from "wouter";
 import { useLanguage } from "@/hooks/useLanguage";
-import { useSEO } from "@/hooks/useSEO";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Check, ArrowRight, FileText, Calendar, Shield, Users, Target, Clock, Settings } from "lucide-react";
 
 export default function AblaufAuditPage() {
   const { t } = useLanguage();
-
-  // SEO optimization for Ablauf-Audit page
-  useSEO({ 
-    page: 'ablaufAudit',
-    customKeywords: [
-      'ablauf audit',
-      'prozessoptimierung',
-      'dokumentenorganisation',
-      'dsgvo konforme ablage',
-      'terminverwaltung',
-      'geschäftsprozesse',
-      'büroorganisation'
-    ]
-  });
 
   const benefits = [
     {

@@ -5,3 +5,9 @@ server/public
 vite.config.ts.*
 *.tar.gz
 .amplify
+.env
+.env.*
+!.env.example
+.local-data/
+output/playwright/
+.playwright-cli/

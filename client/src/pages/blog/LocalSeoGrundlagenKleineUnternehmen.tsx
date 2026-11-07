@@ -3,7 +3,6 @@ import { Link } from 'wouter';
 import { Card, CardContent } from '../../components/ui/card';
 import { Button } from '../../components/ui/button';
 import { useLanguage } from '../../hooks/useLanguage';
-import { useSEO } from '../../hooks/useSEO';
 import { getPostBySlug } from '../../lib/blogConfig';
 import { MapPin, CheckCircle, Star, Globe, Smartphone, Users, Target, ArrowLeft, TrendingUp, Search, Shield } from 'lucide-react';
 import LazyImage from '../../components/LazyImage';
@@ -267,18 +266,6 @@ const LocalSeoGrundlagenKleineUnternehmen: React.FC = () => {
 
   const currentContent = content[language];
 
-  useSEO({
-    page: 'blog' as any,
-    customTitle: language === 'de' 
-      ? 'Local SEO: Grundlagen für kleine Unternehmen | MapSuche'
-      : 'Local SEO: Basics for Small Businesses | MapSuche',
-    customDescription: language === 'de' 
-      ? 'Für kleine, lokale Unternehmen ist es wichtiger denn je, online sichtbar zu sein – genau dort, wo potenzielle Kund*innen suchen: in ihrer Nähe. Erfahre die wichtigsten Local SEO Grundlagen.'
-      : 'For small, local businesses, it\'s more important than ever to be visible online – exactly where potential customers are searching: nearby. Learn the essential Local SEO basics.',
-    customKeywords: language === 'de'
-      ? ['local seo grundlagen', 'lokale seo tipps', 'kleine unternehmen seo', 'google unternehmensprofil', 'standortbezogene keywords', 'lokale sichtbarkeit', 'nap daten konsistenz', 'mobile first local seo']
-      : ['local seo basics', 'local seo tips', 'small business seo', 'google business profile', 'location based keywords', 'local visibility', 'nap data consistency', 'mobile first local seo']
-  });
 
   return (
     <div className="min-h-screen py-20">

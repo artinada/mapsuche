@@ -1,5 +1,7 @@
 import { useEffect } from 'react';
-import { Route, Switch } from 'wouter';
+import { Route, Router, Switch, useLocation } from 'wouter';
+import { splitLocale, localizedPath, legacyAliases } from '../../shared/locales.mjs';
+import { getPageSeo } from '../../shared/seo';
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
@@ -10,6 +12,7 @@ import { initCSPReporting, hstsUtils, coopUtils, clickjackingUtils } from '@/lib
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { ScrollToTop } from '@/components/ScrollToTop';
+import { RouteSEO } from '@/hooks/useSEO';
 
 // Pages
 import HomePage from '@/pages/HomePage';
@@ -51,6 +54,15 @@ const queryClient = new QueryClient({
 });
 
 export default function App() {
+  const [pathname, navigate] = useLocation();
+  const locale = splitLocale(pathname);
+  useEffect(() => {
+    const target = legacyAliases[locale.pathname] || locale.pathname;
+    if (getPageSeo(target, locale.language).found) {
+      const canonical = localizedPath(target, locale.language);
+      if (canonical !== pathname) navigate(canonical + window.location.search + window.location.hash, { replace: true });
+    }
+  }, [pathname, navigate, locale.pathname, locale.language]);
   useEffect(() => {
     // Load fonts optimized for performance
     loadFontsOptimized();
@@ -69,10 +81,12 @@ export default function App() {
   }, []);
 
   return (
+    <Router base={locale.prefix}>
     <QueryClientProvider client={queryClient}>
-      <LanguageProvider>
+      <LanguageProvider language={locale.language}>
         <TooltipProvider>
           <div className="min-h-screen flex flex-col">
+            <RouteSEO />
             <Header />
             <ScrollToTop />
             <main className="flex-1">
@@ -113,5 +127,6 @@ export default function App() {
         </TooltipProvider>
       </LanguageProvider>
     </QueryClientProvider>
+    </Router>
   );
 }

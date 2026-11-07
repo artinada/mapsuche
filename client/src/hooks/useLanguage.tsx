@@ -1,53 +1,25 @@
-import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+import { createContext, useContext, useEffect, type ReactNode } from 'react';
 import { translations, type Language, type TranslationKey } from '@/lib/translations';
-import { secureStorage } from '@/lib/security';
 
 interface LanguageContextType {
   language: Language;
-  switchLanguage: (lang: Language) => void;
   t: (key: TranslationKey) => string;
 }
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
-export function LanguageProvider({ children }: { children: ReactNode }): JSX.Element {
-  const [language, setLanguage] = useState<Language>('en');
-
-  useEffect(() => {
-    // Get language from secure localStorage or browser preference
-    const savedLanguage = secureStorage.getItem('language') as Language;
-    if (savedLanguage && (savedLanguage === 'en' || savedLanguage === 'de')) {
-      setLanguage(savedLanguage);
-    } else {
-      // Detect browser language
-      const browserLang = navigator.language.slice(0, 2);
-      if (browserLang === 'de') {
-        setLanguage('de');
-      }
-    }
-  }, []);
-
-  const switchLanguage = (lang: Language) => {
-    setLanguage(lang);
-    secureStorage.setItem('language', lang);
-    document.documentElement.lang = lang;
-  };
-
+// Explicit language URLs take precedence over browser settings and saved preferences.
+export function LanguageProvider({ children, language }: { children: ReactNode; language: Language }) {
+  useEffect(() => { document.documentElement.lang = language; }, [language]);
   const t = (key: TranslationKey) => {
-    return translations[language][key] || translations.en[key];
+    const value = translations[language][key] || translations.en[key];
+    return typeof value === 'string' ? value : '';
   };
-
-  return (
-    <LanguageContext.Provider value={{ language, switchLanguage, t }}>
-      {children}
-    </LanguageContext.Provider>
-  );
+  return <LanguageContext.Provider value={{ language, t }}>{children}</LanguageContext.Provider>;
 }
 
 export function useLanguage() {
   const context = useContext(LanguageContext);
-  if (context === undefined) {
-    throw new Error('useLanguage must be used within a LanguageProvider');
-  }
+  if (!context) throw new Error('useLanguage must be used within a LanguageProvider');
   return context;
 }

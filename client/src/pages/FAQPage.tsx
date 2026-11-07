@@ -1,7 +1,7 @@
 import { useState } from 'react';
+import { Link } from 'wouter';
 import { ChevronDown, ChevronUp, MessageCircle, ArrowRight } from 'lucide-react';
 import { useLanguage } from '@/hooks/useLanguage';
-import { useSEO } from '@/hooks/useSEO';
 
 interface FAQItem {
   question: string;
@@ -11,19 +11,6 @@ interface FAQItem {
 export default function FAQPage() {
   const { language } = useLanguage();
   const [openIndex, setOpenIndex] = useState<number | null>(null);
-
-  // SEO optimization for FAQ page
-  useSEO({ 
-    page: 'faq',
-    customKeywords: [
-      'local seo questions',
-      'digital marketing faq',
-      'google maps help',
-      'business profile questions',
-      'seo consultation',
-      'local marketing help'
-    ]
-  });
 
   const faqs: { [key: string]: FAQItem[] } = {
     en: [
@@ -228,13 +215,13 @@ export default function FAQPage() {
               ? "We're here to help! Contact us for personalized answers about your local SEO needs."
               : 'Wir sind hier, um zu helfen! Kontaktieren Sie uns für persönliche Antworten zu Ihren lokalen SEO-Bedürfnissen.'}
           </p>
-          <a
+          <Link
             href="/contact"
             className="inline-flex items-center bg-accent hover:bg-red-700 text-white px-8 py-4 rounded-lg font-medium shadow-lg hover:shadow-xl transition-all duration-300"
           >
             {language === 'en' ? 'Contact Our Experts' : 'Kontaktieren Sie unsere Experten'}
             <ArrowRight className="ml-2 h-5 w-5" />
-          </a>
+          </Link>
         </div>
       </section>
     </div>

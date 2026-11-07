@@ -1,11 +1,15 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import path from 'path'
+import { geoPlugin } from './server/geo/vite-plugin'
+// @ts-expect-error Build-time JavaScript plugin; not part of the browser bundle.
+import { localePlugin } from './scripts/locale-plugin.js'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()],
+  plugins: [react(), geoPlugin(), localePlugin()],
   root: './client',
+  envDir: path.resolve(__dirname),
   build: {
     outDir: '../dist',
     emptyOutDir: true,
@@ -58,6 +62,7 @@ export default defineConfig({
   server: {
     port: 3000,
     host: true,
+    fs: { deny: ['.env', '.env.*', '*.{crt,pem}', '**/.git/**', '**/.local-data/**'] },
   },
   // Optimize dependency pre-bundling
   optimizeDeps: {

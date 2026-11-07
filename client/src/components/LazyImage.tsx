@@ -132,7 +132,7 @@ const LazyImage = ({
       {isInView && (
         <img
           ref={imgRef}
-          src={imageUrl}
+          src={imageUrl || optimizedUrl}
           srcSet={srcSet}
           sizes={sizes}
           alt={alt}
@@ -158,4 +158,4 @@ const LazyImage = ({
   );
 };
 
-export default LazyImage; 
+export default LazyImage;
