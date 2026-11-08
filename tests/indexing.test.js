@@ -84,8 +84,8 @@ test('404 HTML is readable, has no canonical and cannot be indexed', async () =>
 test('hosting rules rewrite only known pages and preserve genuine 404 responses', async () => {
   const rules = JSON.parse(await read('../hosting/amplify-rules.json'));
   assert.deepEqual(rules, hostingRules(baseRoutes));
-  assert.deepEqual(rules.at(-1), { source: '/<*>', target: '/404.html', status: '404' });
-  assert.ok(!rules.some(rule => rule.source === '/<*>' && rule.status !== '404'));
+  assert.ok(!rules.some(rule => rule.source.includes('<*>')));
+  assert.ok(rules.every(rule => ['301', '200'].includes(rule.status)));
   for (const route of routes) {
     assert.ok(rules.some(rule => rule.source === route && rule.status === '200' && rule.target === `${route.replace(/\/$/, '')}/index.html`));
   }

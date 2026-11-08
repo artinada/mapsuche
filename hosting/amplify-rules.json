@@ -1668,15 +1668,5 @@
     "source": "/de/impressum",
     "target": "/de/impressum/index.html",
     "status": "200"
-  },
-  {
-    "source": "/de/<*>",
-    "target": "/de/404.html",
-    "status": "404"
-  },
-  {
-    "source": "/<*>",
-    "target": "/404.html",
-    "status": "404"
   }
 ]

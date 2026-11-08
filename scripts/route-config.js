@@ -25,7 +25,7 @@ export function hostingRules(baseRoutes) {
   return [
     ...Object.entries(redirects).map(([source, target]) => ({ source, target, status: '301' })),
     ...paths.map(source => ({ source, target: `${source.replace(/\/$/, '')}/index.html`, status: '200' })),
-    { source: '/de/<*>', target: '/de/404.html', status: '404' },
-    { source: '/<*>', target: '/404.html', status: '404' },
+    // Leave unmatched resources to Amplify's native 404. Its custom 404 rule
+    // redirects to a 200 error document on this deployment (a soft 404).
   ];
 }
