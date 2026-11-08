@@ -55,8 +55,8 @@ export const translations = {
     },
     
     // Hero Section
-    heroTitle: "Get Your Local Business Found on Google - Dominate Local Search Results",
-    heroSubtitle: "Professional digital marketing agency specializing in Google Maps optimization, Google Business Profile setup, and custom websites for small local businesses. Increase your online visibility and attract more customers today.",
+    heroTitle: "Get Your Local Business Found on Google and in AI Search",
+    heroSubtitle: "Check whether AI search answers mention your business and cite your website with our Free GEO Check. Our services combine GEO optimization, Google Maps, Google Business Profiles and custom websites for local businesses.",
     getStartedToday: "Get Started Today",
     
     // Services
@@ -349,8 +349,8 @@ export const translations = {
     },
     
     // Hero Section
-    heroTitle: "Ihr lokales Unternehmen bei Google finden lassen - Lokale Suchergebnisse dominieren",
-    heroSubtitle: "Professionelle Digital Marketing Agentur spezialisiert auf Google Maps Optimierung, Google Unternehmensprofil Setup und maßgeschneiderte Websites für kleine lokale Unternehmen. Erhöhen Sie Ihre Online-Sichtbarkeit und gewinnen Sie heute mehr Kunden.",
+    heroTitle: "Ihr lokales Unternehmen bei Google und in der KI-Suche sichtbar machen",
+    heroSubtitle: "Prüfen Sie mit unserem kostenlosen GEO Check, ob KI-Suchantworten Ihr Unternehmen nennen und Ihre Website zitieren. Wir unterstützen lokale Unternehmen mit GEO-Optimierung, Google Maps, Google Unternehmensprofilen und individuellen Websites.",
     getStartedToday: "Heute starten",
     
     // Services
