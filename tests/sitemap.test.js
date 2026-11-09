@@ -58,6 +58,8 @@ test('checked-in sitemap covers the actual router and every published article wi
   for (const required of ['/services/google-maps', '/services/business-profile', '/services/website', '/services/ablauf-audit', '/geo-check', '/geo-optimierung', '/blog/mobile-first-lokale-unternehmen', '/blog/google-bewertungen-richtig-managen', '/blog/local-seo-grundlagen-kleine-unternehmen']) for (const language of languages) assert.ok(paths.includes(localizedPath(required, language)));
   for (const obsolete of ['/maps', '/website', '/business-profile', '/blog/mobile-first-lokale-unternehmen-optimierung']) assert.ok(!paths.includes(obsolete));
   for (const route of blogs) for (const language of languages) assert.ok(paths.includes(localizedPath(route, language)));
-  assert.equal(paths.length, 44);
+  assert.equal(paths.length, new Set(paths).size, 'Sitemap URLs must be unique');
+  for (const language of languages) assert.ok(paths.includes(localizedPath('/blog/wie-wird-mein-unternehmen-bei-chatgpt-gefunden', language)));
+  assert.equal(paths.filter(route => route.startsWith('/en/')).length, paths.filter(route => route.startsWith('/de/')).length);
   assert.ok(paths.every(route => /^\/(en|de)\//.test(route)));
 });

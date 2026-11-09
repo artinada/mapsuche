@@ -15,7 +15,7 @@ Every public language page has a self-referencing canonical, reciprocal `en`/`de
 - `hosting/amplify-rules.json`: generated exact page rewrites and permanent redirects for old paths and trailing-slash/`.html` variants. Unmatched URLs use Amplify's native HTTP 404.
 - `customHttp.yml`: extra noindex/no-store headers for private GEO views and noindex for the error document. HTML robots and googlebot tags also carry the policy.
 
-The 44 public language pages appear in `sitemap.xml` (22 per language). `/en/geo-check/results`, `/de/geo-check/results`, `/en/geo/dashboard` and `/de/geo/dashboard` render generic initial views with `noindex, follow`, contain no report data, and mount on the client to read private tokens/browser storage. They have self-canonicals but no hreflang annotations. Client navigation and the local preview show localized noindex error views; direct unknown production URLs use Amplify's native 404. Robots exclusions are not access control: the GEO API still requires the report token.
+The 48 public language pages appear in `sitemap.xml` (24 per language). `/en/geo-check/results`, `/de/geo-check/results`, `/en/geo/dashboard` and `/de/geo/dashboard` render generic initial views with `noindex, follow`, contain no report data, and mount on the client to read private tokens/browser storage. They have self-canonicals but no hreflang annotations. Client navigation and the local preview show localized noindex error views; direct unknown production URLs use Amplify's native 404. Robots exclusions are not access control: the GEO API still requires the report token.
 
 The shared logo is no longer a heading. The homepage hero supplies the page's H1. Route metadata is updated on client navigation as well as direct loads, including `og:url`, Twitter tags, canonical and structured data.
 
@@ -37,7 +37,7 @@ Preview uses a small static server rather than Vite's SPA fallback. Known pages 
 
 The indexing tests inspect every built document and exercise real HTTP status codes, redirect destinations, private-view headers, missing resources and script MIME types. The other suites cover sitemap generation and GEO behavior. No OpenAI requests are needed for these tests.
 
-Verification covers all 48 built language documents, reciprocal alternate destinations, localized internal links, title/description lengths, canonical variants, private views and HTTP status codes. Browser checks on 2026-11-07 covered hydration on all 48 routes, language switching and client navigation, and EN/DE home, services and GEO pages with JavaScript disabled. A mocked GEO submission confirmed that language, report access tokens, refresh and saved-report navigation still work without calling OpenAI. Existing meta-header/security-monitor warnings are separate from indexing. See the [language audit follow-up](LANGUAGE_SEO_AUDIT.md) and [current metadata inventory](LANGUAGE_SEO_INVENTORY.csv).
+Verification covers all 52 built language documents, reciprocal alternate destinations, localized internal links, title/description lengths, canonical variants, private views and HTTP status codes. Browser checks on 2026-11-07 covered hydration on all 48 routes, language switching and client navigation, and EN/DE home, services and GEO pages with JavaScript disabled. A mocked GEO submission confirmed that language, report access tokens, refresh and saved-report navigation still work without calling OpenAI. Existing meta-header/security-monitor warnings are separate from indexing. See the [language audit follow-up](LANGUAGE_SEO_AUDIT.md) and [current metadata inventory](LANGUAGE_SEO_INVENTORY.csv).
 
 ## Publish to Amplify
 
@@ -53,7 +53,7 @@ The inspected production application is `dt8tngg48sft6`, branch `main`, region `
    ```
 
    The build creates `.local-data`; it is ignored by Git. The saved rules provide a rollback if needed. Rebuild the generated rules whenever routes change. Keep unmatched URLs on Amplify's native 404. Live verification found that adding an Amplify custom `404 → /404.html` fallback produces a 302 redirect followed by HTTP 200 on this app, so the generated rules deliberately contain no catch-all. A broad successful SPA rewrite would also create soft 404s.
-4. Recheck the deployed domain after propagation. Known language pages must return 200 directly and on reload; `/maps` must redirect to `/en/services/google-maps`; `/de/maps` must redirect to `/de/services/google-maps`; an invented path must return 404. `/en` and `/de` must resolve to real language homepages. Check raw HTML and every hreflang destination. Confirm private views are noindex and the public sitemap has 44 URLs.
+4. Recheck the deployed domain after propagation. Known language pages must return 200 directly and on reload; `/maps` must redirect to `/en/services/google-maps`; `/de/maps` must redirect to `/de/services/google-maps`; an invented path must return 404. `/en` and `/de` must resolve to real language homepages. Check raw HTML and every hreflang destination. Confirm private views are noindex and the public sitemap has 48 URLs.
 
 Example verification:
 

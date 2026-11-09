@@ -43,6 +43,8 @@ import OnlineSichtbarkeitTipps from '@/pages/blog/OnlineSichtbarkeitTipps';
 import MobileFirstLokaleUnternehmen from '@/pages/blog/MobileFirstLokaleUnternehmen';
 import GoogleBewertungenRichtigManagen from '@/pages/blog/GoogleBewertungenRichtigManagen';
 import LocalSeoGrundlagenKleineUnternehmen from '@/pages/blog/LocalSeoGrundlagenKleineUnternehmen';
+import WieWirdMeinUnternehmenBeiChatGPTGefunden from '@/pages/blog/WieWirdMeinUnternehmenBeiChatGPTGefunden';
+import WasIstGeo from '@/pages/blog/WasIstGeo';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -104,6 +106,8 @@ export default function App() {
                 <Route path="/blog" component={BlogPage} />
                 
                 {/* Blog article routes */}
+                <Route path="/blog/wie-wird-mein-unternehmen-bei-chatgpt-gefunden" component={WieWirdMeinUnternehmenBeiChatGPTGefunden} />
+                <Route path="/blog/was-ist-geo" component={WasIstGeo} />
                 <Route path="/blog/wie-findet-man-gute-firmen-in-der-naehe" component={WieFindetManGuteFirmen} />
                 <Route path="/blog/warum-ist-ein-google-eintrag-wichtig" component={GoogleEintragWichtigkeit} />
                 <Route path="/blog/top-5-restaurants-lutherstadt-wittenberg" component={TopRestaurantsWittenberg} />

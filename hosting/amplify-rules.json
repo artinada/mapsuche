@@ -540,6 +540,106 @@
     "status": "301"
   },
   {
+    "source": "/blog/wie-wird-mein-unternehmen-bei-chatgpt-gefunden",
+    "target": "/en/blog/wie-wird-mein-unternehmen-bei-chatgpt-gefunden",
+    "status": "301"
+  },
+  {
+    "source": "/blog/wie-wird-mein-unternehmen-bei-chatgpt-gefunden/",
+    "target": "/en/blog/wie-wird-mein-unternehmen-bei-chatgpt-gefunden",
+    "status": "301"
+  },
+  {
+    "source": "/blog/wie-wird-mein-unternehmen-bei-chatgpt-gefunden.html",
+    "target": "/en/blog/wie-wird-mein-unternehmen-bei-chatgpt-gefunden",
+    "status": "301"
+  },
+  {
+    "source": "/blog/wie-wird-mein-unternehmen-bei-chatgpt-gefunden/index.html",
+    "target": "/en/blog/wie-wird-mein-unternehmen-bei-chatgpt-gefunden",
+    "status": "301"
+  },
+  {
+    "source": "/en/blog/wie-wird-mein-unternehmen-bei-chatgpt-gefunden/",
+    "target": "/en/blog/wie-wird-mein-unternehmen-bei-chatgpt-gefunden",
+    "status": "301"
+  },
+  {
+    "source": "/en/blog/wie-wird-mein-unternehmen-bei-chatgpt-gefunden.html",
+    "target": "/en/blog/wie-wird-mein-unternehmen-bei-chatgpt-gefunden",
+    "status": "301"
+  },
+  {
+    "source": "/en/blog/wie-wird-mein-unternehmen-bei-chatgpt-gefunden/index.html",
+    "target": "/en/blog/wie-wird-mein-unternehmen-bei-chatgpt-gefunden",
+    "status": "301"
+  },
+  {
+    "source": "/de/blog/wie-wird-mein-unternehmen-bei-chatgpt-gefunden/",
+    "target": "/de/blog/wie-wird-mein-unternehmen-bei-chatgpt-gefunden",
+    "status": "301"
+  },
+  {
+    "source": "/de/blog/wie-wird-mein-unternehmen-bei-chatgpt-gefunden.html",
+    "target": "/de/blog/wie-wird-mein-unternehmen-bei-chatgpt-gefunden",
+    "status": "301"
+  },
+  {
+    "source": "/de/blog/wie-wird-mein-unternehmen-bei-chatgpt-gefunden/index.html",
+    "target": "/de/blog/wie-wird-mein-unternehmen-bei-chatgpt-gefunden",
+    "status": "301"
+  },
+  {
+    "source": "/blog/was-ist-geo",
+    "target": "/en/blog/was-ist-geo",
+    "status": "301"
+  },
+  {
+    "source": "/blog/was-ist-geo/",
+    "target": "/en/blog/was-ist-geo",
+    "status": "301"
+  },
+  {
+    "source": "/blog/was-ist-geo.html",
+    "target": "/en/blog/was-ist-geo",
+    "status": "301"
+  },
+  {
+    "source": "/blog/was-ist-geo/index.html",
+    "target": "/en/blog/was-ist-geo",
+    "status": "301"
+  },
+  {
+    "source": "/en/blog/was-ist-geo/",
+    "target": "/en/blog/was-ist-geo",
+    "status": "301"
+  },
+  {
+    "source": "/en/blog/was-ist-geo.html",
+    "target": "/en/blog/was-ist-geo",
+    "status": "301"
+  },
+  {
+    "source": "/en/blog/was-ist-geo/index.html",
+    "target": "/en/blog/was-ist-geo",
+    "status": "301"
+  },
+  {
+    "source": "/de/blog/was-ist-geo/",
+    "target": "/de/blog/was-ist-geo",
+    "status": "301"
+  },
+  {
+    "source": "/de/blog/was-ist-geo.html",
+    "target": "/de/blog/was-ist-geo",
+    "status": "301"
+  },
+  {
+    "source": "/de/blog/was-ist-geo/index.html",
+    "target": "/de/blog/was-ist-geo",
+    "status": "301"
+  },
+  {
     "source": "/blog/wie-findet-man-gute-firmen-in-der-naehe",
     "target": "/en/blog/wie-findet-man-gute-firmen-in-der-naehe",
     "status": "301"
@@ -1537,6 +1637,26 @@
   {
     "source": "/de/blog",
     "target": "/de/blog/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/en/blog/wie-wird-mein-unternehmen-bei-chatgpt-gefunden",
+    "target": "/en/blog/wie-wird-mein-unternehmen-bei-chatgpt-gefunden/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/de/blog/wie-wird-mein-unternehmen-bei-chatgpt-gefunden",
+    "target": "/de/blog/wie-wird-mein-unternehmen-bei-chatgpt-gefunden/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/en/blog/was-ist-geo",
+    "target": "/en/blog/was-ist-geo/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/de/blog/was-ist-geo",
+    "target": "/de/blog/was-ist-geo/index.html",
     "status": "200"
   },
   {

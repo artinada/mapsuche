@@ -24,6 +24,44 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    id: 9,
+    slug: 'wie-wird-mein-unternehmen-bei-chatgpt-gefunden',
+    title: {
+      de: 'Wie wird mein Unternehmen bei ChatGPT gefunden?',
+      en: 'How Does My Business Get Found on ChatGPT?'
+    },
+    excerpt: {
+      de: 'Wie ChatGPT Unternehmen findet: Quellen, Website-Checkliste, typische Suchfragen und Grenzen der KI-Suche. Mit kostenlosem MapSuche GEO Check.',
+      en: 'How ChatGPT finds businesses: sources, a website checklist, example searches and the limits of AI recommendations. Includes a free MapSuche GEO Check.'
+    },
+    image: 'https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=1200&h=600&fit=crop&auto=format&q=80',
+    date: '2026-11-09',
+    readTime: 6,
+    category: { de: 'GEO & KI-Suche', en: 'GEO & AI Search' },
+    keywords: ['ChatGPT Unternehmen finden', 'KI-Suche', 'GEO Check', 'AI search', 'local business visibility'],
+    published: true,
+    featured: true
+  },
+  {
+    id: 10,
+    slug: 'was-ist-geo',
+    title: {
+      de: 'Was ist GEO?',
+      en: 'What Is GEO?'
+    },
+    excerpt: {
+      de: 'GEO verständlich erklärt: Wie Inhalte in KI-Antworten sichtbar werden, was SEO damit zu tun hat und womit kleine Unternehmen anfangen können.',
+      en: 'GEO explained: how content can appear in AI answers, how it relates to SEO and where small businesses can start. With a practical example.'
+    },
+    image: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=1200&h=600&fit=crop&auto=format&q=80',
+    date: '2025-08-01',
+    readTime: 7,
+    category: { de: 'GEO & KI-Suche', en: 'GEO & AI Search' },
+    keywords: ['Was ist GEO', 'Generative Engine Optimization', 'GEO vs SEO', 'KI-Suche', 'AI search optimization'],
+    published: true,
+    featured: false
+  },
+  {
     id: 1,
     slug: 'wie-findet-man-gute-firmen-in-der-naehe',
     title: {
@@ -61,7 +99,7 @@ export const blogPosts: BlogPost[] = [
       'local seo'
     ],
     published: true,
-    featured: true
+    featured: false
   },
   {
     id: 2,
