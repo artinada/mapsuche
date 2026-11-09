@@ -69,6 +69,42 @@ test('every router path has a built document, public text and its own metadata b
   }
 });
 
+test('public GEO and Google Maps pages expose distinct Service entities with a verified provider before JavaScript', async () => {
+  const servicePaths = new Set(['/geo-check', '/geo-optimierung', '/services/google-maps']);
+  const serviceIds = new Set();
+  for (const [route, document] of Object.entries(manifest.documents)) {
+    const html = await read(`../dist/${document.file}`);
+    const scripts = [...html.matchAll(/<script type="application\/ld\+json" data-page-schema="true">(.*?)<\/script>/gs)];
+    if (!publicPaths.includes(route)) {
+      assert.equal(scripts.length, 0, `Private page must not advertise a public service: ${route}`);
+      continue;
+    }
+    assert.equal(scripts.length, 1, `Duplicate/missing page schema: ${route}`);
+    const schema = JSON.parse(scripts[0][1]);
+    if (!servicePaths.has(splitLocale(route).pathname)) {
+      assert.equal(schema.mainEntity, undefined, `Unexpected Service on ${route}`);
+      continue;
+    }
+    const service = schema.mainEntity;
+    assert.equal(service['@type'], 'Service', route);
+    assert.equal(service.url, schema.url);
+    assert.equal(service['@id'], `${schema.url}#service`);
+    assert.ok(!serviceIds.has(service['@id']), `Service must have its own URL: ${route}`);
+    serviceIds.add(service['@id']);
+    assert.ok(service.name && service.description && service.serviceType, route);
+    assert.deepEqual(service.provider, {
+      '@type': 'Organization', '@id': 'https://mapsuche.de/#organization',
+      name: 'MapSuche', url: 'https://mapsuche.de',
+    });
+    for (const field of ['address', 'telephone', 'aggregateRating', 'review', 'offers', 'areaServed']) {
+      assert.ok(!(field in service), `Unverified commercial detail in Service: ${field} (${route})`);
+    }
+    if (splitLocale(route).pathname === '/geo-check') assert.match(service.description, /OpenAI/);
+    if (splitLocale(route).pathname === '/services/google-maps') assert.match(service.serviceType, /Google Maps/);
+  }
+  assert.equal(serviceIds.size, servicePaths.size * 2);
+});
+
 test('404 HTML is readable, has no canonical and cannot be indexed', async () => {
   const html = await read('../dist/404.html');
   assert.match(html, /404 Page Not Found/);

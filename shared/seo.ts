@@ -13,8 +13,16 @@ export const pageMetadata = {
     de: { title: 'Leistungen | MapSuche', description: 'Übersicht zu GEO Checks, Google Maps Optimierung, Unternehmensprofilen, Website-Entwicklung und Ablauf-Audits.' },
   },
   googleMaps: {
-    en: { title: 'Google Maps Optimization | MapSuche', description: 'Information about Google Maps listings and local search optimization.' },
-    de: { title: 'Google Maps Optimierung | MapSuche', description: 'Informationen zu Google Maps Einträgen und lokaler Suchoptimierung.' },
+    en: { title: 'Google Maps Optimization | MapSuche', description: 'Help customers find your business locally. MapSuche helps optimize your Google Business Profile and your online presence.' },
+    de: { title: 'Google Maps Optimierung | MapSuche', description: 'Machen Sie Ihr Unternehmen lokal besser auffindbar. MapSuche unterstützt Sie bei der Optimierung Ihres Google Unternehmensprofils und Ihrer Online-Präsenz.' },
+  },
+  geoCheck: {
+    en: { title: 'GEO Check – Check AI Visibility | MapSuche', description: 'How visible is your business in ChatGPT and other AI tools? Use the GEO Check to explore how AI search systems find and mention your brand.' },
+    de: { title: 'GEO Check – KI-Sichtbarkeit prüfen | MapSuche', description: 'Wie sichtbar ist Ihr Unternehmen bei ChatGPT & Co.? Entdecken Sie mit dem GEO Check, wie KI-Suchsysteme Ihre Marke finden und erwähnen.' },
+  },
+  geoOptimization: {
+    en: { title: 'GEO Optimization for Businesses | MapSuche', description: 'Improve your business’s visibility in AI search. MapSuche supports you with GEO audits, local content and monitoring.' },
+    de: { title: 'GEO-Optimierung für Unternehmen | MapSuche', description: 'Verbessern Sie die Auffindbarkeit Ihres Unternehmens in der KI-Suche. MapSuche unterstützt Sie mit GEO-Audits, lokalen Inhalten und Monitoring.' },
   },
   businessProfile: {
     en: { title: 'Google Business Profiles | MapSuche', description: 'Information about creating and managing Google Business Profiles.' },
@@ -43,14 +51,6 @@ export const pageMetadata = {
 };
 
 const extraPages = {
-  geoCheck: {
-    en: { title: 'Free GEO Check | MapSuche', description: 'Check AI search answers for mentions of your business and citations of your website. Review sources and save your report.' },
-    de: { title: 'Kostenloser GEO Check | MapSuche', description: 'KI-Suchantworten auf Nennungen Ihres Unternehmens und Zitate Ihrer Website prüfen. Quellen einsehen und Berichte speichern.' },
-  },
-  geoOptimization: {
-    en: { title: 'GEO Optimization | MapSuche', description: 'Information about reviewing AI search visibility and organizing local business content.' },
-    de: { title: 'GEO-Optimierung | MapSuche', description: 'Informationen zur Prüfung der KI-Sichtbarkeit und zur Strukturierung lokaler Unternehmensinhalte.' },
-  },
   geoResults: {
     en: { title: 'Private GEO Report | MapSuche', description: 'View your private GEO Check report using its access link.' },
     de: { title: 'Privater GEO-Bericht | MapSuche', description: 'Ihren privaten GEO-Bericht mit dem zugehörigen Zugriffslink öffnen.' },
@@ -90,6 +90,23 @@ export const routePages: Record<string, keyof typeof pages> = {
 export const privateSeoPaths = ['/geo-check/results', '/geo/dashboard'];
 export const normalizePagePath = (value: string) => value.split(/[?#]/)[0].replace(/\/+$/, '') || '/';
 
+// Only services described on their public pages are marked up. Provider details
+// are limited to the site's verified brand name and URL.
+const services = {
+  geoCheck: {
+    en: { name: 'GEO Check', serviceType: 'AI search visibility analysis', description: 'A free check of OpenAI API answers with web search for business mentions and website citations.' },
+    de: { name: 'GEO Check', serviceType: 'Analyse der KI-Sichtbarkeit', description: 'Kostenloser Check von OpenAI-API-Antworten mit Websuche auf Unternehmensnennungen und Zitate Ihrer Website.' },
+  },
+  geoOptimization: {
+    en: { name: 'GEO Optimization', serviceType: 'Generative Engine Optimization', description: pageMetadata.geoOptimization.en.description },
+    de: { name: 'GEO-Optimierung', serviceType: 'Generative Engine Optimization', description: pageMetadata.geoOptimization.de.description },
+  },
+  googleMaps: {
+    en: { name: 'Google Maps Optimization', serviceType: 'Google Maps and Google Business Profile optimization', description: pageMetadata.googleMaps.en.description },
+    de: { name: 'Google Maps Optimierung', serviceType: 'Google Maps und Google Unternehmensprofil Optimierung', description: pageMetadata.googleMaps.de.description },
+  },
+};
+
 export function getPageSeo(value: string, requestedLanguage?: SiteLanguage) {
   const locale = splitLocale(value);
   const language = locale.prefix ? locale.language : requestedLanguage || locale.language;
@@ -100,6 +117,7 @@ export function getPageSeo(value: string, requestedLanguage?: SiteLanguage) {
   const metadata = article
     ? { title: `${(article.seoTitle || article.title)[language]} | MapSuche`, description: article.excerpt[language] }
     : pages[page || 'notFound'][language];
+  const service = page && page in services ? services[page as keyof typeof services][language] : undefined;
   const canonicalUrl = found ? `${siteOrigin}${localizedPath(pathname, language)}` : undefined;
   const robots = !found ? 'noindex, nofollow' : privateSeoPaths.includes(pathname) ? 'noindex, follow' : 'index, follow';
   const alternates = robots === 'index, follow' ? [
@@ -113,6 +131,13 @@ export function getPageSeo(value: string, requestedLanguage?: SiteLanguage) {
       '@context': 'https://schema.org', '@type': 'WebPage', '@id': `${canonicalUrl}#webpage`,
       url: canonicalUrl, name: metadata.title, description: metadata.description, inLanguage: language,
       isPartOf: { '@type': 'WebSite', '@id': `${siteOrigin}/#website`, name: 'MapSuche', url: siteOrigin },
+      ...(service ? {
+        mainEntity: {
+          '@type': 'Service', '@id': `${canonicalUrl}#service`, url: canonicalUrl,
+          ...service,
+          provider: { '@type': 'Organization', '@id': `${siteOrigin}/#organization`, name: 'MapSuche', url: siteOrigin },
+        },
+      } : {}),
     } : undefined,
   };
 }

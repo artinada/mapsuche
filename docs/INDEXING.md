@@ -19,6 +19,10 @@ The 48 public language pages appear in `sitemap.xml` (24 per language). `/en/geo
 
 The shared logo is no longer a heading. The homepage hero supplies the page's H1. Route metadata is updated on client navigation as well as direct loads, including `og:url`, Twitter tags, canonical and structured data.
 
+The public GEO Check, GEO optimization and Google Maps pages each include a localized `Service` as the `WebPage.mainEntity` in JSON-LD. Their distinct service URLs and DE/EN metadata are maintained in `shared/seo.ts`; `useSEO.tsx` applies the same resolved metadata during client navigation. Provider information contains only MapSuche's name, website URL and organization identifier. The GEO Check service description specifically covers OpenAI API answers with web search. No addresses, ratings, prices or service areas are inferred. The schema is present in the initial HTML, while private reports/dashboard views remain noindex and have no public service markup. Both public GEO routes are already published and included in the bilingual sitemap.
+
+Schema references: [Service](https://schema.org/Service), [provider](https://schema.org/provider), [Google's structured data guidelines](https://developers.google.com/search/docs/appearance/structured-data/sd-policies).
+
 ## Build and verify locally
 
 Use Node.js 22 and install dependencies with `npm ci`, then run:
