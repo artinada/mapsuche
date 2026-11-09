@@ -107,6 +107,7 @@ export const translations = {
     servicesInterestedIn: "Services Interested In",
     message: "Message",
     selectService: "Select a service...",
+    geoOptimizationService: "GEO Optimization (AI Search)",
     googleMapsListing: "Google Maps Listing",
     googleBusinessProfile: "Google Business Profile",
     professionalWebsite: "Professional Website",
@@ -127,6 +128,14 @@ export const translations = {
     allRightsReserved: "© 2024 MapSuche. All rights reserved.",
     
     // Form Messages
+    contactSuccessTitle: "Message sent!",
+    contactErrorTitle: "Message not sent",
+    contactErrorMessage: "Failed to send your message. Please try again.",
+    contactRateLimitTitle: "Too many requests",
+    contactRateLimitMessage: "Please wait before submitting another form.",
+    contactThankYouTitle: "Thank you!",
+    contactSendAnotherMessage: "Send another message",
+    contactSending: "Sending...",
     thankYouMessage: "Thank you for your message! We will get back to you soon.",
     fillRequiredFields: "Please fill in all required fields.",
     
@@ -401,6 +410,7 @@ export const translations = {
     servicesInterestedIn: "Interessierte Services",
     message: "Nachricht",
     selectService: "Service auswählen...",
+    geoOptimizationService: "GEO-Optimierung (KI-Suche)",
     googleMapsListing: "Google Maps Eintrag",
     googleBusinessProfile: "Google Unternehmensprofil",
     professionalWebsite: "Professionelle Website",
@@ -421,6 +431,14 @@ export const translations = {
     allRightsReserved: "© 2024 MapSuche. Alle Rechte vorbehalten.",
     
     // Form Messages
+    contactSuccessTitle: "Nachricht gesendet!",
+    contactErrorTitle: "Nachricht nicht gesendet",
+    contactErrorMessage: "Ihre Nachricht konnte nicht gesendet werden. Bitte versuchen Sie es erneut.",
+    contactRateLimitTitle: "Zu viele Anfragen",
+    contactRateLimitMessage: "Bitte warten Sie, bevor Sie das Formular erneut absenden.",
+    contactThankYouTitle: "Vielen Dank!",
+    contactSendAnotherMessage: "Weitere Nachricht senden",
+    contactSending: "Wird gesendet...",
     thankYouMessage: "Vielen Dank für Ihre Nachricht! Wir werden uns bald bei Ihnen melden.",
     fillRequiredFields: "Bitte füllen Sie alle erforderlichen Felder aus.",
     

@@ -59,21 +59,25 @@ export default function ContactPage() {
         service: data.service,
         message: data.message,
       });
-      return response;
+      const result: unknown = typeof response.data === 'string' ? JSON.parse(response.data) : response.data;
+      if (response.errors?.length || !result || typeof result !== 'object' || !('success' in result) || result.success !== true) {
+        throw new Error('Contact submission failed');
+      }
+      return result;
     },
     onSuccess: () => {
       setIsSubmitted(true);
       form.reset();
       toast({
-        title: "Message Sent!",
+        title: t('contactSuccessTitle'),
         description: t('thankYouMessage'),
       });
     },
     onError: (error) => {
       console.error('Contact form error:', error);
       toast({
-        title: "Error",
-        description: "Failed to send message. Please try again.",
+        title: t('contactErrorTitle'),
+        description: t('contactErrorMessage'),
         variant: "destructive",
       });
     },
@@ -84,8 +88,8 @@ export default function ContactPage() {
     const userIdentifier = data.email || 'anonymous';
     if (!formRateLimiter.isAllowed(userIdentifier)) {
       toast({
-        title: "Too Many Requests",
-        description: "Please wait before submitting another form.",
+        title: t('contactRateLimitTitle'),
+        description: t('contactRateLimitMessage'),
         variant: "destructive",
       });
       return;
@@ -103,10 +107,10 @@ export default function ContactPage() {
               <div className="bg-secondary/10 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
                 <Send className="h-10 w-10 text-secondary" />
               </div>
-              <h1 className="text-3xl font-bold text-gray-900 mb-4">Thank You!</h1>
+              <h1 className="text-3xl font-bold text-gray-900 mb-4">{t('contactThankYouTitle')}</h1>
               <p className="text-lg text-gray-600 mb-8">{t('thankYouMessage')}</p>
               <Button onClick={() => setIsSubmitted(false)} className="bg-primary hover:bg-blue-700">
-                Send Another Message
+                {t('contactSendAnotherMessage')}
               </Button>
             </CardContent>
           </Card>
@@ -227,6 +231,7 @@ export default function ContactPage() {
                           </SelectTrigger>
                         </FormControl>
                         <SelectContent>
+                          <SelectItem value="geo-optimization">{t('geoOptimizationService')}</SelectItem>
                           <SelectItem value="google-maps">{t('googleMapsListing')}</SelectItem>
                           <SelectItem value="business-profile">{t('googleBusinessProfile')}</SelectItem>
                           <SelectItem value="website">{t('professionalWebsite')}</SelectItem>
@@ -267,7 +272,7 @@ export default function ContactPage() {
                     className="bg-primary hover:bg-blue-700 text-white shadow-lg"
                   >
                     {contactMutation.isPending ? (
-                      "Sending..."
+                      t('contactSending')
                     ) : (
                       <>
                         {t('sendMessage')}
